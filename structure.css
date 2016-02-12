@@ -24,9 +24,16 @@ body{
   height: auto;
   width: auto;
 }
+
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 iframe{
-  height: 110%;
-  width: 100%;
+  height: 100%;
+  min-width: 100%;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -35,7 +42,33 @@ iframe{
 	left: 0;
   right: 0;
   bottom: 0;
+  overflow: auto;
 }
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  /*.fullscreen-bg {
+    background: url('') center center / cover no-repeat;
+  }*/
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+
 header{
   display: flex;
   display: -webkit-flex;
@@ -49,18 +82,23 @@ header{
   width: 100%;
   height: 90px;
   border-bottom: solid;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.74)
+  color: rgba(255, 255, 255, 0.80);
+  background-color: rgba(0, 0, 0, 0.35)
 }
 #headerTitle{
-  width: 30%;
+  width: 20%;
   height: auto;
+  font-size: 1.5em;
+  font-weight: bolder;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  align-items: center;
+  margin-left: 2%;
+  /*border: solid red;*/
 }
 
 nav{
@@ -84,10 +122,17 @@ ul{
   flex-direction: row;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  margin: 0 5%;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  /*margin: 0 5%;*/
+  width: 90%;
+}
+
+.nav>ul>li{
+  /*border: solid red;*/
+  margin-right: 2%;
+  font-size: 1.3em;
 }
 li{
   list-style-type: none;
