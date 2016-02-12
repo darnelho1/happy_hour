@@ -1,0 +1,17 @@
+{
+  "name": "happy_hour",
+  "version": "1.0.0",
+  "description": "Happy hour app built by darnell holder and corey berning.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "happy_hour",
+    "happy",
+    "hour",
+    "301_app"
+  ],
+  "author": "Corey Berning & Darnell Holder",
+  "license": "ISC"
+}
