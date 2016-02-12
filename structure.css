@@ -1,0 +1,139 @@
+html{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.backgroundVid{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -100;
+  height: auto;
+  width: auto;
+}
+
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+iframe{
+  height: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  opacity: .85;
+  top: 0;
+	left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  /*.fullscreen-bg {
+    background: url('') center center / cover no-repeat;
+  }*/
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+
+header{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  width: 100%;
+  height: 90px;
+  border-bottom: solid;
+  color: rgba(255, 255, 255, 0.80);
+  background-color: rgba(0, 0, 0, 0.35)
+}
+#headerTitle{
+  width: 20%;
+  height: auto;
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  align-items: center;
+  margin-left: 2%;
+  /*border: solid red;*/
+}
+
+nav{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+}
+
+ul{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  /*margin: 0 5%;*/
+  width: 90%;
+}
+
+.nav>ul>li{
+  /*border: solid red;*/
+  margin-right: 2%;
+  font-size: 1.3em;
+}
+li{
+  list-style-type: none;
+}
