@@ -60,3 +60,5 @@ var request_yelp = function(set_parameters, callback) {
   });
 
 };
+
+request_yelp();
