@@ -144,15 +144,14 @@ main{
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  /*flex-direction: column;
+  flex-direction: column;
   -webkit-flex-direction: column;
-  -moz-flex-direction: column;*/
+  -moz-flex-direction: column;
 }
 #searchBox{
+  margin: auto;
   margin-top: .5%;
+  margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.55);
   color: rgba(255, 255, 255, 0.80);
   border: none;
@@ -162,4 +161,71 @@ main{
   height: 40px;
   text-align: center;
   font-family: 'Fugaz One', cursive;
+}
+.resultBox{
+  width: 99.5%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: solid;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  color: white;
+}
+.leftResult{
+  margin-left: 5%;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+}
+.resultImg{
+  margin: auto;
+  width: 85%;
+  height: 90%;
+}
+.rightResult{
+  width: 80%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.resultHeader{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
+.resultBody{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
 }
