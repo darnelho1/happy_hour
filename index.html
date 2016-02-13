@@ -5,13 +5,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
-    <link href='https://fonts.googleapis.com/css?family=Fugaz+One|Bangers' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fugaz+One|Bangers|Kaushan+Script|Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="./structure.css" media="screen" title="no title" charset="utf-8">
+    <script id='restTemplate' type='text/template'>
+      <article class="resultBox">
+        <div class="leftResult">
+          <img class="resultImg" src="{{{restImg}}}"/>
+        </div>
+        <div class="rightResult">
+            <div class="resultsInfo">
+              <h2 class="resultTitle">{{{restTitle}}}</h2>
+                <p class="resultNumber">{{{restNumber}}}</p>
+                <p class="resultAddress">{{{restAddress}}}</p>
+                <p class="resultSite">{{{restWebsite}}}</p>
+            </div>
+            <div class="resultsExtra">
+              <img src="{{{restRating}}}" width="20%" height="20%" alt="" />
+              <p class="resultPrice">{{{restPricing}}}</p>
+              <p class="resultType">{{{restType}}}</p>
+              <p class="resultHours">{{{restHours}}}</p>
+            </div>
+        </div>
+      </article>
+    </script>
     <title>Drink Up Seattle!</title>
   </head>
   <body>
-    <!-- <section class="main"> -->
-
     <div class="backgroundVid">
       <iframe class="fullscreen-bg__video"      src="https://www.youtube.com/embed/e_2ru111Ce4?autoplay=1&controls=0&loop=1&playlist=e_2ru111Ce4&showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -28,31 +48,183 @@
     </header>
     <main>
       <input type="text" name="search" placeholder="Search Seattle" id="searchBox">
-      <article class="resultBox">
-        <div class="leftResult">
-          <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
-        </div>
-        <div class="rightResult">
-          <div class="resultHeader">
-            <h2>Radiator Whiskey</h2>
-            <img src="./ratingImg.png" width="20%" height="20%" alt="" />
-          </div>
-          <div class="resultBody">
-            <div class="resultsInfo">
-              <p class="resultNumber">(206) 467-4268</p>
-              <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
-              <p class="resultSite">radiatorwhiskey.com</p>
+      <article id="outerBox">
+        <section id='results'>
+          <!-- <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
             </div>
-            <div class="">
-              <p class="resultPrice">$$</p>
-              <p class="resultType">American (New), Cocktail Bars</p>
-              <p class="resultHours">Happy Hour 6-12am</p>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
             </div>
-          </div>
-        </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article>
+          <article class="resultBox">
+            <div class="leftResult">
+              <img class="resultImg" src="https://s3-media1.fl.yelpcdn.com/bphoto/_lt7I-qDu_Kz5UuHsDR1vw/90s.jpg"/>
+            </div>
+            <div class="rightResult">
+                <div class="resultsInfo">
+                  <h2 class="resultTitle">Radiator Whiskey</h2>
+                    <p class="resultNumber">(206) 467-4268</p>
+                    <p class="resultAddress">94 Pike St Ste 30 Seattle, WA 98101</p>
+                    <p class="resultSite">radiatorwhiskey.com</p>
+                </div>
+                <div class="resultsExtra">
+                  <img src="./ratingImg.png" width="20%" height="20%" alt="" />
+                  <p class="resultPrice">$$</p>
+                  <p class="resultType">American (New), Cocktail Bars</p>
+                  <p class="resultHours">Happy Hour 6-12am</p>
+                </div>
+            </div>
+          </article> -->
+        </section>
       </article>
     </main>
-    <!-- </section> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"> </script>
     <script src='./script.js'></script>
   </body>

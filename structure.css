@@ -1,13 +1,12 @@
 html{
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
 }
 body{
+  height: auto;
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 .backgroundVid{
@@ -25,12 +24,6 @@ body{
   width: auto;
 }
 
-.main{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
 iframe{
   height: 100%;
   min-width: 100%;
@@ -141,12 +134,34 @@ ul{
 }
 
 main{
+  height: auto;
+  width: auto;
+  /*overflow-y: hidden;
+  overflow-x: hidden;*/
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   flex-direction: column;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
+}
+#outerBox{
+  height: 540px;
+  overflow-y: scroll;
+}
+#results{
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
 }
 #searchBox{
   margin: auto;
@@ -164,8 +179,10 @@ main{
 }
 .resultBox{
   width: 99.5%;
-  height: 200px;
+  height: 150px;
   background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  margin-bottom: 5px;
   border: solid;
   display: flex;
   display: -webkit-flex;
@@ -173,7 +190,6 @@ main{
   flex-direction: row;
   -moz-flex-direction: row;
   -webkit-flex-direction: row;
-  color: white;
 }
 .leftResult{
   margin-left: 5%;
@@ -192,19 +208,11 @@ main{
   height: 90%;
 }
 .rightResult{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   width: 80%;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
-  flex-direction: column;
-  -moz-flex-direction: column;
-  -webkit-flex-direction: column;
-}
-.resultHeader{
-  width: 100%;
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
   flex-direction: row;
   -moz-flex-direction: row;
   -webkit-flex-direction: row;
@@ -214,8 +222,18 @@ main{
   align-items: center;
   -webkit-align-items: center;
   -moz-align-items: center;
+}
+
+.resultTitle{
+  font-size: 2em;
+  font-family: 'Kaushan Script', cursive;
+  margin: 0;
+  margin-top: 10px;
 }
 .resultBody{
+
+  border: solid white;
+
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -228,4 +246,25 @@ main{
   align-items: center;
   -webkit-align-items: center;
   -moz-align-items: center;
+}
+.resultsInfo{
+  height: auto;
+  width: auto;
+  padding: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.resultNumber{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.resultSite .resultAddress{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.resultsExtra{
+  text-align: right;
+  height: auto;
+  width: auto;
+  padding: 0;
 }
