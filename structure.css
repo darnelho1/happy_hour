@@ -165,16 +165,17 @@ main{
 }
 #searchBox{
   margin: auto;
-  margin-top: .5%;
+  margin-top: 5%;
   margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.55);
   color: rgba(255, 255, 255, 0.80);
   border: none;
   border-radius: 15px;
-  font-size: 1.5em;
-  width: 25%;
-  height: 40px;
-  text-align: center;
+  font-size: 2em;
+  width: 80%;
+  height: 60px;
+  padding-left: 10px;
+  text-align: left;
   font-family: 'Fugaz One', cursive;
 }
 .resultBox{

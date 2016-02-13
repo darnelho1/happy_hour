@@ -1,5 +1,5 @@
-$backgroundVideo = $('.fullscreen-bg__video');
-$backgroundVideo.volume=0;
+// $backgroundVideo = $('.fullscreen-bg__video');
+// $backgroundVideo.volume=0;
 
 $height = $(window).height();
 console.log($height);
