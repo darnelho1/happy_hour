@@ -1,6 +1,7 @@
 html{
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 body{
   height: auto;
@@ -10,9 +11,11 @@ body{
   overflow: hidden;
 }
 .backgroundVid{
-  display: flex;
+  /*display: flex;
   display: -webkit-flex;
-  display: -moz-flex;
+  display: -moz-flex;*/
+  height: auto;
+  width: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,8 +23,7 @@ body{
   right: 0;
   overflow: hidden;
   z-index: -100;
-  height: auto;
-  width: auto;
+
 }
 
 iframe{
@@ -35,7 +37,7 @@ iframe{
 	left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
+  overflow: hidden;
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -76,12 +78,12 @@ header{
   height: 90px;
   border-bottom: solid;
   color: rgba(255, 255, 255, 0.80);
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 #headerTitle{
-  width: 20%;
+  width: 30%;
   height: auto;
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: bolder;
   display: flex;
   display: -webkit-flex;
@@ -93,7 +95,7 @@ header{
   margin-left: 2%;
   margin-top: 1%;
   margin-bottom: 1%;
-  font-family: 'Bangers', cursive;
+  font-family: 'Montserrat', sans-serif;
   /*border: solid red;*/
 }
 
@@ -128,7 +130,7 @@ ul{
 .nav>ul>li{
   /*border: solid red;*/
   margin-right: 2%;
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-family: 'Fugaz One', cursive;
   list-style-type: none;
 }
@@ -136,8 +138,8 @@ ul{
 main{
   height: auto;
   width: auto;
-  /*overflow-y: hidden;
-  overflow-x: hidden;*/
+  overflow-y: hidden;
+  overflow-x: hidden;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -145,9 +147,10 @@ main{
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
 }
+
 #outerBox{
   height: 540px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #results{
   height: auto;
@@ -174,8 +177,8 @@ main{
   font-size: 2em;
   width: 80%;
   height: 60px;
-  padding-left: 10px;
-  text-align: left;
+  /*padding-left: 10px;*/
+  text-align: center;
   font-family: 'Fugaz One', cursive;
 }
 .resultBox{
@@ -232,9 +235,7 @@ main{
   margin-top: 10px;
 }
 .resultBody{
-
   border: solid white;
-
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -248,6 +249,7 @@ main{
   -webkit-align-items: center;
   -moz-align-items: center;
 }
+
 .resultsInfo{
   height: auto;
   width: auto;
