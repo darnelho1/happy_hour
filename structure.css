@@ -1,19 +1,21 @@
 html{
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 body{
+  height: auto;
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 .backgroundVid{
-  display: flex;
+  /*display: flex;
   display: -webkit-flex;
-  display: -moz-flex;
+  display: -moz-flex;*/
+  height: auto;
+  width: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,28 +23,22 @@ body{
   right: 0;
   overflow: hidden;
   z-index: -100;
-  height: auto;
-  width: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+
 }
 
-.main{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
 iframe{
   height: 100%;
   min-width: 100%;
   margin: 0;
   padding: 0;
   position: absolute;
-  opacity: .85;
+  /*opacity: .9;*/
   top: 0;
 	left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
+  overflow: hidden;
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -83,12 +79,12 @@ header{
   height: 90px;
   border-bottom: solid;
   color: rgba(255, 255, 255, 0.80);
-  background-color: rgba(0, 0, 0, 0.35)
+  background-color: rgba(0, 0, 0, 0.8);
 }
 #headerTitle{
-  width: 20%;
+  width: 30%;
   height: auto;
-  font-size: 1.5em;
+  font-size: 1.1em;
   font-weight: bolder;
   display: flex;
   display: -webkit-flex;
@@ -98,6 +94,9 @@ header{
   -moz-justify-content: flex-start;
   align-items: center;
   margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-family: 'Fugaz One', cursive;
   /*border: solid red;*/
 }
 
@@ -132,8 +131,144 @@ ul{
 .nav>ul>li{
   /*border: solid red;*/
   margin-right: 2%;
-  font-size: 1.3em;
-}
-li{
+  font-size: 1.5em;
+  font-family: 'Fugaz One', cursive;
   list-style-type: none;
+}
+
+main{
+  height: auto;
+  width: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+}
+
+#outerBox{
+  height: 540px;
+  overflow-y: auto;
+}
+#results{
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+}
+#searchBox{
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 1%;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.90);
+  border: none;
+  border-radius: 5px;
+  font-size: 2em;
+  width: 80%;
+  height: 60px;
+  /*padding-left: 10px;*/
+  text-align: center;
+  font-family: 'Fugaz One', cursive;
+}
+.resultBox{
+  width: 99.5%;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  margin-bottom: 5px;
+  border: solid;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.leftResult{
+  margin-left: 5%;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+}
+.resultImg{
+  margin: auto;
+  width: 85%;
+  height: 90%;
+}
+.rightResult{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  width: 80%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
+
+.resultTitle{
+  font-size: 2em;
+  font-family: 'Kaushan Script', cursive;
+  margin: 0;
+  margin-top: 10px;
+}
+.resultBody{
+  border: solid white;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
+
+.resultsInfo{
+  height: auto;
+  width: auto;
+  padding: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.resultNumber{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.resultSite .resultAddress{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.resultsExtra{
+  text-align: right;
+  height: auto;
+  width: auto;
+  padding: 0;
 }
