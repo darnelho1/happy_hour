@@ -11,6 +11,41 @@ function Places(obj) {
   this.img = obj.image_url
 }
 
+var userloc;
+var userLat;
+var userLong;
+
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+    // console.log(userloc);
+
+}
+
+function sortLocations(locations, lat, lng) {
+  function dist(l) {
+    return (l.latitude - lat) * (l.latitude - lat) +
+      (l.longitude - lng) * (l.longitude - lng);
+  }
+
+  locations.sort(function(l1, l2) {
+    return dist(l1.location.coordinate) - dist(l2.location.coordinate);
+  });
+}
+
+$("#searchBox").click(function(event) {
+  getLocation();
+  // console.log('clicked');
+});
 
 yelpSearchResults=[];
 reducedArray = [];
@@ -41,22 +76,52 @@ happyHourArray=[
 ];
 
 resultsArray=[];
+yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
 
+User = {
+  currectLoc: "",
+  reqNeighborhood:'',
+  terms:""
+};
+
+$("#searchBox").keyup(function(event) {
+  /* Act on the event */
+
+  userLat=userloc.split(',')[0];
+  userLong=userloc.split(',')[1];
+  userSearchData=$(this).val();
+  yelpNeighborhoods.forEach(function(x){
+    if(userSearchData.toUpperCase().indexOf(x)>-1){
+      User.reqNeighborhood=x;
+    }
+  });
+
+  User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
+  User.currectLoc=userloc;
+
+  console.log(User);
+
+
+});
 
 $('#searchBox').keypress(function(event) {
   /* Act on the event */
   if(event.which===13){
     // console.log('success');
-
     searchCrit=$('#searchBox').val();
-    $.post( "/search",{searchCrit: searchCrit}, function(data) {
+
+
+    $.post( "/search",{searchCrit:User}, function(data) {
       console.log( "success" );
     })
       .done(function(data) {
         console.log("Server Success" );
-        // console.log(data)
+        // console.log(data);
+        // console.log(data);
+
         data.forEach(function(x){
-          happyHourArray.forEach(function(y) {
+          // console.log(x.location.coordinate);
+            happyHourArray.forEach(function(y) {
               if (x.id === y.id) {
                 x.happyHour=y.happyHour;
                 var place = new Places(x);
@@ -65,9 +130,16 @@ $('#searchBox').keypress(function(event) {
             });
           });
 
+          // reducedArray=[];
+          // sortLocations(data,userLat,userLong);
+          uniqueArray=_.uniq(resultsArray,function(x){
+            return x.name;
+          });
+          // console.log(resultsArray,uniqueArray);
+          // console.log(reducedArray);
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
-          reducedArray.forEach(function(each) {
+          uniqueArray.forEach(function(each) {
           var html = compileTemplate(each);
           $('#results').append(html);
           // console.log(each);
