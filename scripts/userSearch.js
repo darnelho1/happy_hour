@@ -84,9 +84,7 @@ User = {
   terms:""
 };
 
-$("#searchBox").keyup(function(event) {
-  /* Act on the event */
-
+searchParser= function(){
   userLat=userloc.split(',')[0];
   userLong=userloc.split(',')[1];
   userSearchData=$(this).val();
@@ -100,6 +98,25 @@ $("#searchBox").keyup(function(event) {
   User.currectLoc=userloc;
 
   console.log(User);
+};
+$("#searchBox").keyup(function(event) {
+  /* Act on the event */
+  var searchboxParser =searchParser.bind(this);
+  searchboxParser();
+
+  // userLat=userloc.split(',')[0];
+  // userLong=userloc.split(',')[1];
+  // userSearchData=$(this).val();
+  // yelpNeighborhoods.forEach(function(x){
+  //   if(userSearchData.toUpperCase().indexOf(x)>-1){
+  //     User.reqNeighborhood=x;
+  //   }
+  // });
+  //
+  // User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
+  // User.currectLoc=userloc;
+  //
+  // console.log(User);
 
 
 });
