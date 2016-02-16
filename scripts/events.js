@@ -21,13 +21,13 @@ function typeIt(x) {
     var type = x.substring(0, char);
     $('#searchBox').attr('placeholder', type + '|');
     typeIt(x);
-    console.log(counter);
+    // console.log(counter);
       if((counter===txt.length)&&(char===txt[num].length)){
         clearTimeout(timeOut);
         $('#searchBox').attr('placeholder', $('#searchBox').attr('placeholder').slice(0, -1));
-        console.log(counter);
+        // console.log(counter);
       }
-    console.log('running');
+    // console.log('running');
   },humanize);
   }
 }
@@ -41,10 +41,10 @@ function removeIt(){
       clearTimeout(timeOut);
       num++;
       time++;
-      console.log(num);
+      // console.log(num);
       typeOut();
     }
-   console.log('test');
+  //  console.log('test');
 }
 function typeOut(){
   while((num === time)&&(num<=txt.length-1)){
