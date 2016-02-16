@@ -11,20 +11,20 @@
     <script id='restTemplate' type='text/template'>
       <article class="resultBox">
         <div class="leftResult">
-          <img class="resultImg" src="{{{restImg}}}"/>
+          <img class="resultImg" src="{{{img}}}"/>
         </div>
         <div class="rightResult">
             <div class="resultsInfo">
-              <h2 class="resultTitle">{{{restTitle}}}</h2>
-                <p class="resultNumber">{{{restNumber}}}</p>
-                <p class="resultAddress">{{{restAddress}}}</p>
-                <p class="resultSite">{{{restWebsite}}}</p>
+              <h2 class="resultTitle">{{{name}}}</h2>
+                <p class="resultNumber">{{{display_phone}}}</p>
+                <p class="resultAddress">{{{address}}}</p>
+                <p class="resultSite">{{{website}}}</p>
             </div>
             <div class="resultsExtra">
-              <img src="{{{restRating}}}" width="20%" height="20%" alt="" />
-              <p class="resultPrice">{{{restPricing}}}</p>
-              <p class="resultType">{{{restType}}}</p>
-              <p class="resultHours">{{{restHours}}}</p>
+              <img src="{{{rating}}}" width="80px" height="20px" alt="" />
+              <p class="resultPrice">{{{neighborhood}}}</p>
+              <p class="resultType">{{{categories}}}</p>
+              <p class="resultHours">{{{happyHour}}}</p>
             </div>
         </div>
       </article>
@@ -55,7 +55,7 @@
       </article>
       </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"> </script>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./script.js"></script>
     <script src="./scripts/events.js"></script>
     <script src="./scripts/userSearch.js"></script>
   </body>
