@@ -14,7 +14,11 @@ function Places(obj) {
 var userloc;
 var userLat;
 var userLong;
-
+function resultSizeChange() {
+  $height = $(window).height();
+  console.log($height);
+  $('#outerBox').css('height', ($height * 0.71));
+}
 
 
 function getLocation() {
@@ -120,11 +124,12 @@ $('#searchBox').keypress(function(event) {
         // console.log(data);
 
         data.forEach(function(x){
-          // console.log(x.location.coordinate);
+          // console.log(x);
             happyHourArray.forEach(function(y) {
               if (x.id === y.id) {
                 x.happyHour=y.happyHour;
                 var place = new Places(x);
+                console.log(place);
                 resultsArray.push(place);
               }
             });
@@ -136,15 +141,16 @@ $('#searchBox').keypress(function(event) {
             return x.name;
           });
           // console.log(resultsArray,uniqueArray);
-          // console.log(reducedArray);
+          console.log(uniqueArray);
+          $('#searchBox').css('margin-top', '2%');
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
           uniqueArray.forEach(function(each) {
           var html = compileTemplate(each);
           $('#results').append(html);
           // console.log(each);
-
       });
+      resultSizeChange();
     })
       .fail(function() {
         alert("Error Communicating With Server");
