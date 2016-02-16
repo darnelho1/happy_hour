@@ -32,16 +32,23 @@ app.get('/', function(req, res) {
   // console.log(__dirname+'/');
 });
 
+
+var searchResults;
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
   yelp.search({term:'happy hour',location:req.body.searchCrit,limit:20}).then(function(data){
     console.log(data.businesses);
-    res.send('posted to server');
+    searchResults=data.businesses;
+    res.send(searchResults);
   }).catch(function(error){
     console.log(error);
   });
+  // console.log(req.body);
 });
 
+app.get('/search',function(req,res){
+  res.json(searchResults);
+});
 app.listen(PORT,function(){
   console.log('server started');
 });
