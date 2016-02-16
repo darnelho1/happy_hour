@@ -21,27 +21,27 @@ var yelp = new Yelp({
 });
 
 // See http://www.yelp.com/developers/documentation/v2/search_api
-yelp.search({ term: 'happy hour', location: 'seattle', limit:20 })
-.then(function (data) {
-
-  data.businesses.forEach(function(x){
-    array2.forEach(function(y) {
-      if (x.id === y.id) {
-        x.happyHour=y.happyHour;
-        array.push(x);
-      }
-    });
-
-  });
-  console.log(array);
-  // data.businesses.forEach(function(x){
-  //   (x.location.neighborhoods===''+neighborhood+'')?console.log(x):console.log('not it');
-  // })
-  // console.log(data.businesses);
-})
-.catch(function (err) {
-  console.error(err);
-});
+// yelp.search({ term: 'happy hour', location: 'seattle', limit:20 })
+// .then(function (data) {
+//
+//   data.businesses.forEach(function(x){
+//     array2.forEach(function(y) {
+//       if (x.id === y.id) {
+//         x.happyHour=y.happyHour;
+//         array.push(x);
+//       }
+//     });
+//
+//   });
+//   // console.log(array);
+//   // data.businesses.forEach(function(x){
+//   //   (x.location.neighborhoods===''+neighborhood+'')?console.log(x):console.log('not it');
+//   // })
+//   // console.log(data.businesses);
+// })
+// .catch(function (err) {
+//   console.error(err);
+// });
 
 // See http://www.yelp.com/developers/documentation/v2/business
 // yelp.business('yelp-san-francisco')
@@ -59,4 +59,4 @@ yelp.search({ term: 'happy hour', location: 'seattle', limit:20 })
 // });
 
 
-yelp.search();
+// yelp.search();
