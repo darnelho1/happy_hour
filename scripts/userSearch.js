@@ -11,6 +11,26 @@ function Places(obj) {
   this.img = obj.image_url
 }
 
+var userloc;
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+    console.log(userloc);
+
+}
+
+$("#searchBox").click(function(event) {
+  getLocation();
+  console.log('clicked');
+});
 
 yelpSearchResults=[];
 reducedArray = [];
@@ -41,15 +61,42 @@ happyHourArray=[
 ];
 
 resultsArray=[];
+yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL"];
 
+User = {
+  currectLoc: "",
+  reqNeighborhood:'',
+  terms:""
+};
+
+$("#searchBox").keyup(function(event) {
+  /* Act on the event */
+  userSearchData=$(this).val();
+  neighborhoodMatch=$(this).val().toUpperCase().match(/[^ ]+( +[^ ]+){0,1}/g);
+  yelpNeighborhoods.forEach(function(x){
+    if(userSearchData.toUpperCase().indexOf(x)>-1){
+      console.log(x);
+      User.reqNeighborhood=x;
+    }
+    // (userSearchData.toUpperCase().indexOf(x)>-1)?x:console.log("nothing");
+  });
+
+  User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
+  User.currectLoc=userloc;
+
+  console.log(User);
+
+
+});
 
 $('#searchBox').keypress(function(event) {
   /* Act on the event */
   if(event.which===13){
     // console.log('success');
-
     searchCrit=$('#searchBox').val();
-    $.post( "/search",{searchCrit: searchCrit}, function(data) {
+
+
+    $.post( "/search",{searchCrit:User}, function(data) {
       console.log( "success" );
     })
       .done(function(data) {

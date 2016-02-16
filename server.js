@@ -36,7 +36,8 @@ app.get('/', function(req, res) {
 var searchResults;
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
-  yelp.search({term:'happy hour',location:req.body.searchCrit,limit:20}).then(function(data){
+  userSearchReq= req.body.searchCrit;
+  yelp.search({term:'happy hour '+ userSearchReq.terms.join(' '),location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
     console.log(data.businesses);
     searchResults=data.businesses;
     res.send(searchResults);
