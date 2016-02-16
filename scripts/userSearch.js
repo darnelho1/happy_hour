@@ -7,10 +7,13 @@ function Places(obj) {
   this.coordinate = obj.location.coordinate,
   this.address = obj.location.display_address.join(' '),
   this.neighborhood = obj.location.neighborhoods[0],
-  this.happyHour = obj.happyHour
+  this.happyHour = obj.happyHour,
+  this.img = obj.image_url
 }
 
+
 yelpSearchResults=[];
+reducedArray = [];
 happyHourArray=[
   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
   {id: 'list-seattle', happyHour: 'Sunday & Monday:  All Day Tuesday - Thursday: 4:00 - 6:30pm & 9pm - Midnight Friday & Saturday:  4:00 - 6:30pm'},
@@ -35,7 +38,7 @@ happyHourArray=[
   {id:'witness-seattle', happyHour: '4-6pm'},
   {id:'über-tavern-seattle-2', happyHour: '4-6PM -- TUES-FRI'},
   {id:'yoroshiku-seattle-4', happyHour: 'Tuesday through Saturday 5-6:30pm'}
-]
+];
 
 resultsArray=[];
 
@@ -61,8 +64,25 @@ $('#searchBox').keypress(function(event) {
               }
             });
           });
-          console.log(resultsArray);
-      })
+          // reducedArray=[];
+          for (i=0;i<=resultsArray.length-1;i++){
+            // console.log(re);
+            if(Object.is(resultsArray[i],resultsArray[i+1])===false){
+              reducedArray.push(resultsArray[i+1]);
+            }
+          }
+          console.log(reducedArray);
+
+          // console.log(resultsArray);
+          var template = $('#restTemplate').html();
+          var compileTemplate = Handlebars.compile(template);
+          reducedArray.forEach(function(each) {
+          var html = compileTemplate(each);
+          $('#results').append(html);
+          console.log(each);
+
+      });
+    })
       .fail(function() {
         alert("Error Communicating With Server");
       })
