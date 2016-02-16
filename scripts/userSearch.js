@@ -56,7 +56,7 @@ $('#searchBox').keypress(function(event) {
         console.log("Server Success" );
         // console.log(data)
         data.forEach(function(x){
-            happyHourArray.forEach(function(y) {
+          happyHourArray.forEach(function(y) {
               if (x.id === y.id) {
                 x.happyHour=y.happyHour;
                 var place = new Places(x);
@@ -64,22 +64,13 @@ $('#searchBox').keypress(function(event) {
               }
             });
           });
-          // reducedArray=[];
-          for (i=0;i<=resultsArray.length-1;i++){
-            // console.log(re);
-            if(Object.is(resultsArray[i],resultsArray[i+1])===false){
-              reducedArray.push(resultsArray[i+1]);
-            }
-          }
-          console.log(reducedArray);
 
-          // console.log(resultsArray);
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
           reducedArray.forEach(function(each) {
           var html = compileTemplate(each);
           $('#results').append(html);
-          console.log(each);
+          // console.log(each);
 
       });
     })
