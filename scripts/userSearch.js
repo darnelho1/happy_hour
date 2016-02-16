@@ -61,7 +61,7 @@ happyHourArray=[
 ];
 
 resultsArray=[];
-yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL"];
+yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE"];
 
 User = {
   currectLoc: "",

@@ -37,13 +37,25 @@ var searchResults;
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
   userSearchReq= req.body.searchCrit;
-  yelp.search({term:'happy hour '+ userSearchReq.terms.join(' '),location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+  if(userSearchReq.reqNeighborhood===""){
+    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
+      console.log(data.businesses);
+      searchResults=data.businesses;
+      res.send(searchResults);
+    }).catch(function(error){
+      console.log(error);
+    });
+  }
+
+  else{
+  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
     console.log(data.businesses);
     searchResults=data.businesses;
     res.send(searchResults);
   }).catch(function(error){
     console.log(error);
   });
+  }
   // console.log(req.body);
 });
 
