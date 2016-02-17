@@ -64,3 +64,13 @@ $("#searchBox").click(function(event) {
 $("#searchBox").keyup(function(event) {
   searchParser.bind(this)();
 });
+
+$('.loadingImage').hide();  // Hide it initially
+$(document).ajaxStart(function() {
+  $('.loadingImage').show();
+  console.log('request started');
+});
+$(document).ajaxStop(function() {
+  $('.loadingImage').hide();
+  console.log('request stopped');
+});
