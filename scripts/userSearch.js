@@ -165,6 +165,7 @@ $('#searchBox').keypress(function(event) {
             });
 
             $('.fullscreen-bg__video').css('display', 'none');
+            $('body').css('background-image', 'url(http://www.hdwallpapersnew.net/wp-content/uploads/2014/12/washington-seattle-new-picture-hd-desktop-wallpaper.jpg)');
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);

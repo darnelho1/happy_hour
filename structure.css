@@ -9,6 +9,9 @@ body{
   margin: 0;
   width: 100%;
   overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .backgroundVid{
   /*display: flex;
@@ -161,9 +164,11 @@ main{
   font-family: 'Candal', sans-serif;
 }
 .resultBox{
-  width: 99.5%;
+  margin: auto;
+  width: 99%;
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: solid 0.5px;
   color: white;
   margin-bottom: 5px;
   display: flex;
