@@ -76,3 +76,7 @@ $(document).ajaxStop(function() {
   $('body').css('cursor', 'auto');
   console.log('request stopped');
 });
+
+$('li').hover(function() {
+  $(this).toggleClass('pulse animated');
+});

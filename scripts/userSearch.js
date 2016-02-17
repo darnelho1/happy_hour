@@ -163,16 +163,15 @@ $('#searchBox').keypress(function(event) {
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
-
-            $('.fullscreen-bg__video').css('display', 'none');
             $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * 3)] +')');
-            $('')
+            $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
             uniqueArray.forEach(function(each) {
               var html = compileTemplate(each);
               $('#results').append(html);
+              $('#results').addClass('fadeInUpBig animated');
               console.log(each);
             });
             resultSizeChange();
