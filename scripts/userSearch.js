@@ -8,7 +8,8 @@ function Places(obj) {
   this.address = obj.location.display_address.join(' '),
   this.neighborhood = obj.location.neighborhoods[0],
   this.happyHour = obj.happyHour,
-  this.img = obj.image_url
+  this.img = obj.image_url,
+  this.website = obj.url
 }
 var User = {
   currectLoc: "",
@@ -19,6 +20,44 @@ var User = {
 var userloc;
 var userLat;
 var userLong;
+
+function resultSizeChange() {
+  $height = $(window).height();
+  console.log($height);
+  $('#outerBox').css('height', ($height * 0.71));
+}
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+    // console.log(userloc);
+
+}
+
+function sortLocations(locations, lat, lng) {
+  function dist(l) {
+    return (l.latitude - lat) * (l.latitude - lat) +
+      (l.longitude - lng) * (l.longitude - lng);
+  }
+
+  locations.sort(function(l1, l2) {
+    return dist(l1.location.coordinate) - dist(l2.location.coordinate);
+  });
+}
+
+$("#searchBox").click(function(event) {
+  getLocation();
+  // console.log('clicked');
+});
+
 var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
@@ -103,7 +142,6 @@ $('#searchBox').keypress(function(event) {
       .done(function(data) {
         console.log("Server Success" );
         // console.log(data);
-        // console.log(data);
 
         if (data.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
@@ -123,16 +161,15 @@ $('#searchBox').keypress(function(event) {
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
-
-
+            $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
-
             uniqueArray.forEach(function(each) {
               var html = compileTemplate(each);
               $('#results').append(html);
               console.log(each);
             });
+            resultSizeChange();
         }
     })
       .fail(function() {

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
-    <link href='https://fonts.googleapis.com/css?family=Fugaz+One|Montserrat|Droid+Sans+Mono|Kaushan+Script|Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
-
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./structure.css" media="screen" title="no title" charset="utf-8">
     <script id='restTemplate' type='text/template'>
       <article class="resultBox">
@@ -18,11 +18,11 @@
               <h2 class="resultTitle">{{{name}}}</h2>
                 <p class="resultNumber">{{{display_phone}}}</p>
                 <p class="resultAddress">{{{address}}}</p>
-                <p class="resultSite">{{{website}}}</p>
+                <a class="resultSite" href="{{{website}}}">Menu and Review</a>
             </div>
             <div class="resultsExtra">
-              <img src="{{{rating}}}" width="80px" height="20px" alt="" />
-              <p class="resultPrice">{{{neighborhood}}}</p>
+              <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" />
+              <p class="resultHood">{{{neighborhood}}}</p>
               <p class="resultType">{{{categories}}}</p>
               <p class="resultHours">{{{happyHour}}}</p>
             </div>
