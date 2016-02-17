@@ -188,7 +188,6 @@ main{
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   margin-bottom: 5px;
-  border: solid;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -264,7 +263,13 @@ main{
   margin-top: 10px;
   margin-bottom: 0;
 }
-.resultSite .resultAddress{
+.resultSite {
+margin-top: 0;
+margin-bottom: 0;
+}
+
+.resultAddress{
+  cursor: pointer;
   margin-top: 0;
   margin-bottom: 0;
 }
