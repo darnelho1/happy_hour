@@ -1,4 +1,4 @@
-var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocatial Bars","Seattle Happy Hour Finder Will Help......", "GET ME DRUNK!!!"];
+var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocktail Bars","find me a BEER......", "GET ME DRUNK!!!"];
 var timeOut;
 var counter =0;
 var char = 0;
@@ -63,4 +63,20 @@ $("#searchBox").click(function(event) {
 
 $("#searchBox").keyup(function(event) {
   searchParser.bind(this)();
+});
+
+$('.loadingImage').hide();  // Hide it initially
+$(document).ajaxStart(function() {
+  $('.loadingImage').show();
+  $('body').css('cursor', 'wait');
+  console.log('request started');
+});
+$(document).ajaxStop(function() {
+  $('.loadingImage').hide();
+  $('body').css('cursor', 'auto');
+  console.log('request stopped');
+});
+
+$('li').hover(function() {
+  $(this).toggleClass('pulse animated');
 });

@@ -9,6 +9,9 @@ body{
   margin: 0;
   width: 100%;
   overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .backgroundVid{
   /*display: flex;
@@ -41,30 +44,6 @@ iframe{
   overflow: hidden;
 }
 
-@media (min-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    height: 300%;
-    top: -100%;
-  }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    width: 300%;
-    left: -100%;
-  }
-}
-
-@media (max-width: 767px) {
-  /*.fullscreen-bg {
-    background: url('') center center / cover no-repeat;
-  }*/
-
-  .fullscreen-bg__video {
-    display: none;
-  }
-}
-
 header{
   display: flex;
   display: -webkit-flex;
@@ -82,9 +61,9 @@ header{
   background-color: rgba(0, 0, 0, 0.8);
 }
 #headerTitle{
-  width: 30%;
+  width: 50%;
   height: auto;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bolder;
   display: flex;
   display: -webkit-flex;
@@ -101,7 +80,8 @@ header{
 }
 
 nav{
-  width: 70%;
+  margin-right: 5%;
+  width: 50%;
   height: 100%;
   display: flex;
   display: -webkit-flex;
@@ -132,7 +112,7 @@ ul{
 .nav>ul>li{
   /*border: solid red;*/
   margin-right: 2%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-family: 'Candal', sans-serif;
   list-style-type: none;
 }
@@ -184,9 +164,11 @@ main{
   font-family: 'Candal', sans-serif;
 }
 .resultBox{
-  width: 99.5%;
+  margin: auto;
+  width: 99%;
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: solid 0.5px;
   color: white;
   margin-bottom: 5px;
   display: flex;
@@ -294,4 +276,18 @@ margin-bottom: 0;
 .resultSite{
   margin: 0;
   cursor: pointer;
+}
+.loadingImage{
+  background-image: url("./images/loading.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*border: solid;*/
+  position: fixed;
+  margin-top: 4%;
+  margin-left: 10%;
+  height: 60%;
+  width: 80%;
+  /*background-color: black;*/
+  opacity: .7;
 }

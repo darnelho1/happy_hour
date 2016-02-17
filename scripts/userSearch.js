@@ -2,7 +2,7 @@ function Places(obj) {
   this.id = obj.id,
   this.name = obj.name,
   this.rating = obj.rating_img_url_large,
-  this.categories = obj.categories,
+  this.categories = _.flatten(obj.categories).join(", "),
   this.display_phone = obj.display_phone,
   this.coordinate = obj.location.coordinate,
   this.address = obj.location.display_address.join(' '),
@@ -24,9 +24,11 @@ var userLong;
 function resultSizeChange() {
   $height = $(window).height();
   console.log($height);
-  $('#outerBox').css('height', ($height * 0.71));
+  $('#outerBox').css('height', ($height * 0.7));
 }
-
+$(window).resize(function() {
+    resultSizeChange();
+  });
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -62,7 +64,7 @@ var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
 var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
-
+var bgroundImg = ['./images/backBrew.jpg', './images/optimismBrewing.jpg', './images/seattleBrew.jpg'];
 var happyHourArray=[
   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
   {id: 'list-seattle', happyHour: 'Sunday & Monday:  All Day Tuesday - Thursday: 4:00 - 6:30pm & 9pm - Midnight Friday & Saturday:  4:00 - 6:30pm'},
@@ -161,12 +163,15 @@ $('#searchBox').keypress(function(event) {
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
+            $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * 3)] +')');
+            $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
             uniqueArray.forEach(function(each) {
               var html = compileTemplate(each);
               $('#results').append(html);
+              $('#results').addClass('fadeInUpBig animated');
               console.log(each);
             });
             resultSizeChange();
