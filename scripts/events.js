@@ -68,9 +68,11 @@ $("#searchBox").keyup(function(event) {
 $('.loadingImage').hide();  // Hide it initially
 $(document).ajaxStart(function() {
   $('.loadingImage').show();
+  $('body').css('cursor', 'wait');
   console.log('request started');
 });
 $(document).ajaxStop(function() {
   $('.loadingImage').hide();
+  $('body').css('cursor', 'auto');
   console.log('request stopped');
 });
