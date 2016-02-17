@@ -10,46 +10,21 @@ function Places(obj) {
   this.happyHour = obj.happyHour,
   this.img = obj.image_url
 }
+var User = {
+  currectLoc: "",
+  reqNeighborhood:'',
+  terms:""
+};
 
 var userloc;
 var userLat;
 var userLong;
+var yelpSearchResults=[];
+var reducedArray = [];
+var resultsArray=[];
+var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
 
-
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserLoc);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-function getUserLoc(position) {
-    userloc = position.coords.latitude + ','+ position.coords.longitude;
-    // console.log(userloc);
-
-}
-
-function sortLocations(locations, lat, lng) {
-  function dist(l) {
-    return (l.latitude - lat) * (l.latitude - lat) +
-      (l.longitude - lng) * (l.longitude - lng);
-  }
-
-  locations.sort(function(l1, l2) {
-    return dist(l1.location.coordinate) - dist(l2.location.coordinate);
-  });
-}
-
-$("#searchBox").click(function(event) {
-  getLocation();
-  // console.log('clicked');
-});
-
-yelpSearchResults=[];
-reducedArray = [];
-happyHourArray=[
+var happyHourArray=[
   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
   {id: 'list-seattle', happyHour: 'Sunday & Monday:  All Day Tuesday - Thursday: 4:00 - 6:30pm & 9pm - Midnight Friday & Saturday:  4:00 - 6:30pm'},
   {id: 'the-zig-zag-café-seattle-2', happyHour: '5-7 Monday-Friday'},
@@ -75,18 +50,9 @@ happyHourArray=[
   {id:'yoroshiku-seattle-4', happyHour: 'Tuesday through Saturday 5-6:30pm'}
 ];
 
-resultsArray=[];
-yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
 
-User = {
-  currectLoc: "",
-  reqNeighborhood:'',
-  terms:""
-};
-
-$("#searchBox").keyup(function(event) {
-  /* Act on the event */
-
+var searchParser= function(){
+  //Ensure you bind this to the element calling it.
   userLat=userloc.split(',')[0];
   userLong=userloc.split(',')[1];
   userSearchData=$(this).val();
@@ -100,12 +66,32 @@ $("#searchBox").keyup(function(event) {
   User.currectLoc=userloc;
 
   console.log(User);
+};
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
 
-});
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+}
+
+function sortLocations(locations, lat, lng) {
+  function dist(l) {
+    return (l.latitude - lat) * (l.latitude - lat) +
+      (l.longitude - lng) * (l.longitude - lng);
+  }
+
+  locations.sort(function(l1, l2) {
+    return dist(l1.location.coordinate) - dist(l2.location.coordinate);
+  });
+}
 
 $('#searchBox').keypress(function(event) {
-  /* Act on the event */
   if(event.which===13){
     // console.log('success');
     searchCrit=$('#searchBox').val();
@@ -119,35 +105,35 @@ $('#searchBox').keypress(function(event) {
         // console.log(data);
         // console.log(data);
 
-        data.forEach(function(x){
-          // console.log(x.location.coordinate);
-            happyHourArray.forEach(function(y) {
-              if (x.id === y.id) {
-                x.happyHour=y.happyHour;
-                var place = new Places(x);
-                resultsArray.push(place);
-              }
+        if (data.hasOwnProperty('statusCode')){
+          console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
+          alert("There was a problem processing your request. Please try again or check the console for more information");
+        }
+        else {
+
+          data.forEach(function(x){
+              happyHourArray.forEach(function(y) {
+                if (x.id === y.id) {
+                  x.happyHour=y.happyHour;
+                  var place = new Places(x);
+                  resultsArray.push(place);
+                }
+              });
             });
-          });
-          // reducedArray=[];
-          // sortLocations(data,userLat,userLong);
-          uniqueArray=_.uniq(resultsArray,function(x){
-            return x.name;
-          });
-          // console.log(resultsArray,uniqueArray);
+            uniqueArray=_.uniq(resultsArray,function(x){
+              return x.name;
+            });
 
 
-          // console.log(reducedArray);
+            var template = $('#restTemplate').html();
+            var compileTemplate = Handlebars.compile(template);
 
-          // console.log(resultsArray);
-          var template = $('#restTemplate').html();
-          var compileTemplate = Handlebars.compile(template);
-          uniqueArray.forEach(function(each) {
-          var html = compileTemplate(each);
-          $('#results').append(html);
-          console.log(each);
-
-      });
+            uniqueArray.forEach(function(each) {
+              var html = compileTemplate(each);
+              $('#results').append(html);
+              console.log(each);
+            });
+        }
     })
       .fail(function() {
         alert("Error Communicating With Server");

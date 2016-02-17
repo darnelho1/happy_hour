@@ -175,9 +175,9 @@ main{
   color: rgba(255, 255, 255, 0.90);
   border: none;
   border-radius: 5px;
-  font-size: 2em;
+  font-size: 2.5em;
   width: 80%;
-  height: 60px;
+  height: 80px;
   /*padding-left: 10px;*/
   text-align: center;
   font-family: 'Fugaz One', cursive;
