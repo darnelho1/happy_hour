@@ -8,7 +8,8 @@ function Places(obj) {
   this.address = obj.location.display_address.join(' '),
   this.neighborhood = obj.location.neighborhoods[0],
   this.happyHour = obj.happyHour,
-  this.img = obj.image_url
+  this.img = obj.image_url,
+  this.website = obj.url
 }
 
 var userloc;
