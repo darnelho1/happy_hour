@@ -1,4 +1,4 @@
-var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocatial Bars","Seattle Happy Hour Finder Will Help......", "GET ME DRUNK!!!"];
+var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocktail Bars","find me a BEER......", "GET ME DRUNK!!!"];
 var timeOut;
 var counter =0;
 var char = 0;

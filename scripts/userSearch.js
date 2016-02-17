@@ -64,7 +64,7 @@ var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
 var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
-
+var bgroundImg = ['./images/backBrew.jpg', './images/optimismBrewing.jpg', './images/seattleBrew.jpg'];
 var happyHourArray=[
   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
   {id: 'list-seattle', happyHour: 'Sunday & Monday:  All Day Tuesday - Thursday: 4:00 - 6:30pm & 9pm - Midnight Friday & Saturday:  4:00 - 6:30pm'},
@@ -165,7 +165,8 @@ $('#searchBox').keypress(function(event) {
             });
 
             $('.fullscreen-bg__video').css('display', 'none');
-            $('body').css('background-image', 'url(http://www.hdwallpapersnew.net/wp-content/uploads/2014/12/washington-seattle-new-picture-hd-desktop-wallpaper.jpg)');
+            $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * 3)] +')');
+            $('')
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);

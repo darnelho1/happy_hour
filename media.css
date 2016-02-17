@@ -16,6 +16,10 @@
   /*.fullscreen-bg {
     background: url('') center center / cover no-repeat;
   }*/
+  body{
+    background-image: url('./images/optimismBrewing.jpg');
+  }
+
   #headerTitle{
     font-size: .7em;
     margin-left: 5%;
