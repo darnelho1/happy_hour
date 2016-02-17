@@ -1,4 +1,4 @@
-var txt = ["Queen Anne","Pioneer Square","Sushi", "Cheap", "GET ME DRUNK!!!"];
+var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocatial Bars","Seattle Happy Hour Finder Will Help......", "GET ME DRUNK!!!"];
 var timeOut;
 var counter =0;
 var char = 0;
@@ -6,10 +6,8 @@ var num=0;
 var time=0;
 // flag=true;
 $('#searchBox').attr('placeholder', '|');
-var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+var humanize = Math.round(Math.random() * (200 - 24)) + 30;
 function typeIt(x) {
-
-
   if ((char === x.length)&&(num<=txt.length-2)) {
     clearTimeout(timeOut);
     // console.log('done');
@@ -57,3 +55,12 @@ typeOut();
 function removeCursor(){
   $('#searchBox').attr('placeholder', $('#searchBox').attr('placeholder').slice(0, -1));
 }
+
+
+$("#searchBox").click(function(event) {
+  getLocation();
+});
+
+$("#searchBox").keyup(function(event) {
+  searchParser.bind(this)();
+});
