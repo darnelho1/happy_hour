@@ -21,6 +21,9 @@ var userloc;
 var userLat;
 var userLong;
 
+$('#mapView').hide();
+$('#backButton').hide();
+
 function resultSizeChange() {
   $height = $(window).height();
   console.log($height);
@@ -175,6 +178,7 @@ $('#searchBox').keypress(function(event) {
               console.log(each);
             });
             resultSizeChange();
+            mapFunction();
         }
     })
       .fail(function() {
