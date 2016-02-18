@@ -29,6 +29,11 @@ body{
   background-color: rgba(0, 0, 0, 0.65);
 
 }
+.fullscreen-bg__video {
+  -webkit-animation-duration: 10s;
+  -moz-animation-duration: 10s;
+  animation-duration: 3s;
+}
 
 iframe{
   height: 100%;
