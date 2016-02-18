@@ -28,6 +28,10 @@
     font-size: 1.3em;
     height: 60px;
   }
+  #backButton{
+    font-size: 1.3em;
+    height: 60px;
+  }
   .leftResult{
     visibility: hidden;
     width: 0;
@@ -73,4 +77,29 @@
   .loadingImage{
     margin-top: 0;
   }
+  #mapView{
+    width: 100%;
+    flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  overflow-y: auto;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  }
+#googleMap{
+  margin: auto;
+  width: 500px;
+  height: 200px;
+}
+
+#turnByTurn{
+  margin: auto;
+  width: 500px;
+  font-size: .6em;
+  overflow: auto;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  background-color: rgba(250, 250, 250, 0.7);
+}
 }

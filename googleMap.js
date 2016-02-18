@@ -22,7 +22,6 @@ function mapFunction() {
   }
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    console.log(locationId);
   directionsService.route({
     origin: userLat + ', ' + userLong,
     destination: locationId,
@@ -39,10 +38,18 @@ function mapFunction() {
   function mapSize() {
     $height = $(window).height();
     $width = $(window).width();
+    if ($width < 767) {
+      $('#googleMap').css('width', '90%');
+      $('#googleMap').css('height', $height * 0.5);
+      $('#turnByTurn').css('width', '90%');
+      $('#turnByTurn').css('height', $height * 0.7);
+    }
+    else{
     $('#googleMap').css('width', $width * 0.6);
     $('#googleMap').css('height', $height * 0.62);
     $('#turnByTurn').css('width', $width * 0.3);
     $('#turnByTurn').css('height', $height * 0.62);
+    }
   }
 
   $('.resultBox').hover(function() {
@@ -51,7 +58,6 @@ function mapFunction() {
 
   $('.resultBox').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
-    console.log(locationId);
     mapSize();
     $('#results').hide();
     $('#mapView').show();
