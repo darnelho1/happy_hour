@@ -6,7 +6,7 @@ function Places(obj) {
   this.display_phone = obj.display_phone,
   this.coordinate = obj.location.coordinate,
   this.address = obj.location.display_address.join(' '),
-  this.neighborhood = obj.location.neighborhoods[0],
+  this.neighborhood = _.flatten(obj.location.neighborhoods),
   this.happyHour = obj.happyHour,
   this.img = obj.image_url,
   this.website = obj.url
@@ -63,7 +63,7 @@ $("#searchBox").click(function(event) {
 var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
-var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTHGATE","NORTH GATE"];
+var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTH GATE", "NORTHGATE"];
 var bgroundImg = ['./images/backBrew.jpg', './images/optimismBrewing.jpg', './images/seattleBrew.jpg'];
 // var happyHourArray=[
 //   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
