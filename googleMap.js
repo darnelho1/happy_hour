@@ -12,9 +12,11 @@ function mapFunction() {
           lat: Number(userLat),
           lng: Number(userLong)
         },
-        zoom: 16
+        zoom: 16,
+        setMap: map
       });
       directionsDisplay.setMap(map);
+      $('#turnByTurn').empty();
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     })();
@@ -25,7 +27,7 @@ function mapFunction() {
   directionsService.route({
     origin: userLat + ', ' + userLong,
     destination: locationId,
-    travelMode: google.maps.TravelMode.DRIVING
+    travelMode: google.maps.TravelMode.WALKING
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
@@ -69,7 +71,6 @@ function mapFunction() {
       $('#mapView').hide();
       $('#searchBox').show();
       $('#backButton').hide();
-
     });
   });
 

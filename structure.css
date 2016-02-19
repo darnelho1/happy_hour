@@ -318,9 +318,7 @@ margin-bottom: 0;
   width: 400px;
   font-size: .9em;
   overflow: auto;
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-  background-color: rgba(250, 250, 250, 0.7);
+  /*background-color: rgba(250, 250, 250, 0.7);*/
 }
 #backButton{
   margin: auto;
@@ -337,4 +335,34 @@ margin-bottom: 0;
   text-align: center;
   font-family: 'Candal', sans-serif;
   cursor: pointer;
+}
+
+.adp-placemark{
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+.adp-substep{
+  color: white;
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+table.adp-placemark{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-top: solid 2px white;
+  border-bottom: solid 2px white;
+  color: white;
+}
+.adp-summary{
+  color: white;
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+.adp-legal{
+  color: white;
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+.adp-text{
+  color: white;
+  /*background-color: rgba(0, 0, 0, 0.4);*/
+}
+.adp{
+  background-color: rgba(0, 0, 0, 0.58);
 }
