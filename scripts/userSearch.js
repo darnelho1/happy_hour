@@ -139,8 +139,6 @@ $('#searchBox').keypress(function(event) {
   if(event.which===13){
     // console.log('success');
     searchCrit=$('#searchBox').val();
-
-
     $.post( "/search",{searchCrit:User}, function(data) {
       console.log( "success" );
     })
@@ -175,10 +173,79 @@ $('#searchBox').keypress(function(event) {
               var html = compileTemplate(each);
               $('#results').append(html);
               $('#results').addClass('fadeInUpBig animated');
-              console.log(each);
+              // console.log(each);
             });
             resultSizeChange();
             mapFunction();
+            var endFlag = false;
+            $('#outerBox').bind('scroll', function(){
+              if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) && (endFlag === false)){
+                endFlag = true;
+                var lastResult = $('#results').children(':last-child').attr('id');
+                uniqueArray.forEach(function(v) {
+                  if (v.id === lastResult) {
+                    lastResult = v.coordinate;
+                  }
+                });
+                console.log(lastResult);
+                var resLat = lastResult.latitude + 1.3;
+                var resLong = lastResult.longitude + 0.3;
+                lastResult = {latitude: resLat, longitude: resLong};
+                console.log(lastResult);
+                $.post( "/resultsMore",{searchCrit:User, lastResult:User}, function(data) {
+                  console.log( "success" );
+                })
+                  .done(function(data) {
+                    console.log("Server Success" );
+                    // console.log(data);
+
+                    if (data.hasOwnProperty('statusCode')){
+                      console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
+                      alert("There was a problem processing your request. Please try again or check the console for more information");
+                    }
+                    else {
+                      var moreArray = [];
+                      var uniqueMoreArray = [];
+                      var newResults = [];
+                      data.forEach(function(x){
+                          happyHourArray.forEach(function(y) {
+                            if (x.id === y.id) {
+                              x.happyHour=y.happyHour;
+                              var place = new Places(x);
+                              moreArray.push(place);
+                            }
+                          });
+                        });
+                        uniqueMoreArray=_.uniq(moreArray,function(x){
+                          return x.name;
+                        });
+                        console.log(uniqueMoreArray);
+                        uniqueMoreArray.forEach(function(u) {
+                          var count = 0;
+                          uniqueArray.forEach(function(a){
+                            if (u.id !== a.id) {
+                              count++;
+                              // console.log(count);
+                              // console.log(uniqueArray.length);
+                            }
+                            if (count === uniqueArray.length) {
+                              newResults.push(u);
+                              console.log(newResults);
+                            }
+                          });
+                        });
+
+                      // var template = $('#restTemplate').html();
+                      // var compileTemplate = Handlebars.compile(template);
+                      // moreArray.forEach(function(each) {
+                      //   var html = compileTemplate(each);
+                      //   $('#results').append(html);
+                      //   $('#results').addClass('fadeInUpBig animated');
+                      // });
+                    }
+                  });
+              }
+            });
         }
     })
       .fail(function() {
