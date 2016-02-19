@@ -44,6 +44,7 @@ function removeIt(){
     }
   //  console.log('test');
 }
+
 function typeOut(){
   while((num === time)&&(num<=txt.length-1)){
     typeIt(txt[num]);
@@ -51,7 +52,9 @@ function typeOut(){
     break;
   }
 }
+
 typeOut();
+
 function removeCursor(){
   $('#searchBox').attr('placeholder', $('#searchBox').attr('placeholder').slice(0, -1));
 }
