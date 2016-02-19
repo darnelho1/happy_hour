@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./structure.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./media.css" media="screen" title="no title" charset="utf-8">
     <script id='restTemplate' type='text/template'>
-      <article class="resultBox">
+      <article id='{{{id}}}' class="resultBox">
         <div class="leftResult">
           <img class="resultImg" src="{{{img}}}"/>
         </div>
@@ -50,15 +50,33 @@
       </nav>
     </header>
     <main>
+      <button id="backButton">Not It?</button>
       <input type="text" name="search" placeholder="Search Seattle" id="searchBox">
       <article id="outerBox">
         <section id='results'>
 
         </section>
+        <section id='mapView'>
+          <div id="googleMap">
+          </div>
+          <div id="textDirect">
+            <select id="mode">
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="BICYCLING">Bicycling</option>
+              <option value="TRANSIT">Bussing</option>
+            </select>
+            <div id='turnByTurn'>
+
+            </div>
+          </div>
+
+        </section>
       </article>
       </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>    <script src='./googleMap.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdXtEF2I8QOQo4OkgmnZiOdWqhcT4QOx4&callback" async defer></script>
     <script src="./vendors/scripts/iframeAPI.js"></script>
     <script src ="./scripts/happyHourArray.js"></script>
     <script src="./scripts/userSearch.js"></script>
