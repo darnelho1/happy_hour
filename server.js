@@ -58,8 +58,7 @@ app.post('/search',function(req,res){
 });
 
 app.post('/resultsMore',function(req,res){
-  console.log(req.body.searchCrit);
-  console.log(req.body.lastResult);
+  // console.log(req.body.searchCrit);
   userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
   if(userSearchReq.reqNeighborhood===""){

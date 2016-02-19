@@ -178,6 +178,7 @@ $('#searchBox').keypress(function(event) {
             resultSizeChange();
             mapFunction();
             var endFlag = false;
+
             $('#outerBox').bind('scroll', function(){
               if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) && (endFlag === false)){
                 endFlag = true;
@@ -188,11 +189,12 @@ $('#searchBox').keypress(function(event) {
                   }
                 });
                 console.log(lastResult);
-                var resLat = lastResult.latitude + 1.3;
-                var resLong = lastResult.longitude + 0.3;
-                lastResult = {latitude: resLat, longitude: resLong};
+                var resLat = lastResult.latitude + 0.03;
+                var resLong = lastResult.longitude + 0.03;
+                User.currectLoc = resLat + ", "+ resLong;
+                User.reqNeighborhood = "";
                 console.log(lastResult);
-                $.post( "/resultsMore",{searchCrit:User, lastResult:User}, function(data) {
+                $.post( "/resultsMore",{searchCrit:User}, function(data) {
                   console.log( "success" );
                 })
                   .done(function(data) {
@@ -225,23 +227,26 @@ $('#searchBox').keypress(function(event) {
                           uniqueArray.forEach(function(a){
                             if (u.id !== a.id) {
                               count++;
+                              console.log('same');
                               // console.log(count);
                               // console.log(uniqueArray.length);
                             }
                             if (count === uniqueArray.length) {
                               newResults.push(u);
+                              uniqueArray.push(u);
                               console.log(newResults);
                             }
                           });
                         });
 
-                      // var template = $('#restTemplate').html();
-                      // var compileTemplate = Handlebars.compile(template);
-                      // moreArray.forEach(function(each) {
-                      //   var html = compileTemplate(each);
-                      //   $('#results').append(html);
-                      //   $('#results').addClass('fadeInUpBig animated');
-                      // });
+                      var template = $('#restTemplate').html();
+                      var compileTemplate = Handlebars.compile(template);
+                      newResults.forEach(function(each) {
+                        var html = compileTemplate(each);
+                        $('#results').append(html);
+                        $('#results').addClass('fadeInUpBig animated');
+                      });
+                      endFlag = false;
                     }
                   });
               }
