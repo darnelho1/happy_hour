@@ -137,7 +137,10 @@ function sortLocations(locations, lat, lng) {
 
 $('#searchBox').keypress(function(event) {
   if(event.which===13){
-    // console.log('success');
+    $('#results').empty();
+    yelpSearchResults=[];
+    reducedArray = [];
+    resultsArray=[];
     searchCrit=$('#searchBox').val();
     $.post( "/search",{searchCrit:User}, function(data) {
       console.log( "success" );
