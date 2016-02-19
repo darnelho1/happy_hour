@@ -198,7 +198,7 @@ main{
   margin: auto;
   margin-bottom: 5%;
   width: 85%;
-  height: 90%;
+  height: 98%;
 }
 .rightResult{
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -353,15 +353,12 @@ table.adp-placemark{
 }
 .adp-summary{
   color: white;
-  /*background-color: rgba(0, 0, 0, 0.4);*/
 }
 .adp-legal{
   color: white;
-  /*background-color: rgba(0, 0, 0, 0.4);*/
 }
 .adp-text{
   color: white;
-  /*background-color: rgba(0, 0, 0, 0.4);*/
 }
 .adp{
   background-color: rgba(0, 0, 0, 0.58);
