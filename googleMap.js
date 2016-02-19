@@ -19,23 +19,27 @@ function mapFunction() {
       $('#turnByTurn').empty();
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
       calculateAndDisplayRoute(directionsService, directionsDisplay);
+      document.getElementById('mode').addEventListener('change', function() {
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      });
     })();
 
   }
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-  directionsService.route({
-    origin: userLat + ', ' + userLong,
-    destination: locationId,
-    travelMode: google.maps.TravelMode.WALKING
-  }, function(response, status) {
-    if (status === google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    } else {
-      window.alert('Directions request failed due to ' + status);
-    }
-  })
-}
+    var selectedMode = document.getElementById('mode').value;
+    directionsService.route({
+      origin: userLat + ', ' + userLong,
+      destination: locationId,
+      travelMode: google.maps.TravelMode[selectedMode]
+    }, function(response, status) {
+      if (status === google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    })
+  }
 
   function mapSize() {
     $height = $(window).height();
