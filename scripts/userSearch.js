@@ -66,34 +66,9 @@ $("#searchBox").click(function(event) {
 var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
+var happening = [];
 var yelpNeighborhoods=["QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTH GATE", "NORTHGATE"];
 var bgroundImg = ['./images/backBrew.jpg', './images/optimismBrewing.jpg', './images/seattleBrew.jpg','./images/seattleBrew.jpg','http://blog.clippervacations.com/wp-content/uploads/2015/04/CopperworksDistilling_TastingRoom.jpg',"http://static1.squarespace.com/static/52330cfde4b0833bcd13f5bc/t/530972cae4b04bff4a3aa4cc/1393128141830/465189_327142707332836_1151580238_o.jpg?format=2500w","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQol80qhEgALz1otCvPA9aIlxX78FHNOkdq_iIG3LxRZhoXCHzeiA","http://i0.wp.com/www.duparandcompany.com/blog/wp-content/uploads/2014/06/KP1_0086.jpg","https://cdn1.vox-cdn.com/thumbor/l7N2xYTgbPhxJUEnQkFipSZwTkE=/0x71:1425x873/1600x900/cdn0.vox-cdn.com/uploads/chorus_image/image/44193834/EATL_-_Old_Fourth_Distillery_-_04.0.0.jpg","http://greenweddingshoes.com/wp-content/uploads/2016/02/westlanddistillery-wedding-20.jpg","http://copperworksdistilling.com/site/wp-content/uploads/2013/09/Copperworks-sign-and-exterior_1.jpg","http://www.cornichon.org/Westland%20ADI.jpg","http://craftdistillerytours.com/wp-content/uploads/2014/06/Rogue-Distillery-Public-House-Tours-03.jpg","https://s-media-cache-ak0.pinimg.com/originals/76/7e/0f/767e0f46d25f364450df1a0bcd94a77d.jpg"];
-// var happyHourArray=[
-//   {id: 'radiator-whiskey-seattle', happyHour: '4PM TO 6PM 10PM TO CLOSE'},
-//   {id: 'list-seattle', happyHour: 'Sunday & Monday:  All Day Tuesday - Thursday: 4:00 - 6:30pm & 9pm - Midnight Friday & Saturday:  4:00 - 6:30pm'},
-//   {id: 'the-zig-zag-café-seattle-2', happyHour: '5-7 Monday-Friday'},
-//   {id: 'witness-seattle', happyHour: '4-6pm every day'},
-//   {id: 'bottlehouse-seattle', happyHour: 'Daily 3-6pm'},
-//   {id: 'the-forge-lounge-seattle',  happyHour: 'Daily 3-7'},
-//   {id: 'toulouse-petit-seattle', happyHour: 'daily 4 pm to 6 pm nightly 10 pm to 1 am'},
-//   {id: 'taylor-shellfish-oyster-bar-seattle', happyHour: 'Monday - Friday 4pm - 6pm'},
-//   {id: 'damn-the-weather-seattle', happyHour: 'M-F 4-6:30pm'},
-//   {id: 'suika-seattle-seattle', happyHour: 'TUE-FRI 5PM-6:30 SAT, SUN 4PM-6:30'},
-//   {id: 'triumph-bar-seattle', happyHour: '3 and 6pm, late night from 10 to close Tuesday–Saturday and 9 to close Sunday and Monday'},
-//   {id: 'quinns-seattle', happyHour: '3-6pm'},
-//   {id: 'sun-liquor-seattle', happyHour: '4pm - 7pm'},
-//   {id: 'betty-seattle', happyHour: '4:30pm-6:00pm'},
-//   {id: 'the-octopus-bar-seattle', happyHour: '3:30-6:30pm'},
-//   {id: 'the-sixgill-seattle', happyHour: '4pm - 6pm!'},
-//   {id: 'russells-seattle', happyHour: 'DAILY:  4PM - 6PM'},
-//   {id:'the-noble-fir-seattle', happyHour: '4pm - 6:30pm'},
-//   {id:'latona-pub-seattle', happyHour: '4:30 - 6:30 Wed - Sun! and 4:00 - 6:30 Mon & Tues!!'},
-//   {id:'brouwers-cafe-seattle', happyHour: '3pm - 6pm'},
-//   {id:'witness-seattle', happyHour: '4-6pm'},
-//   {id:'über-tavern-seattle-2', happyHour: '4-6PM -- TUES-FRI'},
-//   {id:'yoroshiku-seattle-4', happyHour: 'Tuesday through Saturday 5-6:30pm'}
-// ];
-
 
 var searchParser= function(){
   //Ensure you bind this to the element calling it.
@@ -110,6 +85,55 @@ var searchParser= function(){
   User.currectLoc=userloc;
 
   console.log(User);
+};
+
+hhNow=function(x){
+  console.log("hnow running");
+  x.forEach(function(obj){
+  for(var key in obj.happyHour){
+    if (moment().isSame(moment().day(key))){//if object day is the same as today
+      console.log(obj.happyHour[key]);
+      for(i=0;i<obj.happyHour[key][0].length;i++){
+        // console.log(obj.happyHour[key][0][i].split(":"));
+        var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
+        var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
+        var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
+        var endMin=Number(obj.happyHour[key][1][i].split(":")[1]);
+        console.log(startHour,startMin);
+        console.log(endHour,endMin);
+        if(moment().isBetween(moment().hour(startHour).minute(startMin),moment().hour(endHour).minute(endMin))){//Check if object happy hour period is occuring during the time of search
+          var id = '#' + obj.id;
+          console.log(id);
+          happening.push(id);
+          console.log('yippe');
+          console.log(obj);
+          console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
+        }
+
+      }
+
+    }
+    }
+});
+};
+
+var hhTimes=function(x){
+  x.forEach(function(obj){
+    obj.happyHourTimes=[];
+    console.log(obj);
+    for(var key in obj.happyHour){
+      for(i=0;i<obj.happyHour[key][0].length;i++){
+        var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
+        var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
+        var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
+        var endMin=Number(obj.happyHour[key][1][i].split(":")[1]);
+        // console.log("Happy Hours: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
+        obj.happyHourTimes.push(moment().day(key).hour(startHour).minute(startMin).format('ddd h:mma')+"-"+moment().day(key).hour(endHour).minute(endMin).format('h:mma'));
+      }
+      // console.log(arry);
+    }
+    obj.happyHourTimes;
+  });
 };
 
 function getLocation() {
@@ -163,10 +187,14 @@ $('#searchBox').keypress(function(event) {
                 }
               });
             });
+            hhNow(resultsArray);
             if (resultsArray.length === 0) {
               console.log('working');
               $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
             }
+
+            hhTimes(resultsArray);
+            console.log(resultsArray);
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
@@ -176,10 +204,17 @@ $('#searchBox').keypress(function(event) {
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
+            Handlebars.registerHelper("happyHourTimes", function(x) {
+                return x;
+            });
             uniqueArray.forEach(function(each) {
               var html = compileTemplate(each);
               $('#results').append(html);
               $('#results').addClass('fadeInUpBig animated');
+              happening.forEach(function(x){
+                console.log(x);
+                $(x).addClass('happeningNow');
+              });
               // console.log(each);
             });
             resultSizeChange();
