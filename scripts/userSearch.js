@@ -154,7 +154,6 @@ $('#searchBox').keypress(function(event) {
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
-
           data.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
@@ -164,10 +163,15 @@ $('#searchBox').keypress(function(event) {
                 }
               });
             });
+            if (resultsArray.length === 0) {
+              console.log('working');
+              $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
+            }
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
             $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
+            $('.backgroundVid').css('background-color', 'rgba(0, 0, 0, 0)');
             $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
@@ -192,8 +196,8 @@ $('#searchBox').keypress(function(event) {
                   }
                 });
                 console.log(lastResult);
-                var resLat = lastResult.latitude + 0.03;
-                var resLong = lastResult.longitude + 0.03;
+                var resLat = lastResult.latitude + 0.0239;
+                var resLong = lastResult.longitude + 0.0239;
                 User.currectLoc = resLat + ", "+ resLong;
                 User.reqNeighborhood = "";
                 console.log(lastResult);

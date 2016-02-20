@@ -152,6 +152,10 @@ main{
   justify-content: flex-start;
   -webkit-justify-content: flex-start;
   -moz-justify-content: flex-start;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+
 }
 #searchBox{
   margin: auto;
@@ -159,7 +163,7 @@ main{
   margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.90);
-  border: none;
+  border: solid .5px;
   border-radius: 5px;
   font-size: 2.5em;
   width: 80%;
@@ -172,7 +176,7 @@ main{
   margin: auto;
   width: 99%;
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.63);
   border: solid .1em;
   color: white;
   margin-bottom: 5px;
@@ -369,4 +373,12 @@ table.adp-placemark{
   width: 35%;
   font-size: 1em;
   border: none;
+}
+#sadPanda{
+  width: 30%;
+}
+#tryAgain{
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: 'Candal', sans-serif;
 }
