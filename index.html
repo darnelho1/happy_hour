@@ -26,7 +26,6 @@
               <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" />
               <p class="resultHood">{{{neighborhood}}}</p>
               <p class="resultType">{{{categories}}}</p>
-              <!-- <p class="resultHours">{{{happyHourTimes}}}</p> -->
               Happy Hour Times:
               <select class='hHDropDown'>
                 {{#each happyHourTimes}}
@@ -59,9 +58,11 @@
       <button id="backButton">Not It?</button>
       <input type="text" name="search" placeholder="Search Seattle" id="searchBox">
       <article id="outerBox">
-        <section id='results'>
+        <div id="resultsOuterBox">
+          <section id='results'>
 
-        </section>
+          </section>
+        </div>
         <section id='mapView'>
           <div id="googleMap">
           </div>

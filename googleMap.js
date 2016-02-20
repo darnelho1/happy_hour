@@ -1,10 +1,8 @@
-
-function mapFunction() {
   var map;
   var locationId;
 
   function initMap(){
-    (function map(){
+    function map(){
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
       map = new google.maps.Map(document.getElementById('googleMap'), {
@@ -22,7 +20,8 @@ function mapFunction() {
       document.getElementById('mode').addEventListener('change', function() {
       calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
-    })();
+    }
+    map();
 
   }
 
@@ -58,28 +57,27 @@ function mapFunction() {
     }
   }
 
+function mapFunction() {
   $('.resultBox').hover(function() {
     $(this).toggleClass('pulse animated');
   });
 
-  $('.resultBox').on('click', function(event) {
+  $('.resultsInfo').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
     mapSize();
-    $('#results').hide();
+    $('#resultsOuterBox').hide();
     $('#mapView').show();
     $('#searchBox').hide();
     $('#backButton').show();
     initMap();
     $('#backButton').on('click', function(event) {
-      $('#results').show();
+      $('#resultsOuterBox').show();
       $('#mapView').hide();
       $('#searchBox').show();
       $('#backButton').hide();
     });
   });
-
+}
   $(window).resize(function() {
       mapSize();
     });
-
-}

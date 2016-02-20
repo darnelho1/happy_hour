@@ -139,6 +139,10 @@ main{
   height: 540px;
   overflow-y: auto;
 }
+#resultsOuterBox{
+  height: 540px;
+  overflow-y: auto;
+}
 #results{
   height: auto;
   overflow-x: hidden;
