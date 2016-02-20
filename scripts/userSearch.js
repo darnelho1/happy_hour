@@ -28,6 +28,7 @@ function resultSizeChange() {
   $height = $(window).height();
   console.log($height);
   $('#outerBox').css('height', ($height * 0.7));
+  $('#resultsOuterBox').css('height', ($height * 0.7));
 }
 $(window).resize(function() {
     resultSizeChange();
@@ -221,7 +222,7 @@ $('#searchBox').keypress(function(event) {
             mapFunction();
             var endFlag = false;
 
-            $('#outerBox').bind('scroll', function(){
+            $('#resultsOuterBox').bind('scroll', function(){
               if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) && (endFlag === false)){
                 endFlag = true;
                 var lastResult = $('#results').children(':last-child').attr('id');
@@ -291,6 +292,7 @@ $('#searchBox').keypress(function(event) {
                       endFlag = false;
                     }
                   });
+                  mapFunction();
               }
             });
         }

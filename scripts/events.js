@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocktail Bars","find me a BEER......", "GET ME DRUNK!!!"];
 var timeOut;
 var counter =0;
@@ -82,4 +84,32 @@ $(document).ajaxStop(function() {
 
 $('li').hover(function() {
   $(this).toggleClass('pulse animated');
+});
+
+$('.resultBox').hover(function() {
+  $(this).toggleClass('pulse animated');
+});
+
+$('.resultsInfo').on('click', function(event) {
+  console.log('working event');
+  locationId = $(this).find('.resultAddress').text();
+  var dropdown = $(this).find('select');
+  console.log($(this));
+  // if ($(this) === dropdown) {
+  //
+  // }
+  mapSize();
+  $('#resultsOuterBox').hide();
+  $('#mapView').show();
+  $('#searchBox').hide();
+  $('#backButton').show();
+  initMap();
+  $('#backButton').on('click', function(event) {
+    $('#resultsOuterBox').show();
+    $('#mapView').hide();
+    $('#searchBox').show();
+    $('#backButton').hide();
+  });
+});
+
 });
