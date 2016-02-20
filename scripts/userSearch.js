@@ -133,7 +133,7 @@ var hhTimes=function(x){
       }
       // console.log(arry);
     }
-    obj.happyHourTimes;
+    // obj.happyHourTimes;
   });
 };
 
@@ -172,14 +172,16 @@ $('#searchBox').keypress(function(event) {
     })
       .done(function(data) {
         console.log("Server Success" );
-        // console.log(data);
-
-        if (data.hasOwnProperty('statusCode')){
-          console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
+        console.log(data.url);
+        console.log(data.yelp);
+        var location = window.location.href
+        window.location.replace(location + "/#"+ data.url);
+        if (data.yelp.hasOwnProperty('statusCode')){
+          console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
-          data.forEach(function(x){
+          data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
                   x.happyHour=y.happyHour;
