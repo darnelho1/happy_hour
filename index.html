@@ -26,7 +26,13 @@
               <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" />
               <p class="resultHood">{{{neighborhood}}}</p>
               <p class="resultType">{{{categories}}}</p>
-              <p class="resultHours">{{{happyHourTimes}}}</p>
+              <!-- <p class="resultHours">{{{happyHourTimes}}}</p> -->
+              Happy Hour Times:
+              <select class='hHDropDown'>
+                {{#each happyHourTimes}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
             </div>
         </div>
       </article>

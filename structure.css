@@ -382,3 +382,10 @@ table.adp-placemark{
   color: rgba(255, 255, 255, 0.78);
   font-family: 'Candal', sans-serif;
 }
+.hHDropDown{
+  background-color: rgba(0, 0, 0, 0.58);
+  color: white;
+}
+.happeningNow{
+  border: solid red;
+}
