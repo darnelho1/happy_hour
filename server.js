@@ -38,16 +38,15 @@ app.get("/search/:usersearch", function(req, res){
 
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
-  userSearchReq= req.body.searchCrit;
+  userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
   var searchString = querystring.stringify({term:userSearchReq.terms, nBHood:userSearchReq.reqNeighborhood, ll:userSearchReq.currectLoc});
-
   console.log('the string:');
   console.log(searchString);
   if(userSearchReq.reqNeighborhood===""){
     yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
       // console.log(data.businesses);
-      searchResults=data.businesses;
+      searchResults = { yelp :data.businesses, url: searchString};
       res.send(searchResults);
     }).catch(function(error){
       res.send(error);
