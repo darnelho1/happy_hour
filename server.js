@@ -28,11 +28,15 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.sendFile('index.html',{root:__dirname + '/'});
+  res.sendFile('index.html', {root:__dirname + '/'});
 });
 
+// app.all('/search/*', function( req, res, next){
+//   res.sendFile('index.html', {root:__dirname + "/"});
+//   next();
+// });
 app.get("/search/:usersearch", function(req, res){
-  var usersearch = req.params.usersearch;
+  var usersearch = querystring.parse(req.params.usersearch);
   console.log(usersearch);
 });
 
