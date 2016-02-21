@@ -26,7 +26,7 @@ $('#backButton').hide();
 
 function resultSizeChange() {
   $height = $(window).height();
-  console.log($height);
+  // console.log($height);
   $('#outerBox').css('height', ($height * 0.7));
   $('#resultsOuterBox').css('height', ($height * 0.7));
 }
@@ -93,15 +93,15 @@ hhNow=function(x){
   x.forEach(function(obj){
   for(var key in obj.happyHour){
     if (moment().isSame(moment().day(key))){//if object day is the same as today
-      console.log(obj.happyHour[key]);
+      // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
         // console.log(obj.happyHour[key][0][i].split(":"));
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
         var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
         var endMin=Number(obj.happyHour[key][1][i].split(":")[1]);
-        console.log(startHour,startMin);
-        console.log(endHour,endMin);
+        // console.log(startHour,startMin);
+        // console.log(endHour,endMin);
         if(moment().isBetween(moment().hour(startHour).minute(startMin),moment().hour(endHour).minute(endMin))){//Check if object happy hour period is occuring during the time of search
           var id = '#' + obj.id;
           console.log(id);
@@ -121,7 +121,7 @@ hhNow=function(x){
 var hhTimes=function(x){
   x.forEach(function(obj){
     obj.happyHourTimes=[];
-    console.log(obj);
+    // console.log(obj);
     for(var key in obj.happyHour){
       for(i=0;i<obj.happyHour[key][0].length;i++){
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
@@ -166,15 +166,15 @@ $('#searchBox').keypress(function(event) {
     yelpSearchResults=[];
     reducedArray = [];
     resultsArray=[];
-    searchCrit=$('#searchBox').val();
+    // searchCrit=$('#searchBox').val();
     $.post( "/search",{searchCrit:User}, function(data) {
-      console.log( "success" );
+      // console.log( "success" );
     })
       .done(function(data) {
-        console.log("Server Success" );
-        console.log(data.url);
-        console.log(data.yelp);
-        window.history.pushState("search/#" + data.url, " ","search/" + data.url);
+        // console.log("Server Success" );
+        // console.log(data.url);
+        // console.log(data.yelp);
+        window.history.pushState("search/" + data.url, " ","search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
@@ -191,12 +191,12 @@ $('#searchBox').keypress(function(event) {
             });
             hhNow(resultsArray);
             if (resultsArray.length === 0) {
-              console.log('working');
+              // console.log('working');
               $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
             }
 
             hhTimes(resultsArray);
-            console.log(resultsArray);
+            // console.log(resultsArray);
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
@@ -302,7 +302,7 @@ $('#searchBox').keypress(function(event) {
         alert("Error Communicating With Server");
       })
       .always(function() {
-        console.log("finished");
+        // console.log("finished");
     });
   }
 });
