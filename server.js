@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('./'));
+app.use('/static', express.static(__dirname + '/happy_hour'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -31,20 +32,72 @@ app.get('/', function(req, res) {
   res.sendFile('index.html', {root:__dirname + '/'});
 });
 
-// app.all('/search/*', function( req, res, next){
-//   res.sendFile('index.html', {root:__dirname + "/"});
-//   next();
-// });
+app.get('/search/', function(req, res) {
+  res.sendFile('index.html', {root:__dirname + '/'});
+        });
+
 app.get("/search/:usersearch", function(req, res){
   var usersearch = querystring.parse(req.params.usersearch);
+  console.log('userSearch');
   console.log(usersearch);
+  userSearchReq = usersearch;
+  var searchString = querystring.stringify({terms:userSearchReq.terms, reqNeighborhood:userSearchReq.reqNeighborhood, currectLoc:userSearchReq.currectLoc});
+  console.log('the string:');
+  console.log(userSearchReq);
+  if(userSearchReq.reqNeighborhood===""){
+    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
+      // console.log(data.businesses);
+      searchResults = { yelp :data.businesses, url: searchString};
+      res.send(searchResults);
+    }).catch(function(error){
+      res.send(error);
+      console.log(error);
+    });
+  }
+
+  else{
+  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+    // console.log(data.businesses);
+    searchResults = { yelp :data.businesses, url: searchString};
+    res.send(searchResults);
+  }).catch(function(error){
+    res.send(error);
+    console.log(error);
+  });
+  }
+});
+
+app.post('/resultsMore',function(req,res){
+  // console.log(req.body.searchCrit);
+  userSearchReq = req.body.searchCrit;
+  console.log(userSearchReq);
+  if(userSearchReq.reqNeighborhood===""){
+    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
+      console.log(data.businesses);
+      searchResults=data.businesses;
+      res.send(searchResults);
+    }).catch(function(error){
+      res.send(error);
+      console.log(error);
+    });
+  }
+  else{
+  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+    console.log(data.businesses);
+    searchResults=data.businesses;
+    res.send(searchResults);
+  }).catch(function(error){
+    res.send(error);
+    console.log(error);
+  });
+  }
 });
 
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
   userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
-  var searchString = querystring.stringify({term:userSearchReq.terms, nBHood:userSearchReq.reqNeighborhood, ll:userSearchReq.currectLoc});
+  var searchString = querystring.stringify({terms:userSearchReq.terms, reqNeighborhood:userSearchReq.reqNeighborhood, currectLoc:userSearchReq.currectLoc});
   console.log('the string:');
   console.log(searchString);
   if(userSearchReq.reqNeighborhood===""){
