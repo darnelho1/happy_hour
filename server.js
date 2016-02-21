@@ -59,7 +59,9 @@ app.get("/search/:usersearch", function(req, res){
   yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
     // console.log(data.businesses);
     searchResults = { yelp :data.businesses, url: searchString};
-    res.send(searchResults);
+    // res.json(searchResults);
+    res.sendFile('index.html', {root:__dirname + '/',ext:searchResults});
+    // res.send(searchResults);
   }).catch(function(error){
     res.send(error);
     console.log(error);
