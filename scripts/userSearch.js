@@ -214,10 +214,9 @@ $('#searchBox').keypress(function(event) {
               $('#results').append(html);
               $('#results').addClass('fadeInUpBig animated');
               happening.forEach(function(x){
-                console.log(x);
-                $(x).addClass('happeningNow');
+                $(x).find('.hHDropDown').addClass('happeningNow');
+                $(x).find('.nowPic').css('display', 'block');
               });
-              // console.log(each);
             });
             resultSizeChange();
             mapFunction();
