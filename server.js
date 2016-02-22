@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 // var config = require ('./scripts/config');
 // var models = require ('./scripts/models');
+var querystring = require('querystring');
 var PORT = 3000;
 var Yelp= require('yelp');
 // var DB = config.DB;
@@ -27,17 +28,29 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.sendFile('index.html',{root:__dirname + '/'});
+  res.sendFile('index.html', {root:__dirname + '/'});
+});
+
+// app.all('/search/*', function( req, res, next){
+//   res.sendFile('index.html', {root:__dirname + "/"});
+//   next();
+// });
+app.get("/search/:usersearch", function(req, res){
+  var usersearch = querystring.parse(req.params.usersearch);
+  console.log(usersearch);
 });
 
 app.post('/search',function(req,res){
   console.log(req.body.searchCrit);
-  userSearchReq= req.body.searchCrit;
+  userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
+  var searchString = querystring.stringify({term:userSearchReq.terms, nBHood:userSearchReq.reqNeighborhood, ll:userSearchReq.currectLoc});
+  console.log('the string:');
+  console.log(searchString);
   if(userSearchReq.reqNeighborhood===""){
     yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
       // console.log(data.businesses);
-      searchResults=data.businesses;
+      searchResults = { yelp :data.businesses, url: searchString};
       res.send(searchResults);
     }).catch(function(error){
       res.send(error);
@@ -48,7 +61,7 @@ app.post('/search',function(req,res){
   else{
   yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
     // console.log(data.businesses);
-    searchResults=data.businesses;
+    searchResults = { yelp :data.businesses, url: searchString};
     res.send(searchResults);
   }).catch(function(error){
     res.send(error);
