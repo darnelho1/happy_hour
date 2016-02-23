@@ -111,6 +111,7 @@ $(document).ready(function() {
       $('#backButton').hide();
     });
   });
+
   function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -123,7 +124,7 @@ $(document).ready(function() {
 
 
   if(window.location.href.indexOf('search') > -1){
-    
+
     User.terms = getParameterByName('terms');
     User.reqNeighborhood = getParameterByName('reqNeighborhood');
     User.currectLoc = getParameterByName('currectLoc');
@@ -140,7 +141,10 @@ $(document).ready(function() {
         // console.log("Server Success" );
         // console.log(data.url);
         // console.log(data.yelp);
-        window.history.pushState("search/" + data.url, " ","search/?" + data.url);
+        console.log(User.currentLoc);
+        userLat=User.currectLoc.split(',')[0];
+        userLong=User.currectLoc.split(',')[1];
+        window.history.pushState("search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
@@ -181,7 +185,8 @@ $(document).ready(function() {
               $('#results').addClass('fadeInUpBig animated');
               happening.forEach(function(x){
                 console.log(x);
-                $(x).addClass('happeningNow');
+                $(x).find('.hHDropDown').addClass('happeningNow');
+                $(x).find('.nowPic').css('display', 'block');
               });
               // console.log(each);
             });

@@ -27,6 +27,8 @@
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     var selectedMode = document.getElementById('mode').value;
+    console.log(userLat + " and " + userLong);
+    console.log(locationId);
     directionsService.route({
       origin: userLat + ', ' + userLong,
       destination: locationId,
