@@ -59,7 +59,7 @@ function sortLocations(locations, lat, lng) {
   });
 }
 
-$("#searchBox").click(function(event) {
+$(window).ready(function(event) {
   getLocation();
   // console.log('clicked');
 });

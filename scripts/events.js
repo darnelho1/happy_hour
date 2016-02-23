@@ -140,9 +140,18 @@ $(document).ready(function() {
         // console.log(data.url);
         // console.log(data.yelp);
         //changes
-        // console.log(User.currentLoc);
-        userLat=User.currectLoc.split(',')[0];
-        userLong=User.currectLoc.split(',')[1];
+        if (User.currentLoc === undefined) {
+          getLocation();
+          userLat=userloc.split(',')[0];
+          userLong=userloc.split(',')[1];
+          console.log(userloc);
+        }
+        else{
+          userLat=User.currectLoc.split(',')[0];
+          userLong=User.currectLoc.split(',')[1];
+          console.log(User.currentLoc);
+        }
+
         window.history.pushState("search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
