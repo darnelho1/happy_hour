@@ -91,13 +91,11 @@ $(document).ready(function() {
   });
 
   $('.resultsInfo').on('click', function(event) {
-    console.log('working event');
+    // console.log('working event');
     locationId = $(this).find('.resultAddress').text();
     var dropdown = $(this).find('select');
+    console.log('place picked');
     console.log($(this));
-    // if ($(this) === dropdown) {
-    //
-    // }
     mapSize();
     $('#resultsOuterBox').hide();
     $('#mapView').show();
@@ -128,7 +126,7 @@ $(document).ready(function() {
     User.terms = getParameterByName('terms');
     User.reqNeighborhood = getParameterByName('reqNeighborhood');
     User.currectLoc = getParameterByName('currectLoc');
-    console.log(User);
+    // console.log(User);
 
     yelpSearchResults=[];
     reducedArray = [];
@@ -142,7 +140,7 @@ $(document).ready(function() {
         // console.log(data.url);
         // console.log(data.yelp);
         //changes
-        console.log(User.currentLoc);
+        // console.log(User.currentLoc);
         userLat=User.currectLoc.split(',')[0];
         userLong=User.currectLoc.split(',')[1];
         window.history.pushState("search/?" + data.url);
@@ -185,7 +183,7 @@ $(document).ready(function() {
               $('#results').append(html);
               $('#results').addClass('fadeInUpBig animated');
               happening.forEach(function(x){
-                console.log(x);
+                // console.log(x);
                 $(x).find('.hHDropDown').addClass('happeningNow');
                 $(x).find('.nowPic').css('display', 'block');
               });
@@ -204,12 +202,12 @@ $(document).ready(function() {
                     lastResult = v.coordinate;
                   }
                 });
-                console.log(lastResult);
+                // console.log(lastResult);
                 var resLat = lastResult.latitude + 0.0239;
                 var resLong = lastResult.longitude + 0.0239;
                 User.currectLoc = resLat + ", "+ resLong;
                 User.reqNeighborhood = "";
-                console.log(lastResult);
+                // console.log(lastResult);
                 $.post( "/resultsMore",{searchCrit:User}, function(data) {
                   console.log( "success" );
                 })
@@ -237,7 +235,7 @@ $(document).ready(function() {
                         uniqueMoreArray=_.uniq(moreArray,function(x){
                           return x.name;
                         });
-                        console.log(uniqueMoreArray);
+                        // console.log(uniqueMoreArray);
                         uniqueMoreArray.forEach(function(u) {
                           var count = 0;
                           uniqueArray.forEach(function(a){
@@ -250,7 +248,7 @@ $(document).ready(function() {
                             if (count === uniqueArray.length) {
                               newResults.push(u);
                               uniqueArray.push(u);
-                              console.log(newResults);
+                              // console.log(newResults);
                             }
                           });
                         });

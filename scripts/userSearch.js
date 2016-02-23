@@ -73,6 +73,8 @@ var bgroundImg = ['./images/backBrew.jpg', './images/optimismBrewing.jpg', './im
 
 var searchParser= function(){
   //Ensure you bind this to the element calling it.
+  console.log('Parse Location test');
+  console.log(userloc);
   userLat=userloc.split(',')[0];
   userLong=userloc.split(',')[1];
   userSearchData=$(this).val();
@@ -85,11 +87,11 @@ var searchParser= function(){
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
   User.currectLoc=userloc;
 
-  console.log(User);
+  // console.log(User);
 };
 
 hhNow=function(x){
-  console.log("hnow running");
+  // console.log("hnow running");
   x.forEach(function(obj){
   for(var key in obj.happyHour){
     if (moment().isSame(moment().day(key))){//if object day is the same as today
@@ -104,11 +106,11 @@ hhNow=function(x){
         // console.log(endHour,endMin);
         if(moment().isBetween(moment().hour(startHour).minute(startMin),moment().hour(endHour).minute(endMin))){//Check if object happy hour period is occuring during the time of search
           var id = '#' + obj.id;
-          console.log(id);
+          // console.log(id);
           happening.push(id);
-          console.log('yippe');
-          console.log(obj);
-          console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
+          // console.log('yippe');
+          // console.log(obj);
+          // console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
         }
 
       }
@@ -219,7 +221,7 @@ $('#searchBox').keypress(function(event) {
               });
             });
             resultSizeChange();
-            // mapFunction();
+            mapFunction();
             var endFlag = false;
 
             $('#resultsOuterBox').bind('scroll', function(){
@@ -231,12 +233,12 @@ $('#searchBox').keypress(function(event) {
                     lastResult = v.coordinate;
                   }
                 });
-                console.log(lastResult);
+                // console.log(lastResult);
                 var resLat = lastResult.latitude + 0.0239;
                 var resLong = lastResult.longitude + 0.0239;
                 User.currectLoc = resLat + ", "+ resLong;
                 User.reqNeighborhood = "";
-                console.log(lastResult);
+                // console.log(lastResult);
                 $.post( "/resultsMore",{searchCrit:User}, function(data) {
                   console.log( "success" );
                 })
@@ -264,20 +266,20 @@ $('#searchBox').keypress(function(event) {
                         uniqueMoreArray=_.uniq(moreArray,function(x){
                           return x.name;
                         });
-                        console.log(uniqueMoreArray);
+                        // console.log(uniqueMoreArray);
                         uniqueMoreArray.forEach(function(u) {
                           var count = 0;
                           uniqueArray.forEach(function(a){
                             if (u.id !== a.id) {
                               count++;
-                              console.log('same');
+                              // console.log('same');
                               // console.log(count);
                               // console.log(uniqueArray.length);
                             }
                             if (count === uniqueArray.length) {
                               newResults.push(u);
                               uniqueArray.push(u);
-                              console.log(newResults);
+                              // console.log(newResults);
                             }
                           });
                         });

@@ -14,7 +14,6 @@
         setMap: map
       });
       directionsDisplay.setMap(map);
-      console.log('clear working');
       $('#turnByTurn').empty();
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
       calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -28,7 +27,9 @@
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     var selectedMode = document.getElementById('mode').value;
+    console.log('users lat and long');
     console.log(userLat + " and " + userLong);
+    console.log('location picked id');
     console.log(locationId);
     directionsService.route({
       origin: userLat + ', ' + userLong,
@@ -76,11 +77,8 @@ function mapFunction() {
       $('#searchBox').hide();
       $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
       $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
+      initMap();
     }, 470);
-
-
-
-    initMap();
     $('#backButton').on('click', function(event) {
       $('#mapView').addClass('slideOutUp').removeClass('slideInDown');
       $('#backButton').addClass('flipOutX').removeClass('flipInX');
