@@ -170,6 +170,9 @@ $(document).ready(function() {
             $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
             $('.backgroundVid').css('background-color', 'rgba(0, 0, 0, 0)');
             $('.fullscreen-bg__video').addClass('fadeOutUp animated');
+            setTimeout(function() {
+              $('.fullscreen-bg__video').hide();
+            },500);
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
