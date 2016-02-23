@@ -141,6 +141,7 @@ $(document).ready(function() {
         // console.log("Server Success" );
         // console.log(data.url);
         // console.log(data.yelp);
+        //changes
         console.log(User.currentLoc);
         userLat=User.currectLoc.split(',')[0];
         userLong=User.currectLoc.split(',')[1];
