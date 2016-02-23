@@ -35,6 +35,7 @@ $(window).resize(function() {
   });
 
 function getLocation() {
+  console.log('geo running');
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getUserLoc);
     } else {

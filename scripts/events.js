@@ -122,36 +122,25 @@ $(document).ready(function() {
 
 
   if(window.location.href.indexOf('search') > -1){
-
     User.terms = getParameterByName('terms');
     User.reqNeighborhood = getParameterByName('reqNeighborhood');
     User.currectLoc = getParameterByName('currectLoc');
-    // console.log(User);
-
+    if (User.currectLoc !== null) {
+      userLat=User.currectLoc.split(',')[0];
+      userLong=User.currectLoc.split(',')[1];
+      console.log(User.currectLoc);
     yelpSearchResults=[];
     reducedArray = [];
     resultsArray=[];
     // searchCrit=$('#searchBox').val();
     $.post( "/search",{searchCrit:User}, function(data) {
-      // console.log( "success" );
+      console.log( "success" );
     })
       .done(function(data) {
         // console.log("Server Success" );
         // console.log(data.url);
-        // console.log(data.yelp);
+        console.log(data.yelp);
         //changes
-        if (User.currentLoc === undefined) {
-          getLocation();
-          userLat=userloc.split(',')[0];
-          userLong=userloc.split(',')[1];
-          console.log(userloc);
-        }
-        else{
-          userLat=User.currectLoc.split(',')[0];
-          userLong=User.currectLoc.split(',')[1];
-          console.log(User.currentLoc);
-        }
-
         window.history.pushState("search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
@@ -285,5 +274,5 @@ $(document).ready(function() {
     });
 
   }
-
+  }
 });
