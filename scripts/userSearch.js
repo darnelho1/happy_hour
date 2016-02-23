@@ -219,7 +219,7 @@ $('#searchBox').keypress(function(event) {
               });
             });
             resultSizeChange();
-            mapFunction();
+            // mapFunction();
             var endFlag = false;
 
             $('#resultsOuterBox').bind('scroll', function(){
@@ -292,7 +292,7 @@ $('#searchBox').keypress(function(event) {
                       endFlag = false;
                     }
                   });
-                  mapFunction();
+                  // mapFunction();
               }
             });
         }

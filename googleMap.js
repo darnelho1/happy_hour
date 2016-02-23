@@ -14,6 +14,7 @@
         setMap: map
       });
       directionsDisplay.setMap(map);
+      console.log('clear working');
       $('#turnByTurn').empty();
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
       calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -39,7 +40,7 @@
       } else {
         window.alert('Directions request failed due to ' + status);
       }
-    })
+    });
   }
 
   function mapSize() {
@@ -66,6 +67,7 @@ function mapFunction() {
 
   $('.resultsInfo').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
+    console.log(locationId);
     mapSize();
     $('#resultsOuterBox').hide();
     $('#mapView').show();
