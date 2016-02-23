@@ -176,7 +176,7 @@ $('#searchBox').keypress(function(event) {
         // console.log("Server Success" );
         // console.log(data.url);
         // console.log(data.yelp);
-        window.history.pushState("search/" + data.url, " ","search/?" + data.url);
+        window.history.pushState("search/" + data.url," ","search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
