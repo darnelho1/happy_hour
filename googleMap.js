@@ -65,16 +65,28 @@ function mapFunction() {
   $('.resultsInfo').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
     mapSize();
-    $('#resultsOuterBox').hide();
-    $('#mapView').show();
-    $('#searchBox').hide();
-    $('#backButton').show();
+    $('#resultsOuterBox').addClass('slideOutDown animated');
+    $('#searchBox').addClass('flipOutX animated').removeClass('flipInX');
+    setTimeout(function(){
+      $('#resultsOuterBox').hide();
+      $('#searchBox').hide();
+      $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
+      $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
+    }, 470);
+
+
+
     initMap();
     $('#backButton').on('click', function(event) {
-      $('#resultsOuterBox').show();
-      $('#mapView').hide();
-      $('#searchBox').show();
-      $('#backButton').hide();
+      $('#mapView').addClass('slideOutUp').removeClass('slideInDown');
+      $('#backButton').addClass('flipOutX').removeClass('flipInX');
+      setTimeout(function(){
+        $('#mapView').hide();
+        $('#backButton').hide();
+        $('#searchBox').addClass('flipInX').removeClass('flipOutX').show();
+        $('#resultsOuterBox').removeClass('slideOutDown').show();
+      }, 470);
+
     });
   });
 }
