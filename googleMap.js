@@ -65,16 +65,16 @@ function mapFunction() {
   $('.resultsInfo').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
     mapSize();
-    $('#resultsOuterBox').hide();
-    $('#mapView').show();
-    $('#searchBox').hide();
-    $('#backButton').show();
+    $('#resultsOuterBox').addClass('flipOutX animated').removeClass('flipInX').hide();
+    $('#mapView').addClass('flipInX animated').removeClass('flipOutX').show();
+    $('#searchBox').addClass('flipOutX animated').removeClass('flipInX').hide();
+    $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
     initMap();
     $('#backButton').on('click', function(event) {
-      $('#resultsOuterBox').show();
-      $('#mapView').hide();
-      $('#searchBox').show();
-      $('#backButton').hide();
+      $('#resultsOuterBox').addClass('flipInX').removeClass('flipOutX').show();
+      $('#mapView').addClass('flipOutX').removeClass('flipInX').hide();
+      $('#searchBox').addClass('flipInX').removeClass('flipOutX').show();
+      $('#backButton').addClass('flipOutX').removeClass('flipInX').hide();
     });
   });
 }
