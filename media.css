@@ -12,6 +12,31 @@
   }
 }
 
+@media (max-width: 927px) {
+  .resultImg{
+    margin: auto;
+    margin-bottom: 5%;
+    width: 85%;
+    height: 98%;
+  }
+  .resultHood{
+    margin: 0.3% 0;
+    width: 100%;
+  }
+  .resultHours{
+    margin: 0.3% 0;
+    width: 100%;
+  }
+  .resultType{
+    margin: 0.3% 0;
+    width: 100%;
+  }
+  .resultTitle{
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 767px) {
   /*.fullscreen-bg {
     background: url('') center center / cover no-repeat;
@@ -44,6 +69,9 @@
     justify-content: flex-start;
     -webkit-justify-content: flex-start;
     -moz-justify-content: flex-start;
+    align-content: space-between;
+    -webkit-align-content: space-between;
+    -moz-align-content: space-between;
   }
   .resultBox{
     height: 310px;
@@ -57,6 +85,34 @@
   }
   .resultsExtra{
     width: 100%;
+    margin-bottom: 20px;
+  }
+  .resultImg{
+    margin: auto;
+    margin-bottom: 5%;
+    width: 85%;
+    height: 98%;
+  }
+  .resultHood{
+    margin: 2% 0;
+    width: 100%;
+  }
+  .resultHours{
+    margin: 2% 0;
+    width: 100%;
+  }
+  .resultType{
+    margin: 2% 0;
+    width: 100%;
+  }
+  .resultAddress{
+    width: 70%;
+  }
+  .nowPic{
+    width: 50%;
+    height: 50%;
+    margin-top: -5px;
+    margin-bottom: -10px;
   }
 
   ul{
