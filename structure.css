@@ -226,7 +226,8 @@ main{
 }
 
 .resultTitle{
-  font-size: 2em;
+  width: 100%;
+  font-size: 1.5em;
   font-family: 'Kaushan Script', cursive;
   margin: 0;
   margin-top: 10px;
@@ -261,14 +262,16 @@ main{
   margin-bottom: 0;
 }
 .resultSite {
-margin-top: 0;
-margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .resultAddress{
   cursor: pointer;
   margin-top: 0;
   margin-bottom: 0;
+  margin: 0.3% 0;
+  width: 100%;
 }
 .resultsExtra{
   text-align: right;
@@ -278,18 +281,22 @@ margin-bottom: 0;
   padding-right: 5%;
 }
 .resultHood{
-  margin: 1% 0;
+  margin: 2% 0;
+  width: 100%;
 }
 
 .resultHours{
-  margin: 1% 0;
-}
-.resultAddress{
   margin: 2% 0;
+  width: 100%;
+}
+.resultType{
+  margin: 2% 0;
+  width: 100%;
 }
 .resultSite{
   margin: 0;
   cursor: pointer;
+  width: 100%;
 }
 .loadingImage{
   background-image: url("./images/loading.gif");
@@ -397,6 +404,12 @@ table.adp-placemark{
 #nowNowNow{
   /*height: auto;*/
   width: 20%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
 }
 .nowPic{
   display: none;
