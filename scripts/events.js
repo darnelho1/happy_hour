@@ -6,7 +6,7 @@ $(document).ready(function() {
   var char = 0;
   var num=0;
   var time=0;
-  // flag=true;
+  var endFlag=false;
   $('#searchBox').attr('placeholder', '|');
   var humanize = Math.round(Math.random() * (200 - 24)) + 30;
   function typeIt(x) {
@@ -192,81 +192,6 @@ $(document).ready(function() {
             });
             resultSizeChange();
             mapFunction();
-            var endFlag = false;
-
-            $('#resultsOuterBox').bind('scroll', function(){
-              if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) && (endFlag === false)){
-                endFlag = true;
-                var lastResult = $('#results').children(':last-child').attr('id');
-                uniqueArray.forEach(function(v) {
-                  if (v.id === lastResult) {
-                    lastResult = v.coordinate;
-                  }
-                });
-                // console.log(lastResult);
-                var resLat = lastResult.latitude + 0.0239;
-                var resLong = lastResult.longitude + 0.0239;
-                User.currectLoc = resLat + ", "+ resLong;
-                User.reqNeighborhood = "";
-                // console.log(lastResult);
-                $.post( "/resultsMore",{searchCrit:User}, function(data) {
-                  console.log( "success" );
-                })
-                  .done(function(data) {
-                    console.log("Server Success" );
-                    // console.log(data);
-
-                    if (data.hasOwnProperty('statusCode')){
-                      console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
-                      alert("There was a problem processing your request. Please try again or check the console for more information");
-                    }
-                    else {
-                      var moreArray = [];
-                      var uniqueMoreArray = [];
-                      var newResults = [];
-                      data.forEach(function(x){
-                          happyHourArray.forEach(function(y) {
-                            if (x.id === y.id) {
-                              x.happyHour=y.happyHour;
-                              var place = new Places(x);
-                              moreArray.push(place);
-                            }
-                          });
-                        });
-                        uniqueMoreArray=_.uniq(moreArray,function(x){
-                          return x.name;
-                        });
-                        // console.log(uniqueMoreArray);
-                        uniqueMoreArray.forEach(function(u) {
-                          var count = 0;
-                          uniqueArray.forEach(function(a){
-                            if (u.id !== a.id) {
-                              count++;
-                              console.log('same');
-                              // console.log(count);
-                              // console.log(uniqueArray.length);
-                            }
-                            if (count === uniqueArray.length) {
-                              newResults.push(u);
-                              uniqueArray.push(u);
-                              // console.log(newResults);
-                            }
-                          });
-                        });
-
-                      var template = $('#restTemplate').html();
-                      var compileTemplate = Handlebars.compile(template);
-                      newResults.forEach(function(each) {
-                        var html = compileTemplate(each);
-                        $('#results').append(html);
-                        $('#results').addClass('fadeInUpBig animated');
-                      });
-                      endFlag = false;
-                    }
-                  });
-                  mapFunction();
-              }
-            });
         }
     })
       .fail(function() {
@@ -278,4 +203,78 @@ $(document).ready(function() {
 
   }
   }
+  $('#resultsOuterBox').scroll(function(){
+    if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight-1) && (endFlag === false)){
+      console.log('happening');
+      endFlag = true;
+      var lastResult = $('#results').children(':last-child').attr('id');
+      uniqueArray.forEach(function(v) {
+        if (v.id === lastResult) {
+          lastResult = v.coordinate;
+        }
+      });
+      // console.log(lastResult);
+      var resLat = lastResult.latitude + 0.0239;
+      var resLong = lastResult.longitude + 0.0239;
+      User.currectLoc = resLat + ", "+ resLong;
+      User.reqNeighborhood = "";
+      // console.log(lastResult);
+      $.post( "/resultsMore",{searchCrit:User}, function(data) {
+        console.log( "success" );
+      })
+        .done(function(data) {
+          console.log("Server Success" );
+          // console.log(data);
+
+          if (data.hasOwnProperty('statusCode')){
+            console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
+            alert("There was a problem processing your request. Please try again or check the console for more information");
+          }
+          else {
+            var moreArray = [];
+            var uniqueMoreArray = [];
+            var newResults = [];
+            data.forEach(function(x){
+                happyHourArray.forEach(function(y) {
+                  if (x.id === y.id) {
+                    x.happyHour=y.happyHour;
+                    var place = new Places(x);
+                    moreArray.push(place);
+                  }
+                });
+              });
+              uniqueMoreArray=_.uniq(moreArray,function(x){
+                return x.name;
+              });
+              // console.log(uniqueMoreArray);
+              uniqueMoreArray.forEach(function(u) {
+                var count = 0;
+                uniqueArray.forEach(function(a){
+                  if (u.id !== a.id) {
+                    count++;
+                    console.log('same');
+                    // console.log(count);
+                    // console.log(uniqueArray.length);
+                  }
+                  if (count === uniqueArray.length) {
+                    newResults.push(u);
+                    uniqueArray.push(u);
+                    // console.log(newResults);
+                  }
+                });
+              });
+
+            var template = $('#restTemplate').html();
+            var compileTemplate = Handlebars.compile(template);
+            newResults.forEach(function(each) {
+              var html = compileTemplate(each);
+              $('#results').append(html);
+              $('#results').addClass('fadeInUpBig animated');
+            });
+            endFlag = false;
+          }
+        });
+        mapFunction();
+    }
+  });
 });
