@@ -20,6 +20,7 @@ var User = {
 var userloc;
 var userLat;
 var userLong;
+var entered = false;
 
 $('#mapView').hide();
 $('#backButton').hide();
@@ -165,6 +166,8 @@ function sortLocations(locations, lat, lng) {
 
 $('#searchBox').keypress(function(event) {
   if(event.which===13){
+  if(entered === false){
+    entered = true;
     $('#results').empty();
     yelpSearchResults=[];
     reducedArray = [];
@@ -297,11 +300,13 @@ $('#searchBox').keypress(function(event) {
                       });
                       endFlag = false;
                     }
+
                   });
                   // mapFunction();
               }
             });
         }
+        entered = false;
     })
       .fail(function() {
         alert("Error Communicating With Server");
@@ -310,4 +315,5 @@ $('#searchBox').keypress(function(event) {
         // console.log("finished");
     });
   }
+}
 });
