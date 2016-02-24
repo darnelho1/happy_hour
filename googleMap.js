@@ -27,6 +27,10 @@
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     var selectedMode = document.getElementById('mode').value;
+    console.log('users lat and long');
+    console.log(userLat + " and " + userLong);
+    console.log('location picked id');
+    console.log(locationId);
     directionsService.route({
       origin: userLat + ', ' + userLong,
       destination: locationId,
@@ -37,7 +41,7 @@
       } else {
         window.alert('Directions request failed due to ' + status);
       }
-    })
+    });
   }
 
   function mapSize() {
@@ -64,6 +68,7 @@ function mapFunction() {
 
   $('.resultsInfo').on('click', function(event) {
     locationId = $(this).find('.resultAddress').text();
+    console.log(locationId);
     mapSize();
     $('#resultsOuterBox').addClass('slideOutDown animated');
     $('#searchBox').addClass('flipOutX animated').removeClass('flipInX');
@@ -72,11 +77,8 @@ function mapFunction() {
       $('#searchBox').hide();
       $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
       $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
+      initMap();
     }, 470);
-
-
-
-    initMap();
     $('#backButton').on('click', function(event) {
       $('#mapView').addClass('slideOutUp').removeClass('slideInDown');
       $('#backButton').addClass('flipOutX').removeClass('flipInX');
