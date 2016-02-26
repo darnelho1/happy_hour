@@ -137,6 +137,7 @@ $(document).ready(function() {
       console.log( "success" );
     })
       .done(function(data) {
+        $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
         // console.log("Server Success" );
         // console.log(data.url);
         console.log(data.yelp);
@@ -167,12 +168,11 @@ $(document).ready(function() {
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
-            $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
-            $('.backgroundVid').css('background-color', 'rgba(0, 0, 0, 0)');
+            $('.backgroundVid').css('background-color', 'rgba(250, 250, 250, 0)');
             $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             setTimeout(function() {
               $('.fullscreen-bg__video').hide();
-            },500);
+            },540);
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);

@@ -8,8 +8,8 @@ function Places(obj) {
   this.address = obj.location.display_address.join(' '),
   this.neighborhood = _.flatten(obj.location.neighborhoods),
   this.happyHour = obj.happyHour,
-  this.img = obj.image_url,
-  this.website = obj.url
+  this.img = obj.img,
+  this.website = obj.website
 }
 var User = {
   currectLoc: "",
@@ -180,17 +180,26 @@ $('#searchBox').keypress(function(event) {
         // console.log("Server Success" );
         // console.log(data.url);
         // console.log(data.yelp);
+        $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
         window.history.pushState("search/" + data.url," ","search/?" + data.url);
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
+          console.log('usersearch 189 forEach');
           data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
+                  console.log(y);
+                  console.log(y.logo);
+                  console.log(y.website);
                   x.happyHour=y.happyHour;
+                  x.img  = y.logo;
+                  console.log(x.img);
+                  x.website = y.website;
                   var place = new Places(x);
+                  console.log(place);
                   resultsArray.push(place);
                 }
               });
@@ -200,18 +209,17 @@ $('#searchBox').keypress(function(event) {
               // console.log('working');
               $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
             }
-
             hhTimes(resultsArray);
             // console.log(resultsArray);
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
-            $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
-            $('.backgroundVid').css('background-color', 'rgba(0, 0, 0, 0)');
+            $('.backgroundVid').css('background-color', 'rgba(250, 250, 250, 0)');
             $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             setTimeout(function() {
+              console.log('time Done');
               $('.fullscreen-bg__video').hide();
-            },500);
+            },540);
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
