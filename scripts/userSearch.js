@@ -8,8 +8,8 @@ function Places(obj) {
   this.address = obj.location.display_address.join(' '),
   this.neighborhood = _.flatten(obj.location.neighborhoods),
   this.happyHour = obj.happyHour,
-  this.img = obj.image_url,
-  this.website = obj.url
+  this.img = obj.img,
+  this.website = obj.website
 }
 var User = {
   currectLoc: "",
@@ -191,11 +191,19 @@ $('#searchBox').keypress(function(event) {
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
+          console.log('usersearch 189 forEach');
           data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
+                  console.log(y);
+                  console.log(y.logo);
+                  console.log(y.website);
                   x.happyHour=y.happyHour;
+                  x.img  = y.logo;
+                  console.log(x.img);
+                  x.website = y.website;
                   var place = new Places(x);
+                  console.log(place);
                   resultsArray.push(place);
                 }
               });
