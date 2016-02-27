@@ -44,8 +44,13 @@ app.post('/resultsMore',function(req,res){
   // console.log(req.body.searchCrit);
   userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
-  if(userSearchReq.reqNeighborhood===""){
-    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
+  if(userSearchReq.reqNeighborhood===undefined){
+    yelp.search(
+      {
+        term:'happy hour '+ userSearchReq.terms,
+        ll:userSearchReq.currectLoc||"47.6097,-122.3331",
+        limit:20
+      }).then(function(data){
       console.log(data.businesses);
       searchResults=data.businesses;
       res.send(searchResults);
@@ -55,7 +60,13 @@ app.post('/resultsMore',function(req,res){
     });
   }
   else{
-  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+  yelp.search(
+    {
+      term:'happy hour '+ userSearchReq.terms,
+      location:userSearchReq.reqNeighborhood,
+      cll:userSearchReq.currectLoc||"47.6097,-122.3331",
+      limit:20
+    }).then(function(data){
     console.log(data.businesses);
     searchResults=data.businesses;
     res.send(searchResults);
@@ -67,15 +78,20 @@ app.post('/resultsMore',function(req,res){
 });
 
 app.post('/search',function(req,res){
-  console.log(req.body.searchCrit);
+  // console.log(req.body.searchCrit);
   userSearchReq = req.body.searchCrit;
   console.log(userSearchReq);
   var searchString = querystring.stringify({terms:userSearchReq.terms, reqNeighborhood:userSearchReq.reqNeighborhood, currectLoc:userSearchReq.currectLoc});
-  console.log('the string:');
-  console.log(searchString);
-  if(userSearchReq.reqNeighborhood===""){
-    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
-      // console.log(data.businesses);
+  // console.log('the string:');
+  // console.log(searchString);
+  if(userSearchReq.reqNeighborhood===undefined){
+    yelp.search(
+      {
+        term:'happy hour '+ userSearchReq.terms,
+        ll:userSearchReq.currectLoc||"47.6097,-122.3331",
+        limit:20
+      }).then(function(data){
+      console.log(data);
       searchResults = { yelp :data.businesses, url: searchString};
       res.send(searchResults);
     }).catch(function(error){
@@ -85,7 +101,13 @@ app.post('/search',function(req,res){
   }
 
   else{
-  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+  yelp.search(
+    {
+      term:'happy hour '+ userSearchReq.terms,
+      location:userSearchReq.reqNeighborhood,
+      cll:userSearchReq.currectLoc||"47.6097,-122.3331",
+      limit:20
+    }).then(function(data){
     // console.log(data.businesses);
     searchResults = { yelp :data.businesses, url: searchString};
     res.send(searchResults);
@@ -96,31 +118,31 @@ app.post('/search',function(req,res){
   }
 });
 
-app.post('/resultsMore',function(req,res){
-  // console.log(req.body.searchCrit);
-  userSearchReq = req.body.searchCrit;
-  console.log(userSearchReq);
-  if(userSearchReq.reqNeighborhood===""){
-    yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
-      console.log(data.businesses);
-      searchResults=data.businesses;
-      res.send(searchResults);
-    }).catch(function(error){
-      res.send(error);
-      console.log(error);
-    });
-  }
-  else{
-  yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
-    console.log(data.businesses);
-    searchResults=data.businesses;
-    res.send(searchResults);
-  }).catch(function(error){
-    res.send(error);
-    console.log(error);
-  });
-  }
-});
+// app.post('/resultsMore',function(req,res){
+//   // console.log(req.body.searchCrit);
+//   userSearchReq = req.body.searchCrit;
+//   console.log(userSearchReq);
+//   if(userSearchReq.reqNeighborhood===""){
+//     yelp.search({term:'happy hour '+ userSearchReq.terms,ll:userSearchReq.currectLoc,limit:20}).then(function(data){
+//       console.log(data.businesses);
+//       searchResults=data.businesses;
+//       res.send(searchResults);
+//     }).catch(function(error){
+//       res.send(error);
+//       console.log(error);
+//     });
+//   }
+//   else{
+//   yelp.search({term:'happy hour '+ userSearchReq.terms,location:userSearchReq.reqNeighborhood,cll:userSearchReq.currectLoc,limit:20}).then(function(data){
+//     console.log(data.businesses);
+//     searchResults=data.businesses;
+//     res.send(searchResults);
+//   }).catch(function(error){
+//     res.send(error);
+//     console.log(error);
+//   });
+//   }
+// });
 
 
 

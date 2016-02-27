@@ -13,7 +13,7 @@ function Places(obj) {
 }
 var User = {
   currectLoc: "",
-  reqNeighborhood:'',
+  reqNeighborhood:undefined,
   terms:""
 };
 
@@ -77,10 +77,12 @@ var bgroundImg = ['/images/backBrew.jpg', '/images/optimismBrewing.jpg', '/image
 
 var searchParser= function(){
   //Ensure you bind this to the element calling it.
-  console.log('Parse Location test');
+  // console.log('Parse Location test');
   console.log(userloc);
-  userLat=userloc.split(',')[0];
-  userLong=userloc.split(',')[1];
+  if(userLat!==undefined){
+    userLat=userloc.split(',')[0];
+    userLong=userloc.split(',')[1];
+  }
   userSearchData=$(this).val();
   yelpNeighborhoods.forEach(function(x){
     if(userSearchData.toUpperCase().indexOf(x)>-1){
@@ -91,7 +93,7 @@ var searchParser= function(){
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
   User.currectLoc=userloc;
 
-  // console.log(User);
+  console.log(User);
 };
 
 hhNow=function(x){
