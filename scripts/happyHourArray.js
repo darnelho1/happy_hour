@@ -1,14 +1,14 @@
 var happyHourArray = [
   {id: 'radiator-whiskey-seattle',
     happyHour:{
-      Monday:[["16:00","22:00"],["18:00","26:00"]],//Format [[Happy Hour Start Time],[Happy Hour End time]]
+      Monday:[["16:00","22:00"],["18:00","26:00"]],//Format [[Happy Hour Start Time],[Happy Hour End time]] days with mutliple happy hour times can add aditional times in the respective arrays as new array items.
       Tuesday:[["16:00","22:00"],["18:00","26:00"]],//Format [[Happy Hour Start Time],[Happy Hour End time]]
       Wednesday:[["16:00","22:00"],["18:00","26:00"]],//Format [[Happy Hour Start Time],[Happy Hour End time]]
       Thursday:[["16:00","22:00"],["18:00","26:00"]],//Format [[Happy Hour Start Time],[Happy Hour End time]]
       Friday:[["16:00","22:00"],["18:00","26:00"]]//Format [[Happy Hour Start Time],[Happy Hour End time]]
       },
-    website: '',
-    logo: ''
+    website: 'http://radiatorwhiskey.com/',
+    logo: 'http://radiatorwhiskey.com/images/rwlogo.png'
   },
   {
     id: 'list-seattle',
@@ -20,7 +20,7 @@ var happyHourArray = [
       Thursday:[["16:00","21:00"],["17:30","26:00"]],
       Friday:[["16:00"],["17:30"]]
       },
-    website: '',
+    website: 'http://www.listbelltown.com/happyhour.html',
     logo: ''
   },
   {
@@ -32,8 +32,8 @@ var happyHourArray = [
       Thursday:[["17:00"],["19:00"]],
       Friday:[["17:00"],["19:00"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://zigzagseattle.com/',
+    logo: 'http://zigzagseattle.com/images/zzlogo_alone.png'
   },
   {
     id: 'bottlehouse-seattle',
@@ -44,8 +44,8 @@ var happyHourArray = [
       Thursday:[["15:00"],["18:00"]],
       Friday:[["15:00"],["18:00"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://bottlehouseseattle.com/',
+    logo: 'http://bottlehouseseattle.com/img/logo.png'
   },
   {
     id: 'the-sixgill-seattle',
@@ -56,8 +56,8 @@ var happyHourArray = [
       Thursday:[["16:00"],["18:00"]],
       Friday:[["16:00"],["18:00"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://thesixgill.com',
+    logo: 'http://thesixgill.com/wp-content/uploads/2016/02/footer-logo.png'
   },
   {
     id: 'russells-seattle',
@@ -70,8 +70,8 @@ var happyHourArray = [
       Friday:[["16:00"],["18:00"]],
       Saturday:[["16:00"],["18:00"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://www.russellsseattle.com/',
+    logo: 'http://static1.squarespace.com/static/5335eab3e4b0de4b29013608/t/5338b617e4b092d3a372d705/1437504446862/?format=750w'
   },
   {
     id:'the-noble-fir-seattle',
@@ -84,8 +84,8 @@ var happyHourArray = [
       Friday:[["16:00"],["18:30"]],
       Saturday:[["16:00"],["18:30"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://www.thenoblefir.com/',
+    logo: 'https://pbs.twimg.com/profile_images/608711897878175744/PPlare0L.jpg'
   },
   {
     id:'latona-pub-seattle',
@@ -98,8 +98,8 @@ var happyHourArray = [
       Friday:[["16:30"],["18:30"]],
       Saturday:[["16:30"],["18:30"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://www.3pubs.com/Latona.html',
+    logo: 'http://www.3pubs.com/Latona_files/Latona.png'
   },
   {
     id:'brouwers-cafe-seattle',
@@ -111,8 +111,8 @@ var happyHourArray = [
       Thursday:[["15:00"],["18:00"]],
       Friday:[["15:00"],["18:00"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://brouwerscafe.blogspot.com/',
+    logo: 'http://4.bp.blogspot.com/_UO8TWvT3_6Q/SosfwM5Ke1I/AAAAAAAAABM/JYTvcX1sgpI/S1600-R/brouwerslogo_white.jpg'
   },
   {
     id:'witness-seattle',
@@ -125,8 +125,8 @@ var happyHourArray = [
       Friday:[["16:00"],["18:00"]],
       Saturday:[["16:00"],["18:00"]]
     },
-    website: '',
-    logo: ''
+    website: 'http://witnessbar.com/',
+    logo: 'http://witnessbar.com/wp-content/uploads/2013/08/logo.png'
   },
   {
     id:'über-tavern-seattle-2',
@@ -139,8 +139,8 @@ var happyHourArray = [
       Friday:[["16:00"],["18:00"]],
       Saturday:[["16:00"],["18:00"]]
     },
-    website: '',
-    logo: ''
+    website: 'http://www.uberbier.com/',
+    logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'
   },
   {
     id:'yoroshiku-seattle-4',
@@ -151,8 +151,8 @@ var happyHourArray = [
       Friday:[["17:00"],["18:30"]],
       Saturday:[["17:00"],["18:30"]]
       },
-    website: '',
-    logo: ''
+    website: 'http://yoroshikuseattle.com/',
+    logo: 'http://yoroshikuseattle.com/img/logo-horizontal.png'
   },
   {
     id: 'sun-liquor-seattle',
@@ -165,8 +165,8 @@ var happyHourArray = [
       Friday:[["16:00"],["19:00"]],
       Saturday:[["16:00"],["19:00"]]
     },
-    website: '',
-    logo: ''
+    website: 'http://www.sunliquor.com/ourstory/',
+    logo: 'http://www.sunliquor.com/img/logo.png'
   },
   {
     id: 'betty-seattle',
@@ -179,7 +179,7 @@ var happyHourArray = [
       Friday:[["16:30"],["18:00"]],
       Saturday:[["16:30"],["18:00"]]
       },
-    website: '',
+    website: 'http://www.eatatbetty.com/',
     logo: ''},
   {
     id: 'the-octopus-bar-seattle',
@@ -192,8 +192,8 @@ var happyHourArray = [
       Friday:[["15:30"],["18:30"]],
       Saturday:[["15:30"],["18:30"]]
       },
-    website: '',
-    logo: ''},
+    website: 'https://theoctopusbar.com/',
+    logo: 'http://www.wallyhood.org/wp-content/uploads/2014/01/photo-25-600x449.jpg'},
   {
     id: 'the-forge-lounge-seattle',
     happyHour: {
@@ -205,8 +205,8 @@ var happyHourArray = [
       Saturday:[['15:00'],['19:00']],
       Sunday:[['15:00'],['19:00']]
       },
-    website: '',
-    logo: ''
+    website: 'http://www.theforgelounge.com/',
+    logo: 'http://www.theforgelounge.com/images/page2-img1.jpg'
   },
   {
     id: 'toulouse-petit-seattle',
@@ -219,8 +219,8 @@ var happyHourArray = [
       Saturday:[['16:00','22:00'],['18:00','25:00']],
       Sunday:[['16:00','22:00'],['18:00','25:00']]
       },
-    website: '',
-    logo: ''
+    website: 'http://toulousepetit.com/',
+    logo: 'http://bg5wx2yuc202yg10std15dl8.wpengine.netdna-cdn.com/wp-content/uploads/sites/11/2015/09/toulouse_logo_gold1.jpg'
   },
   {
     id: 'taylor-shellfish-oyster-bar-seattle',
@@ -231,8 +231,8 @@ var happyHourArray = [
       Thursday:[['15:00'],['18:00']],
       Friday:[['15:00'],['18:00']]
       },
-    website: '',
-    logo: ''
+    website: 'http://www.taylorshellfishfarms.com/',
+    logo: 'http://farm9.static.flickr.com/8048/8444955064_db5ffe57b0_o.jpg'
   },
   {
     id: 'damn-the-weather-seattle',
@@ -243,7 +243,9 @@ var happyHourArray = [
       Thursday:[['15:00'],['18:30']],
       Friday:[['15:00'],['18:30']]
       },
-    website: '', logo: ''},
+    website: 'http://damntheweather.com/',
+    logo: ''
+  },
   {
     id: 'suika-seattle-seattle',
     happyHour:{
@@ -252,7 +254,7 @@ var happyHourArray = [
       Saterday:[['15:00'],['18:30']],
       Sunday:[['15:00'],['18:30']]
       },
-    website: '',
+    website: 'http://suikaseattle.com/',
     logo: ''
   },
   {
@@ -266,8 +268,8 @@ var happyHourArray = [
       Saterday:[['15:00'],['18:00']],
       Sunday:[['15:00','22:00'],['18:00','26:00']]
     },
-    website: '',
-    logo: ''},
+    website: 'http://triumphbar.com/',
+    logo: 'http://triumphbar.com/images/triumph_logo_opti%202.png'},
   {
     id: 'quinns-seattle',
     happyHour:{
@@ -279,65 +281,254 @@ var happyHourArray = [
       Saterday:[['15:00'],['18:00']],
       Sunday:[['15:00'],['18:00']]
       },
-    website: '',
-    logo: ''
-  },
-  {
-    id: 'sun-liquor-seattle',
-    happyHour:{
-      Monday:[['16:00'],['19:00']],
-      Tuesday:[['16:00'],['19:00']],
-      Wednesday:[['16:00'],['19:00']],
-      Thursday:[['16:00'],['19:00']],
-      Friday:[['16:00'],['19:00']],
-      Saterday:[['16:00'],['19:00']],
-      Sunday:[['16:00'],['19:00']]
-      },
-    website: '',
-    logo: ''
-  },
-  {
-    id:'the-noble-fir-seattle',
-    happyHour: {
-      Sunday:[["16:00"],["18:30"]],
-      Monday:[["16:00"],["18:30"]],
-      Tuesday:[["16:00"],["18:30"]],
-      Wednesday:[["16:00"],["18:30"]],
-      Thursday:[["16:00"],["18:30"]],
-      Friday:[["16:00"],["18:30"]],
-      Saturday:[["16:00"],["18:30"]]
+    website: 'http://www.quinnspubseattle.com/',
+    logo: 'http://www.kaleberg.com/seattle/quinns.jpg'
+},
+{
+  id:'the-gerald-seattle',
+  happyHour: {
+    Sunday:[["16:00","22:30"],["18:00","26:00"]],
+    Monday:[["16:00","22:30"],["18:00","26:00"]],
+    Tuesday:[["16:00","22:30"],["18:00","26:00"]],
+    Wednesday:[["16:00","22:30"],["18:00","26:00"]],
+    Thursday:[["16:00","22:30"],["18:00","26:00"]],
+    Saturday:[["16:00","22:30"],["18:00","26:00"]]
     },
-    website: '',
-    logo: ''}
+  website: 'http://thegeraldseattle.com/',
+  logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'
+},
+{
+  id:'stoneburner-seattle',
+  happyHour: {
+    Sunday:[["15:00"],["17:00"]],
+    Monday:[["15:00"],["17:00"]],
+    Tuesday:[["15:00"],["17:00"]],
+    Wednesday:[["15:00"],["17:00"]],
+    Thursday:[["15:00"],["17:00"]],
+    Friday:[["15:00"],["17:00"]],
+    Saturday:[["15:00"],["17:00"]]
+    },
+  website: 'https://www.stoneburnerseattle.com/56301/happy-hour',
+  logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'
+},
+{
+  id:'percys-and-co-seattle',
+  happyHour: {
+    Sunday:[["16:00"],["18:00"]],
+    Monday:[["16:00"],["26:00"]],
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Saturday:[["16:00"],["18:00"]]
+    },
+  website: 'http://www.percysseattle.com/',
+  logo: 'http://www.percysseattle.com/assets/images/logo.png'
+},
+{
+  id:'la-isla-cuisine-seattle',
+  happyHour: {
+    Sunday:[["15:00","22:00"],["18:00","25:00"]],
+    Monday:[["15:00","22:00"],["18:00","25:00"]],
+    Tuesday:[["15:00","22:00"],["18:00","25:00"]],
+    Wednesday:[["15:00","22:00"],["18:00","25:00"]],
+    Thursday:[["15:00","22:00"],["18:00","25:00"]],
+    Friday:[["15:00","22:00"],["18:00","25:00"]],
+    Saturday:[["15:00","22:00"],["18:00","25:00"]]
+  },
+  website: 'http://laislacuisine.com/',
+  logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'
+},
+{
+  id: 'the-walrus-and-the-carpenter-seattle',
+  happyHour: {
+    Monday:[["16:00"],["18:00"]],
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]]
+    },
+  website: 'http://www.thewalrusbar.com/',
+  logo: 'http://www.thewalrusbar.com/assets/images/home-illustration.png'
+},
+{
+  id: 'highliner-public-house-seattle',
+  happyHour: {
+    Sunday:[["16:00"],["18:00"]],
+    Monday:[["16:00"],["18:00"]],
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Friday:[["16:00"],["18:00"]],
+    Saturday:[["16:00"],["18:00"]]
+    },
+  website: 'http://www.highlinerpub.net/',
+  logo: 'https://pbs.twimg.com/profile_images/644624425459908608/Q5KQTLg2.png'
+},
+{
+  id: 'the-leary-traveler-seattle',
+  happyHour: {
+    Monday:[["16:00"],["18:00"]],
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Friday:[["16:00"],["18:00"]]
+    },
+  website: 'http://www.learytraveler.com/home',
+  logo: 'https://s3-us-west-2.amazonaws.com/re.leary/logo.icon.lg.png'
+},
+{
+  id: 'ballard-station-public-house-seattle',
+  happyHour: {
+    Sunday:[["16:00","23:00"],["18:00","26:00"]],
+    Monday:[["16:00","23:00"],["18:00","26:00"]],
+    Tuesday:[["16:00","23:00"],["18:00","26:00"]],
+    Wednesday:[["16:00","23:00"],["18:00","26:00"]],
+    Thursday:[["16:00","23:00"],["18:00","26:00"]],
+    Friday:[["16:00"],["18:00"]],
+    },
+  website: 'http://theballardstation.com/',
+  logo: 'http://theballardstation.com/wp-content/themes/BallardStation/images/logo.png'
+},
+{
+  id: 'bastille-cafe-and-bar-seattle-2',
+  happyHour: {
+    Sunday:[["16:30"],["18:00"]],
+    Monday:[["16:30","22:00"],["18:00","23:00"]],
+    Tuesday:[["16:30","22:00"],["18:00","23:00"]],
+    Wednesday:[["16:30","22:00"],["18:00","23:00"]],
+    Thursday:[["16:30","22:00"],["18:00","23:00"]],
+    Friday:[["16:30"],["18:00"]],
+    Saturday:[["16:30"],["18:00"]]
+    },
+  website: 'http://www.bastilleseattle.com/home',
+  logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/a29d5c88-c041-450b-aeb4-d70cc726d242_l.png'
+},
+{
+  id: 'bad-jimmys-brewing-co-seattle',
+  happyHour: {
+    Sunday:[["22:00"],["24:00"]],
+    Monday:[["22:00"],["24:00"]],
+    Tuesday:[["22:00"],["24:00"]],
+    Wednesday:[["22:00"],["24:00"]],
+    Thursday:[["22:00"],["24:00"]]
+    },
+  website: 'http://www.badjimmysbrewingco.com/#home',
+  logo: 'http://static1.squarespace.com/static/533fe1d1e4b0889aa7ac2ca4/t/53b25115e4b0968d2960608e/1404195148957/?format=1000w'
+},
+{
+  id: 'jolly-roger-taproom-seattle',
+  happyHour: {
+    Monday:[["15:00"],["18:00"]],
+    Tuesday:[["15:00"],["18:00"]],
+    Wednesday:[["15:00"],["18:00"]],
+    Thursday:[["15:00"],["18:00"]],
+    Friday:[["15:00"],["18:00"]]
+    },
+  website: 'http://maritimebrewery.com/',
+  logo: 'http://maritimebrewery.com/userimages/49.gif'
+},
+{
+  id: '8oz-burger-and-co-seattle',
+  happyHour: {
+    Sunday:[["16:00","21:00"],["18:00","22:00"]],
+    Monday:[["16:00","21:00"],["18:00","23:00"]],
+    Tuesday:[["16:00","21:00"],["18:00","23:00"]],
+    Wednesday:[["16:00","21:00"],["18:00","23:00"]],
+    Thursday:[["16:00","21:00"],["18:00","23:00"]],
+    Friday:[["16:00","21:00"],["18:00","24:00"]],
+    Saturday:[["16:00","21:00"],["18:00","24:00"]]
+    },
+  website: 'http://8ozburgerbarsea.com/',
+  logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'
+},
+{
+  id: '8oz-burger-and-co-seattle-6',
+  happyHour: {
+    Sunday:[["16:00","21:00"],["18:00","22:00"]],
+    Monday:[["16:00","21:00"],["18:00","22:00"]],
+    Tuesday:[["16:00","21:00"],["18:00","22:00"]],
+    Wednesday:[["16:00","21:00"],["18:00","22:00"]],
+    Thursday:[["16:00","21:00"],["18:00","22:00"]],
+    Friday:[["16:00","21:00"],["18:00","23:00"]],
+    Saturday:[["16:00","21:00"],["18:00","23:00"]]
+    },
+  website: 'http://8ozburgerbarsea.com/',
+  logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'
+},
+{
+  id: 'the-hideout-seattle',
+  happyHour: {
+    Sunday:[["16:00"],["19:00"]],
+    Monday:[["16:00"],["19:00"]],
+    Tuesday:[["16:00"],["19:00"]],
+    Wednesday:[["16:00"],["19:00"]],
+    Thursday:[["16:00"],["19:00"]],
+    Friday:[["16:00"],["19:00"]],
+    Saturday:[["16:00"],["19:00"]]
+    },
+  website: 'http://www.hideoutseattle.com/',
+  logo: 'http://www.hideoutseattle.com/images/img_header.gif'
+},
+{
+  id: 'soi-seattle',
+  happyHour: {
+    Sunday:[["15:00","22:00"],["18:00","23:00"]],
+    Monday:[["15:00","22:00"],["18:00","23:00"]],
+    Tuesday:[["15:00","22:00"],["18:00","23:00"]],
+    Wednesday:[["15:00","22:00"],["18:00","23:00"]],
+    Thursday:[["15:00","22:00"],["18:00","23:00"]],
+    Friday:[["15:00","23:00"],["18:00","24:00"]],
+    Saturday:[["15:00","23:00"],["18:00","24:00"]]
+  },
+  website: 'http://www.soicapitolhill.com/',
+  logo: 'http://www.soicapitolhill.com/i/soi.png'
+},
+{
+  id: 'vitos-seattle',
+  happyHour: {
+    Sunday:[["16:00"],["19:00"]],
+    Monday:[["16:00"],["19:00"]],
+    Tuesday:[["16:00"],["19:00"]],
+    Wednesday:[["16:00"],["19:00"]],
+    Thursday:[["16:00"],["19:00"]],
+    Friday:[["16:00"],["19:00"]],
+    Saturday:[["16:00"],["19:00"]]
+    },
+  website: 'http://vitosseattle.com/',
+  logo: 'http://vitosseattle.com/images/pixel.png'
+},
+{
+  id: 'the-fireside-room-seattle',
+  happyHour: {
+    Sunday:[["16:00"],["18:00"]],
+    Monday:[["16:00"],["18:00"]],
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Friday:[["16:00"],["18:00"]],
+    Saturday:[["16:00"],["18:00"]]
+    },
+  website: 'http://hotelsorrento.com/food-drink#fireside-room',
+  logo: ''
+},
+{
+  id: 'jimmys-on-broadway-seattle',
+  happyHour: {
+    Sunday:[["15:00","21:00"],["18:00","23:00"]],
+    Monday:[["15:00","21:00"],["18:00","23:00"]],
+    Tuesday:[["15:00","21:00"],["18:00","23:00"]],
+    Wednesday:[["15:00","21:00"],["18:00","23:00"]],
+    Thursday:[["15:00","21:00"],["18:00","23:00"]],
+    Friday:[["15:00","21:00"],["18:00","23:00"]],
+    Saturday:[["15:00","21:00"],["18:00","23:00"]]
+    },
+  website: 'http://jimmysonbroadway.com/',
+  logo: ''
+},
+
 ];
-// {id:'the-cozy-nut-tavern-seattle', happyHour: '', website: '', logo: ''},
-// {id:'the-noble-fir-seattle', happyHour: '', website: '', logo: ''},
-// {id:'hazlewood-seattle', happyHour: '', website: '', logo: ''},
-// {id:'ocho-seattle', happyHour: '', website: '', logo: ''},
-// {id:'the-gerald-seattle', happyHour: '', website: '', logo: ''},
-// {id:'stoneburner-seattle', happyHour: '', website: '', logo: ''},
-// {id:'percys-and-co-seattle', happyHour: '', website: '', logo: ''},
-// {id:'la-isla-cuisine-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'the-walrus-and-the-carpenter-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'highliner-public-house-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'the-leary-traveler-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'ballard-station-public-house-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'essex-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'kings-hardware-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'the-tin-hat-seattle-2', happyHour: '', website: '', logo: ''},
-// {id: 'bastille-cafe-and-bar-seattle-2', happyHour: '', website: '', logo: ''},
-// {id: 'olafs-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'bad-jimmys-brewing-co-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'the-sixgill-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'jolly-roger-taproom-seattle', happyHour: '', website: '', logo: ''},
-// {id: '8oz-burger-and-co-seattle-6', happyHour: '', website: '', logo: ''},
-// {id: 'the-hideout-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'honeyhole-seattle', happyHour: '', website: '', logo: ''},
-// {id: '8oz-burger-and-co-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'soi-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'vitos-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'the-fireside-room-seattle', happyHour: '', website: '', logo: ''},
-// {id: 'jimmys-on-broadway-seattle', happyHour: '', website: '', logo: ''},
+
+
+
 // {id: 'moe-bar-seattle', happyHour: '', website: '', logo: ''},
 // {id: 'via-tribunali-seattle', happyHour: '', website: '', logo: ''},
 // {id: 'primo-seattle', happyHour: '', website: '', logo: ''},
