@@ -284,7 +284,6 @@
                   mapFunction();
               }
             });
-            // scrollFun();
             resultSizeChange();
             mapFunction();
         }
@@ -388,3 +387,6 @@
     // });
   };
 // });
+$('#homeBut').on('click', function(event) {
+window.open("index.html", '_self');
+});
