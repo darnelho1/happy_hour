@@ -217,7 +217,7 @@ $(document).ready(function() {
       var resLat = lastResult.latitude + 0.0239;
       var resLong = lastResult.longitude + 0.0239;
       User.currectLoc = resLat + ", "+ resLong;
-      User.reqNeighborhood = "";
+      User.reqNeighborhood = undefined;
       // console.log(lastResult);
       $.post( "/resultsMore",{searchCrit:User}, function(data) {
         console.log( "success" );
