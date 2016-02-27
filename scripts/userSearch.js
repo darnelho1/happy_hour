@@ -248,6 +248,7 @@ $('#searchBox').keypress(function(event) {
                 $(x).find('.nowPic').css('display', 'block');
               });
             });
+            scrollFun();
             resultSizeChange();
             mapFunction();
             var endFlag = false;
