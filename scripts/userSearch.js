@@ -71,9 +71,9 @@ var reducedArray = [];
 var resultsArray=[];
 var happening = [];
 var yelpNeighborhoods=[
-    "QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTH GATE", "NORTHGATE","BALLARD","GREEN WOOD","GREENWOOD","MAPLE LEAF","WEDGEWOOD","WEDGE WOOD","VIEW RIDGE","RAVENNA","UNIVERSITY VILLAGE","WALLINGFORD","MAGNOLIA","LOWER QUEEN ANNE","MONTLAKE","LAKE UNION","WESTLAKE","BELLTOWN","CENTRAL DISTRICT","MADRONA","RAINER VALLEY","MOUNT BAKER","COLUMBIA CITY","RAINIER BEACH","RAINIER VALLEY","HILLMAN CITY","SEWARD PARK","BEACON HILL","SODO"
+    "QUEEN ANNE","PIONEER SQUARE","DOWNTOWN","CAPITOL HILL","SEATTLE","GREEN LAKE","UNIVERSITY DISTRICT","FIRST HILL","INTERNATIONAL DISTRICT","FREMONT","SOUTH LAKE UNION","SLU","NORTH GATE", "NORTHGATE","BALLARD","GREEN WOOD","GREENWOOD","MAPLE LEAF","WEDGEWOOD","WEDGE WOOD","WEDGWOOD","VIEW RIDGE","RAVENNA","UNIVERSITY VILLAGE","WALLINGFORD","MAGNOLIA","LOWER QUEEN ANNE","MONTLAKE","LAKE UNION","WESTLAKE","BELLTOWN","CENTRAL DISTRICT","MADRONA","RAINER VALLEY","MOUNT BAKER","COLUMBIA CITY","RAINIER BEACH","RAINIER VALLEY","HILLMAN CITY","SEWARD PARK","BEACON HILL","SODO"
     ];
-var bgroundImg = ['/images/backBrew.jpg', '/images/optimismBrewing.jpg', '/images/seattleBrew.jpg','/images/seattleBrew.jpg','http://blog.clippervacations.com/wp-content/uploads/2015/04/CopperworksDistilling_TastingRoom.jpg',"http://static1.squarespace.com/static/52330cfde4b0833bcd13f5bc/t/530972cae4b04bff4a3aa4cc/1393128141830/465189_327142707332836_1151580238_o.jpg?format=2500w","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQol80qhEgALz1otCvPA9aIlxX78FHNOkdq_iIG3LxRZhoXCHzeiA","http://i0.wp.com/www.duparandcompany.com/blog/wp-content/uploads/2014/06/KP1_0086.jpg","https://cdn1.vox-cdn.com/thumbor/l7N2xYTgbPhxJUEnQkFipSZwTkE=/0x71:1425x873/1600x900/cdn0.vox-cdn.com/uploads/chorus_image/image/44193834/EATL_-_Old_Fourth_Distillery_-_04.0.0.jpg","http://greenweddingshoes.com/wp-content/uploads/2016/02/westlanddistillery-wedding-20.jpg","http://copperworksdistilling.com/site/wp-content/uploads/2013/09/Copperworks-sign-and-exterior_1.jpg","http://www.cornichon.org/Westland%20ADI.jpg","http://craftdistillerytours.com/wp-content/uploads/2014/06/Rogue-Distillery-Public-House-Tours-03.jpg","https://s-media-cache-ak0.pinimg.com/originals/76/7e/0f/767e0f46d25f364450df1a0bcd94a77d.jpg"];
+var bgroundImg = ['/images/backBrew.jpg', '/images/optimismBrewing.jpg', '/images/seattleBrew.jpg','/images/seattleBrew.jpg','http://blog.clippervacations.com/wp-content/uploads/2015/04/CopperworksDistilling_TastingRoom.jpg',"http://static1.squarespace.com/static/52330cfde4b0833bcd13f5bc/t/530972cae4b04bff4a3aa4cc/1393128141830/465189_327142707332836_1151580238_o.jpg?format=2500w","http://i0.wp.com/www.duparandcompany.com/blog/wp-content/uploads/2014/06/KP1_0086.jpg","https://cdn1.vox-cdn.com/thumbor/l7N2xYTgbPhxJUEnQkFipSZwTkE=/0x71:1425x873/1600x900/cdn0.vox-cdn.com/uploads/chorus_image/image/44193834/EATL_-_Old_Fourth_Distillery_-_04.0.0.jpg","http://greenweddingshoes.com/wp-content/uploads/2016/02/westlanddistillery-wedding-20.jpg","http://copperworksdistilling.com/site/wp-content/uploads/2013/09/Copperworks-sign-and-exterior_1.jpg","http://www.cornichon.org/Westland%20ADI.jpg","https://s-media-cache-ak0.pinimg.com/originals/76/7e/0f/767e0f46d25f364450df1a0bcd94a77d.jpg"];
 
 var searchParser= function(){
   //Ensure you bind this to the element calling it.
@@ -186,6 +186,10 @@ $('#searchBox').keypress(function(event) {
         // console.log(data.yelp);
         if(window.location.href.indexOf('search') <= -1){
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
+        }
+
+        else{
+          window.history.pushState("search/" + data.url," ", data.url);
         }
 
         if (data.yelp.hasOwnProperty('statusCode')){
