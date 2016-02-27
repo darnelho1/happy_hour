@@ -79,10 +79,11 @@ var searchParser= function(){
   //Ensure you bind this to the element calling it.
   // console.log('Parse Location test');
   console.log(userloc);
-  if(userLat!==undefined){
     userLat=userloc.split(',')[0];
     userLong=userloc.split(',')[1];
-  }
+
+  console.log(userLat,userLong);
+
   userSearchData=$(this).val();
   yelpNeighborhoods.forEach(function(x){
     if(userSearchData.toUpperCase().indexOf(x)>-1){
