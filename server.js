@@ -48,7 +48,7 @@ app.post('/resultsMore',function(req,res){
     yelp.search(
       {
         term:'happy hour '+ userSearchReq.terms,
-        ll:userSearchReq.currectLoc||"47.6097,-122.3331",
+        ll:userSearchReq.currectLoc,
         limit:20
       }).then(function(data){
       console.log(data.businesses);
@@ -64,7 +64,7 @@ app.post('/resultsMore',function(req,res){
     {
       term:'happy hour '+ userSearchReq.terms,
       location:userSearchReq.reqNeighborhood,
-      cll:userSearchReq.currectLoc||"47.6097,-122.3331",
+      cll:userSearchReq.currectLoc,
       limit:20
     }).then(function(data){
     console.log(data.businesses);
