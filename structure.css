@@ -213,7 +213,7 @@ main{
 }
 .rightResult{
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.45);
   padding: 5px;
   width: 100%;
   display: flex;
@@ -233,7 +233,7 @@ main{
 .resultTitle{
   width: 100%;
   font-size: 1.5em;
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Candal', sans-serif;
   margin: 0;
   margin-top: 10px;
 }

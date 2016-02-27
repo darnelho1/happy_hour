@@ -277,6 +277,8 @@ $(document).ready(function() {
                   }
                 });
               });
+              hhNow(uniqueArray);
+              hhTimes(uniqueArray);
 
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
