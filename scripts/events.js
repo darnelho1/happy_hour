@@ -147,11 +147,18 @@ $(document).ready(function() {
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
+          console.log('events.js 150 forEach');
           data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
+                  console.log(y);
+                  console.log(y.logo);
+                  console.log(y.website);
                   x.happyHour=y.happyHour;
+                  x.img = y.logo;
+                  x.website = y.website;
                   var place = new Places(x);
+                  console.log(place);
                   resultsArray.push(place);
                 }
               });
@@ -234,11 +241,18 @@ $(document).ready(function() {
             var moreArray = [];
             var uniqueMoreArray = [];
             var newResults = [];
+            console.log('event 243 forEach');
             data.forEach(function(x){
                 happyHourArray.forEach(function(y) {
                   if (x.id === y.id) {
+                    console.log(y);
+                    console.log(y.logo);
+                    console.log(y.website);
                     x.happyHour=y.happyHour;
+                    x.img = y.logo;
+                    x.website = y.website;
                     var place = new Places(x);
+                    console.log(place);
                     moreArray.push(place);
                   }
                 });
@@ -263,6 +277,8 @@ $(document).ready(function() {
                   }
                 });
               });
+              hhNow(uniqueArray);
+              hhTimes(uniqueArray);
 
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);

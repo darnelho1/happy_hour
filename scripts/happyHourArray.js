@@ -2396,8 +2396,8 @@ happyHour:{
   Friday:[["17:00"],["18:00"]],
   Saterday: [["17:00"],["18:00"]],
 }, website: 'http://www.pairseattle.com/happy-hour/', logo: 'http://static1.squarespace.com/static/55e88486e4b09f8763662354/t/55e88819e4b045a1ff30e283/1452129112901/?format=750w'},
-{id: 'latona-pub-seattle',
-happyHour:{
+  {id: 'latona-pub-seattle',
+  happyHour:{
   Sunday:[["16:30"],["18:30"]],
   Monday:[["16:00"],["18:30"]],
   Tuesday:[["16:00"],["18:30"]],
@@ -2407,23 +2407,23 @@ happyHour:{
   Saterday: [["16:30"],["18:30"]],
 }, website: 'http://www.3pubs.com/Latona.html', logo: 'http://www.3pubs.com/Latona_files/WashingtonBeer.png'},
 {id: 'franks-oyster-house-and-champagne-parlor-seattle',
-happyHour:{
+  happyHour:{
   Tuesday:[["17:00","22:00"],["18:30","23:00"]],
   Wednesday:[["17:00","22:00"],["18:30","23:00"]],
   Thursday:[["17:00","22:00"],["18:30","23:00"]],
   Friday:[["17:00","22:00"],["18:30","23:00"]],
   Saterday: [["17:00","22:00"],["18:30","23:00"]],
-}, website: 'http://www.franksoysterhouse.com/happy-hour/', logo: 'http://static1.squarespace.com/static/53cc1aede4b02c6d14ac20e2/t/53cd68b0e4b0cb413c8b28ec/1454790091894/?format=1500w'},
-{id: 'bai-pai-seattle',
-happyHour:{
+  }, website: 'http://www.franksoysterhouse.com/happy-hour/', logo: 'http://static1.squarespace.com/static/53cc1aede4b02c6d14ac20e2/t/53cd68b0e4b0cb413c8b28ec/1454790091894/?format=1500w'},
+  {id: 'bai-pai-seattle',
+  happyHour:{
   Sunday:[["16:00"],["19:00"]],
   Monday:[["16:00"],["26:00"]],
   Tuesday:[["16:00"],["26:00"]],
   Wednesday:[["16:00"],["19:00"]],
   Thursday:[["16:00"],["19:00"]]
-}, website: 'http://baipairestaurant.com/menus.html', logo: 'http://www.baipairestaurant.com/img/main.jpg'},
-{id: 'the-noble-fir-seattle',
-happyHour:{
+  }, website: 'http://baipairestaurant.com/menus.html', logo: 'http://www.baipairestaurant.com/img/main.jpg'},
+  {id: 'the-noble-fir-seattle',
+  happyHour:{
   Sunday:[["16:00"],["18:30"]],
   Monday:[["16:00"],["18:30"]],
   Tuesday:[["16:00"],["18:30"]],
@@ -2431,9 +2431,9 @@ happyHour:{
   Thursday:[["16:00"],["18:30"]],
   Friday:[["16:00"],["18:30"]],
   Saterday: [["16:00"],["18:30"]]
-}, website: 'http://www.thenoblefir.com/menu-spring-summer-2010.html', logo: 'http://www.thenoblefir.com/images/stories/headers/bar.jpg'},
-{id: 'the-gerald-seattle',
-happyHour:{
+  }, website: 'http://www.thenoblefir.com/menu-spring-summer-2010.html', logo: 'http://www.thenoblefir.com/images/stories/headers/bar.jpg'},
+  {id: 'the-gerald-seattle',
+  happyHour:{
   Sunday:[["16:00","22:30"],["18:00","25:00"]],
   Monday:[["16:00","22:30"],["18:00","25:00"]],
   Tuesday:[["16:00","22:30"],["18:00","25:00"]],
@@ -2441,9 +2441,9 @@ happyHour:{
   Thursday:[["16:00","22:30"],["18:00","25:00"]],
   Friday:[["16:00","22:30"],["18:00","25:00"]],
   Saterday: [["16:00","22:30"],["18:00","25:00"]]
-}, website: 'http://thegeraldseattle.com/happy-hour', logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'},
-{id: 'stoneburner-seattle',
-happyHour:{
+  }, website: 'http://thegeraldseattle.com/happy-hour', logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'},
+  {id: 'stoneburner-seattle',
+  happyHour:{
   Sunday:[["15:00"],["17:00"]],
   Monday:[["15:00"],["17:00"]],
   Tuesday:[["15:00"],["17:00"]],
@@ -2451,9 +2451,9 @@ happyHour:{
   Thursday:[["15:00"],["17:00"]],
   Friday:[["15:00"],["17:00"]],
   Saterday: [["15:00"],["17:00"]]
-}, website: 'http://www.stoneburnerseattle.com/56301/menus', logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'},
-{id: 'la-isla-cuisine-seattle',
-happyHour:{
+  }, website: 'http://www.stoneburnerseattle.com/56301/menus', logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'},
+  {id: 'la-isla-cuisine-seattle',
+  happyHour:{
   Sunday:[["15:00","21:00"],["18:00","25:00"]],
   Monday:[["15:00","21:00"],["18:00","25:00"]],
   Tuesday:[["15:00","21:00"],["18:00","25:00"]],
@@ -2461,9 +2461,9 @@ happyHour:{
   Thursday:[["15:00","21:00"],["18:00","25:00"]],
   Friday:[["15:00","21:00"],["18:00","25:00"]],
   Saterday: [["15:00","21:00"],["18:00","25:00"]]
-}, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
-{id: 'percys-and-co-seattle',
-happyHour:{
+  }, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
+  {id: 'percys-and-co-seattle',
+  happyHour:{
   Sunday:[["16:00"],["18:00"]],
   Monday:[["16:00","0:00"],["18:00","24:00"]],
   Tuesday:[["16:00"],["18:00"]],
