@@ -187,7 +187,7 @@ $('#searchBox').keypress(function(event) {
         if(window.location.href.indexOf('search') <= -1){
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
         }
-
+        $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
         if (data.yelp.hasOwnProperty('statusCode')){
           console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
           alert("There was a problem processing your request. Please try again or check the console for more information");
@@ -215,18 +215,17 @@ $('#searchBox').keypress(function(event) {
               // console.log('working');
               $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
             }
-
             hhTimes(resultsArray);
             // console.log(resultsArray);
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
-            $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
-            $('.backgroundVid').css('background-color', 'rgba(0, 0, 0, 0)');
+            $('.backgroundVid').css('background-color', 'rgba(250, 250, 250, 0)');
             $('.fullscreen-bg__video').addClass('fadeOutUp animated');
             setTimeout(function() {
+              console.log('time Done');
               $('.fullscreen-bg__video').hide();
-            },500);
+            },540);
             $('#searchBox').css('margin-top', '2%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);

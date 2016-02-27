@@ -159,7 +159,9 @@ main{
   align-items: center;
   -webkit-align-items: center;
   -moz-align-items: center;
-
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
 }
 #searchBox{
   margin: auto;
