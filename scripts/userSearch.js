@@ -35,20 +35,7 @@ $(window).resize(function() {
     resultSizeChange();
   });
 
-function getLocation() {
-  console.log('geo running');
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserLoc);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
 
-function getUserLoc(position) {
-    userloc = position.coords.latitude + ','+ position.coords.longitude;
-    // console.log(userloc);
-
-}
 
 function sortLocations(locations, lat, lng) {
   function dist(l) {
@@ -78,9 +65,8 @@ var bgroundImg = ['/images/backBrew.jpg', '/images/optimismBrewing.jpg', '/image
 var searchParser= function(){
   //Ensure you bind this to the element calling it.
   // console.log('Parse Location test');
-  console.log(userloc);
-    userLat=userloc.split(',')[0];
-    userLong=userloc.split(',')[1];
+  // console.log(userloc);
+
 
   console.log(userLat,userLong);
 
@@ -156,6 +142,8 @@ function getLocation() {
 
 function getUserLoc(position) {
     userloc = position.coords.latitude + ','+ position.coords.longitude;
+        userLat=position.coords.latitude;
+        userLong=position.coords.longitude;
 }
 
 function sortLocations(locations, lat, lng) {
@@ -182,9 +170,6 @@ $('#searchBox').keypress(function(event) {
       // console.log( "success" );
     })
       .done(function(data) {
-        // console.log("Server Success" );
-        // console.log(data.url);
-        // console.log(data.yelp);
         if(window.location.href.indexOf('search') <= -1){
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
         }
@@ -204,15 +189,10 @@ $('#searchBox').keypress(function(event) {
           data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
-                  console.log(y);
-                  console.log(y.logo);
-                  console.log(y.website);
                   x.happyHour=y.happyHour;
                   x.img  = y.logo;
-                  console.log(x.img);
                   x.website = y.website;
                   var place = new Places(x);
-                  console.log(place);
                   resultsArray.push(place);
                 }
               });
@@ -249,92 +229,8 @@ $('#searchBox').keypress(function(event) {
               });
             });
             $('#resultsOuterBox').scroll(function(){
-              if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight-1) && (endFlag === false)){
-                console.log('happening');
-                endFlag = true;
-                console.log($('#results').children(':last-child').attr('id'));
-                var lastResult = $('#results').children(':last-child').attr('id');
-                console.log(lastResult);
-                uniqueArray.forEach(function(v) {
-                  if (v.id === lastResult) {
-                    console.log(lastResult);
-                    lastResult = v.coordinate;
-                  }
-                });
-                console.log(lastResult);
-                var resLat = lastResult.latitude + 0.0239;
-                var resLong = lastResult.longitude + 0.0239;
-                User.currectLoc = resLat + ", "+ resLong;
-                User.reqNeighborhood = undefined;
-                // console.log(lastResult);
-                $.post( "/resultsMore",{searchCrit:User}, function(data) {
-                  console.log( "success" );
-                })
-                  .done(function(data) {
-                    console.log("Server Success" );
-                    // console.log(data);
-
-                    if (data.hasOwnProperty('statusCode')){
-                      console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.data);
-                      alert("There was a problem processing your request. Please try again or check the console for more information");
-                    }
-                    else {
-                      var moreArray = [];
-                      var uniqueMoreArray = [];
-                      var newResults = [];
-                      console.log('event 243 forEach');
-                      data.forEach(function(x){
-                          happyHourArray.forEach(function(y) {
-                            if (x.id === y.id) {
-                              console.log(y);
-                              console.log(y.logo);
-                              console.log(y.website);
-                              x.happyHour=y.happyHour;
-                              x.img = y.logo;
-                              x.website = y.website;
-                              var place = new Places(x);
-                              console.log(place);
-                              moreArray.push(place);
-                            }
-                          });
-                        });
-                        uniqueMoreArray=_.uniq(moreArray,function(x){
-                          return x.name;
-                        });
-                        // console.log(uniqueMoreArray);
-                        uniqueMoreArray.forEach(function(u) {
-                          var count = 0;
-                          uniqueArray.forEach(function(a){
-                            if (u.id !== a.id) {
-                              count++;
-                              console.log('same');
-                              // console.log(count);
-                              // console.log(uniqueArray.length);
-                            }
-                            if (count === uniqueArray.length) {
-                              newResults.push(u);
-                              uniqueArray.push(u);
-                              // console.log(newResults);
-                            }
-                          });
-                        });
-                        hhNow(uniqueArray);
-                        hhTimes(uniqueArray);
-
-                      var template = $('#restTemplate').html();
-                      var compileTemplate = Handlebars.compile(template);
-                      newResults.forEach(function(each) {
-                        var html = compileTemplate(each);
-                        $('#results').append(html);
-                        $('#results').addClass('fadeInUpBig animated');
-                      });
-                      endFlag = false;
-                    }
-                  });
-                  mapFunction();
-              }
+              scrollHappening.bind(this)();
             });
-            // scrollFun();
             resultSizeChange();
             mapFunction();
             var endFlag = false;
