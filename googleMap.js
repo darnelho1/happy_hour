@@ -88,7 +88,6 @@ function mapFunction() {
         $('#searchBox').addClass('flipInX').removeClass('flipOutX').show();
         $('#resultsOuterBox').removeClass('slideOutDown').show();
       }, 470);
-
     });
   });
 }

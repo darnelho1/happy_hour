@@ -85,6 +85,7 @@ app.post('/search',function(req,res){
   // console.log('the string:');
   // console.log(searchString);
   if(userSearchReq.reqNeighborhood===undefined){
+    console.log(userSearchReq.currectLoc);
     yelp.search(
       {
         term:'happy hour '+ userSearchReq.terms,
