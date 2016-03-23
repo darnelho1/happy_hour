@@ -12,3 +12,5 @@ Using the users users location data as the starting reference point we query the
 
 Map and Geolcation data provided by the [Google API](https://developers.google.com/maps/ "Google API")
 Business information provided by [Yelp API](https://www.yelp.com/developers/documentation/v2/overview "Yelp API")
+
+Check out the [Beta Site Here](http://happyhourapp.herokuapp.com/ "Seattle Happy Hour App")
