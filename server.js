@@ -34,8 +34,11 @@ app.get('/', function(req, res) {
 
 app.get('/search/', function(req, res) {
   res.sendFile('index.html', {root:__dirname + '/'});
-        });
+});
 
+app.get('/map/', function(req, res) {
+  res.sendFile('index.html', {root:__dirname + '/'});
+});
 app.get("/search/:usersearch", function(req, res){
   res.sendFile('index.html', {root:__dirname + '/'});
 });

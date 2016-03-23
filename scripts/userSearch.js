@@ -173,7 +173,6 @@ $('#searchBox').keypress(function(event) {
         if(window.location.href.indexOf('search') <= -1){
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
         }
-
         else{
           window.history.pushState("search/" + data.url," ", data.url);
         }
