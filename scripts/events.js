@@ -201,9 +201,16 @@ function scrollHappening() { /// insure to bind this to the element being callin
   }
 }
 
+if(window.location.href.indexOf('search/index.html') > -1){
+  console.log('if working');
+  window.history.pushState("/","/","/");
+}
+
 if(window.location.href.indexOf('search/?') > -1){
   User.terms = getParameterByName('terms');
-  console.log(User.reqNeighborhood);
+  var mapLocation = getParameterByName('locationID');
+  console.log(mapLocation);
+  console.log(User.terms);
   if (User.reqNeighborhood===undefined) {
     User.reqNeighborhood = undefined;
   }
@@ -294,6 +301,18 @@ if(window.location.href.indexOf('search/?') > -1){
           });
           resultSizeChange();
           mapFunction();
+          if (mapLocation !== undefined) {
+            locationId = $('#results').find('#'+mapLocation).find('.resultAddress').text();
+            function resultsinfoFunction() {
+              return location.href;
+            }
+            resultsInfoLocation = resultsinfoFunction();
+            var resultsInfoArray = resultsInfoLocation.split('&');
+            resultsInfo = resultsInfoArray[0]+'&'+resultsInfoArray[1]+'&'+resultsInfoArray[2];
+            console.log(resultsInfo);
+            getLocation();
+            GotToMap();
+          }
       }
   })
     .fail(function() {
@@ -303,7 +322,12 @@ if(window.location.href.indexOf('search/?') > -1){
       // console.log("finished");
   });
 }
+
 // });
 $('#homeBut').on('click', function(event) {
 window.open("index.html", '_self');
+});
+
+$('#headerTitle').on('click', function(event) {
+  window.open("index.html", '_self');
 });

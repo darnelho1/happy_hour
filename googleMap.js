@@ -1,5 +1,6 @@
   var map;
   var locationId;
+  var resultsUrl;
 
   function initMap(){
     function map(){
@@ -61,14 +62,7 @@
     }
   }
 
-function mapFunction() {
-  $('.resultBox').hover(function() {
-    $(this).toggleClass('pulse animated');
-  });
-
-  $('.resultsInfo').on('click', function(event) {
-    locationId = $(this).find('.resultAddress').text();
-    console.log(locationId);
+  function GotToMap() {
     mapSize();
     $('#resultsOuterBox').addClass('slideOutDown animated');
     $('#searchBox').addClass('flipOutX animated').removeClass('flipInX');
@@ -80,6 +74,7 @@ function mapFunction() {
       initMap();
     }, 470);
     $('#backButton').on('click', function(event) {
+      window.history.replaceState(resultsInfo, resultsInfo, resultsInfo);
       $('#mapView').addClass('slideOutUp').removeClass('slideInDown');
       $('#backButton').addClass('flipOutX').removeClass('flipInX');
       setTimeout(function(){
@@ -89,8 +84,25 @@ function mapFunction() {
         $('#resultsOuterBox').removeClass('slideOutDown').show();
       }, 470);
     });
+  }
+
+function mapFunction() {
+  $('.resultBox').hover(function() {
+    $(this).toggleClass('pulse animated');
+  });
+
+  $('.resultsInfo').on('click', function(event) {
+    locationId = $(this).find('.resultAddress').text();
+    function resultsinfoFunction() {
+      return location.href;
+    }
+    resultsInfo = resultsinfoFunction();
+    var clickedLocation=$(this).parent().parent().attr("id");
+    window.history.replaceState(location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation);
+    GotToMap();
   });
 }
+
   $(window).resize(function() {
       mapSize();
     });
