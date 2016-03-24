@@ -11,7 +11,7 @@ var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('iframeAPIplayer', {
     videoId: 'e_2ru111Ce4',
-    playerVars:{'controls':0,'showinfo':0,'loop':1,'playlist':'e_2ru111Ce4'},
+    playerVars:{'controls':0,'showinfo':0,'loop':1,'playlist':'e_2ru111Ce4','iv_load_policy':3},
     events: {
       'onReady': onPlayerReady    }
   });
