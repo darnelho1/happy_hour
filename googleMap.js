@@ -1,6 +1,7 @@
   var map;
   var locationId;
   var resultsUrl;
+  var locationsName;
 
   function initMap(){
     function map(){
@@ -71,6 +72,8 @@
       $('#resultsOuterBox').hide();
       $('#searchBox').hide();
       $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
+      console.log(locationsName);
+      $('#locationName').text(locationsName);
       $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
       initMap();
     }, 470);
@@ -98,7 +101,9 @@ function mapFunction() {
       return location.href;
     }
     resultsInfo = resultsinfoFunction();
-    var clickedLocation=$(this).parent().parent().attr("id");
+    var clickedLocation = $(this).parent().parent().attr("id");
+    locationsName = $('#'+clickedLocation).find('.resultTitle').text();
+    console.log(locationsName);
     window.history.replaceState(location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation);
     GotToMap();
   });
