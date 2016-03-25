@@ -199,7 +199,7 @@ function scrollHappening() { /// insure to bind this to the element being callin
   }
 }
 
-if(window.location.href.indexOf('search/index.html') > -1){
+if((window.location.href.indexOf('search/index.html') > -1)||(window.location.href.indexOf('search/?undefined') > -1)){
   window.history.pushState("/","/","/");
 }
 
