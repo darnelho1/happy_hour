@@ -19,7 +19,8 @@
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
       calculateAndDisplayRoute(directionsService, directionsDisplay);
       document.getElementById('mode').addEventListener('change', function() {
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
+        $('#turnByTurn').empty();
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
     }
     map();
