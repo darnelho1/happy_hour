@@ -299,6 +299,7 @@ if(window.location.href.indexOf('search/?') > -1){
           mapFunction();
           if (mapLocation !== null) {
             locationId = $('#results').find('#'+mapLocation).find('.resultAddress').text();
+            locationsName = $('#results').find('#'+mapLocation).find('.resultTitle').text();
             function resultsinfoFunction() {
               return location.href;
             }

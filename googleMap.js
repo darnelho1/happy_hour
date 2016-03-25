@@ -73,6 +73,7 @@
       $('#searchBox').hide();
       $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
       console.log(locationsName);
+      $('#takeMe').attr('href', 'maps:daddr=' + locationId);
       $('#locationName').text(locationsName);
       $('#backButton').addClass('flipInX animated').removeClass('flipOutX').show();
       initMap();
@@ -91,17 +92,17 @@
   }
 
 function mapFunction() {
-  $('.resultBox').hover(function() {
+  $('.mapIcon').hover(function() {
     $(this).toggleClass('pulse animated');
   });
 
-  $('.resultsInfo').on('click', function(event) {
-    locationId = $(this).find('.resultAddress').text();
+  $('.mapIcon').on('click', function(event) {
+    locationId = $(this).parent().parent().parent().find('.resultAddress').text();
     function resultsinfoFunction() {
       return location.href;
     }
     resultsInfo = resultsinfoFunction();
-    var clickedLocation = $(this).parent().parent().attr("id");
+    var clickedLocation = $(this).parent().parent().parent().attr("id");
     locationsName = $('#'+clickedLocation).find('.resultTitle').text();
     console.log(locationsName);
     window.history.replaceState(location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation);

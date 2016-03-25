@@ -233,6 +233,21 @@ main{
   -webkit-align-items: center;
   -moz-align-items: center;
 }
+.rideSide{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-end;
+}
+
+.mapIcon{
+  width: 15%;
+  margin-right: 2%;
+  cursor: pointer;
+}
 
 .resultTitle{
   width: 100%;
@@ -264,12 +279,12 @@ main{
   padding-left: 10%;
   margin-bottom: 10px;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .resultNumber{
   margin-top: 10px;
   margin-bottom: 0;
+  color: white;
 }
 .resultSite {
 margin-top: 0;
@@ -283,6 +298,7 @@ color: white;
   margin-bottom: 0;
   margin: 0.3% 0;
   width: 100%;
+  color: white;
 }
 .resultsExtra{
   text-align: right;
@@ -336,9 +352,33 @@ color: white;
   width: auto;
   height: auto;
 }
+#takeMe{
+  background-color: rgba(0, 0, 0, 0.68);
+  color: white;
+  width: 35%;
+  font-size: 1em;
+  border: solid .5px;
+  border-radius: 5px;
+  margin-right: 0;
+  text-align: center;
+}
+
 #googleMap{
   width: 900px;
   height: 400px;
+}
+#turnButtons{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  width: auto;
+  height: auto;
 }
 
 #turnByTurn{
@@ -423,7 +463,7 @@ table.adp-placemark{
   -moz-justify-content: center;
 }
 .nowPic{
-  display: none;
+  /*display: none;*/
   width: 60%;
   height: 60%;
   border-radius: 10px;

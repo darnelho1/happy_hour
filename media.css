@@ -63,15 +63,19 @@
   }
   .rightResult{
     width: 100%;
-    flex-direction: column;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: cow;
     justify-content: flex-start;
     -webkit-justify-content: flex-start;
     -moz-justify-content: flex-start;
     align-content: space-between;
     -webkit-align-content: space-between;
     -moz-align-content: space-between;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+
   }
   .resultBox{
     height: 310px;
@@ -109,10 +113,10 @@
     width: 70%;
   }
   .nowPic{
-    width: 50%;
-    height: 50%;
-    margin-top: -5px;
-    margin-bottom: -10px;
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+    margin-bottom: -40px;
   }
 
   ul{
@@ -136,19 +140,21 @@
   #mapView{
     width: 100%;
     flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  overflow-y: auto;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    overflow-y: auto;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
   }
 #googleMap{
   margin: auto;
   width: 500px;
   height: 200px;
 }
-
+#turnButtons{
+  padding: 0 5%;
+}
 #turnByTurn{
   margin: auto;
   width: 500px;
@@ -168,7 +174,14 @@
     -moz-flex-direction: column;
 }
 #mode{
-  margin: auto;
+  margin: 0;
   margin-top: 5px;
+}
+#takeMe{
+  margin-top: 5px;
+}
+.mapIcon{
+  width: 20%;
+  height: 10%;
 }
 }
