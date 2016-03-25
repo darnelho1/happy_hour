@@ -184,7 +184,6 @@ $('#searchBox').keypress(function(event) {
           alert("There was a problem processing your request. Please try again or check the console for more information");
         }
         else {
-          console.log('usersearch 189 forEach');
           data.yelp.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
@@ -198,11 +197,9 @@ $('#searchBox').keypress(function(event) {
             });
             hhNow(resultsArray);
             if (resultsArray.length === 0) {
-              // console.log('working');
               $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
             }
             hhTimes(resultsArray);
-            // console.log(resultsArray);
             uniqueArray=_.uniq(resultsArray,function(x){
               return x.name;
             });
@@ -233,8 +230,6 @@ $('#searchBox').keypress(function(event) {
             resultSizeChange();
             mapFunction();
             var endFlag = false;
-
-
         }
         entered = false;
     })
@@ -242,7 +237,6 @@ $('#searchBox').keypress(function(event) {
         alert("Error Communicating With Server");
       })
       .always(function() {
-        // console.log("finished");
     });
   }
 }
