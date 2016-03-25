@@ -1,5 +1,3 @@
-// $(document).ready(function() {
-
 var txt = ["Search For....","Queen Anne","Pioneer Square","Sushi", "Micro-Brew","Cocktail Bars","find me a BEER......", "GET ME DRUNK!!!"];
 var timeOut;
 var counter =0;
@@ -201,8 +199,7 @@ function scrollHappening() { /// insure to bind this to the element being callin
   }
 }
 
-if(window.location.href.indexOf('search/index.html') > -1){
-  console.log('if working');
+if((window.location.href.indexOf('search/index.html') > -1)||(window.location.href.indexOf('search/?undefined') > -1)){
   window.history.pushState("/","/","/");
 }
 
@@ -247,7 +244,6 @@ if(window.location.href.indexOf('search/?') > -1){
         alert("There was a problem processing your request. Please try again or check the console for more information");
       }
       else {
-        console.log('events.js 150 forEach');
         data.yelp.forEach(function(x){
             happyHourArray.forEach(function(y) {
               if (x.id === y.id) {
@@ -301,7 +297,7 @@ if(window.location.href.indexOf('search/?') > -1){
           });
           resultSizeChange();
           mapFunction();
-          if (mapLocation !== undefined) {
+          if (mapLocation !== null) {
             locationId = $('#results').find('#'+mapLocation).find('.resultAddress').text();
             function resultsinfoFunction() {
               return location.href;
@@ -323,7 +319,6 @@ if(window.location.href.indexOf('search/?') > -1){
   });
 }
 
-// });
 $('#homeBut').on('click', function(event) {
 window.open("index.html", '_self');
 });
