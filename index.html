@@ -13,30 +13,31 @@
     <link rel="stylesheet" href="/media.css" media="screen" title="no title" charset="utf-8">
     <script id='restTemplate' type='text/template'>
       <article id='{{{id}}}' class="resultBox" style="background-image:url({{{img}}})">
-        <!-- <div class="leftResult">
-          <img class="resultImg" src="{{{img}}}"/>
-        </div> -->
         <div class="rightResult">
             <div class="resultsInfo">
               <h2 class="resultTitle">{{{name}}}</h2>
-                <p class="resultNumber">{{{display_phone}}}</p>
+                <a class="resultNumber" href="tel:{{{display_phone}}}">{{{display_phone}}}</a>
                 <p class="resultHood">{{{neighborhood}}}</p>
-                <p class="resultAddress">{{{address}}}</p>
+                <a class="resultAddress" href="maps:daddr={{address}}">{{{address}}}</a>
             </div>
             <div id="nowNowNow">
              <img class="nowPic pulse animated" src="https://cdn.evbuc.com/eventlogos/6735035/happyhour.png">
             </div>
-            <div class="resultsExtra">
-              <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" /></br>
-              <a class="resultSite" href="{{{website}}}" target="_blank">Checkout Menu</a>
-              <p class="resultType">{{{categories}}}</p>
-              Happy Hour Times:
-              <select class='hHDropDown'>
-                {{#each happyHourTimes}}
-                  <option value="{{this}}">{{this}}</option>
-                {{/each}}
-              </select>
+            <div class="rideSide">
+              <div class="resultsExtra">
+                <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" /></br>
+                <a class="resultSite" href="{{{website}}}" target="_blank">Checkout Menu</a>
+                <p class="resultType">{{{categories}}}</p>
+                Happy Hour Times:
+                <select class='hHDropDown'>
+                  {{#each happyHourTimes}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+              </div>
+                <img class="mapIcon" src="/images/mapIcon.png">
             </div>
+
         </div>
       </article>
     </script>
@@ -64,27 +65,32 @@
       <article id="outerBox">
         <div id="resultsOuterBox">
           <section id='results'>
-
           </section>
         </div>
         <section id='mapView'>
           <div id="googleMap">
           </div>
           <div id="textDirect">
-            <select id="mode">
-              <option value="DRIVING">Driving</option>
-              <option value="WALKING">Walking</option>
-              <option value="BICYCLING">Bicycling</option>
-              <option value="TRANSIT">Bussing</option>
-            </select>
+            <div id='turnButtons'>
+              <select id="mode">
+                <option value="DRIVING">Driving</option>
+                <option value="WALKING">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="TRANSIT">Bussing</option>
+              </select>
+              <a id="takeMe" href=''>Take Me There</a>
+            </div>
             <div id='turnByTurn'>
 
             </div>
           </div>
-
         </section>
       </article>
-      </div>
+    </main>
+    <footer>
+      <img id="yelpPower" src="/images/poweredYelp.png" />
+      <img id="googlePower" src="/images/poweredGoogle.png" />
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="/vendors/scripts/jquery.waypoints.min.js"></script>

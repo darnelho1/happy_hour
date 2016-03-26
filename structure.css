@@ -136,6 +136,23 @@ main{
   -moz-flex-direction: column;
 }
 
+footer{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  width: auto;
+  height: 35px;
+  border-top: solid;
+  color: rgba(255, 255, 255, 0.80);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 #outerBox{
   height: 540px;
   overflow-y: auto;
@@ -233,6 +250,21 @@ main{
   -webkit-align-items: center;
   -moz-align-items: center;
 }
+.rideSide{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-end;
+}
+
+.mapIcon{
+  width: 15%;
+  margin-right: 2%;
+  cursor: pointer;
+}
 
 .resultTitle{
   width: 100%;
@@ -264,12 +296,12 @@ main{
   padding-left: 10%;
   margin-bottom: 10px;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .resultNumber{
   margin-top: 10px;
   margin-bottom: 0;
+  color: white;
 }
 .resultSite {
 margin-top: 0;
@@ -283,6 +315,7 @@ color: white;
   margin-bottom: 0;
   margin: 0.3% 0;
   width: 100%;
+  color: white;
 }
 .resultsExtra{
   text-align: right;
@@ -336,9 +369,33 @@ color: white;
   width: auto;
   height: auto;
 }
+#takeMe{
+  background-color: rgba(0, 0, 0, 0.68);
+  color: white;
+  width: 35%;
+  font-size: 1em;
+  border: solid .5px;
+  border-radius: 5px;
+  margin-right: 0;
+  text-align: center;
+}
+
 #googleMap{
   width: 900px;
   height: 400px;
+}
+#turnButtons{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  width: auto;
+  height: auto;
 }
 
 #turnByTurn{
@@ -349,7 +406,7 @@ color: white;
 }
 #backButton{
   margin: auto;
-  margin-top: 2%;
+  margin-top: 1%;
   margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.90);
@@ -436,4 +493,14 @@ table.adp-placemark{
   animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
+}
+#yelpPower{
+  height: 70%;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+#googlePower{
+  height: 70%;
+  margin-top: 4px;
+  margin-right: 10px;
 }

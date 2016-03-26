@@ -28,8 +28,26 @@ $('#backButton').hide();
 function resultSizeChange() {
   $height = $(window).height();
   // console.log($height);
-  $('#outerBox').css('height', ($height * 0.7));
-  $('#resultsOuterBox').css('height', ($height * 0.7));
+  $('body').css('height', $height);
+  if($(window).width() < 400){
+    console.log('working');
+    $('#outerBox').css('height', ($height * 0.642));
+    $('#resultsOuterBox').css('height', ($height * 0.642));
+  }
+
+  else if($(window).width() < 697){
+    console.log('working');
+    $('#outerBox').css('height', ($height * 0.672));
+    $('#resultsOuterBox').css('height', ($height * 0.672));
+  }
+  else if ($(window).width() < 919) {
+    $('#outerBox').css('height', ($height * 0.665));
+    $('#resultsOuterBox').css('height', ($height * 0.665));
+  }
+  else{
+    $('#outerBox').css('height', ($height * 0.66));
+    $('#resultsOuterBox').css('height', ($height * 0.66));
+  }
 }
 $(window).resize(function() {
     resultSizeChange();
@@ -105,9 +123,7 @@ hhNow=function(x){
           // console.log(obj);
           // console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
         }
-
       }
-
     }
     }
 });
@@ -209,7 +225,7 @@ $('#searchBox').keypress(function(event) {
               console.log('time Done');
               $('.fullscreen-bg__video').hide();
             },540);
-            $('#searchBox').css('margin-top', '2%');
+            $('#searchBox').css('margin-top', '1%');
             var template = $('#restTemplate').html();
             var compileTemplate = Handlebars.compile(template);
             Handlebars.registerHelper("happyHourTimes", function(x) {

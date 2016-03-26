@@ -192,6 +192,10 @@ function scrollHappening() { /// insure to bind this to the element being callin
             $('#results').append(html);
             $('#results').addClass('fadeInUpBig animated');
           });
+          happening.forEach(function(x){
+            $(x).find('.hHDropDown').addClass('happeningNow');
+            $(x).find('.nowPic').css('display', 'block');
+          });
           mapFunction();
           endFlag = false;
         }
@@ -204,6 +208,8 @@ if((window.location.href.indexOf('search/index.html') > -1)||(window.location.hr
 }
 
 if(window.location.href.indexOf('search/?') > -1){
+  $('#iframeAPIplayer').css('display', 'none');
+  $('#iframeAPIplayer').remove();
   User.terms = getParameterByName('terms');
   var mapLocation = getParameterByName('locationID');
   console.log(mapLocation);
@@ -275,7 +281,7 @@ if(window.location.href.indexOf('search/?') > -1){
           setTimeout(function() {
             $('.fullscreen-bg__video').hide();
           },540);
-          $('#searchBox').css('margin-top', '2%');
+          $('#searchBox').css('margin-top', '1%');
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
           Handlebars.registerHelper("happyHourTimes", function(x) {
@@ -299,6 +305,7 @@ if(window.location.href.indexOf('search/?') > -1){
           mapFunction();
           if (mapLocation !== null) {
             locationId = $('#results').find('#'+mapLocation).find('.resultAddress').text();
+            locationsName = $('#results').find('#'+mapLocation).find('.resultTitle').text();
             function resultsinfoFunction() {
               return location.href;
             }
