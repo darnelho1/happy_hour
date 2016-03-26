@@ -105,9 +105,7 @@ hhNow=function(x){
           // console.log(obj);
           // console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
         }
-
       }
-
     }
     }
 });

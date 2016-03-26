@@ -463,7 +463,7 @@ table.adp-placemark{
   -moz-justify-content: center;
 }
 .nowPic{
-  /*display: none;*/
+  display: none;
   width: 60%;
   height: 60%;
   border-radius: 10px;

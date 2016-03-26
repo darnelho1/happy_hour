@@ -131,7 +131,7 @@
   .nav>ul>li{
     margin-right: 20%;
   }
-  .fullscreen-bg__video {
+  #iframeAPIplayer {
     display: none;
   }
   .loadingImage{

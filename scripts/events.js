@@ -192,6 +192,10 @@ function scrollHappening() { /// insure to bind this to the element being callin
             $('#results').append(html);
             $('#results').addClass('fadeInUpBig animated');
           });
+          happening.forEach(function(x){
+            $(x).find('.hHDropDown').addClass('happeningNow');
+            $(x).find('.nowPic').css('display', 'block');
+          });
           mapFunction();
           endFlag = false;
         }
@@ -204,6 +208,8 @@ if((window.location.href.indexOf('search/index.html') > -1)||(window.location.hr
 }
 
 if(window.location.href.indexOf('search/?') > -1){
+  $('#iframeAPIplayer').css('display', 'none');
+  $('#iframeAPIplayer').remove();
   User.terms = getParameterByName('terms');
   var mapLocation = getParameterByName('locationID');
   console.log(mapLocation);
