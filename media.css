@@ -44,14 +44,13 @@
   body{
     background-image: url('./images/optimismBrewing.jpg');
   }
-
   #headerTitle{
     font-size: .7em;
     margin-left: 5%;
   }
   #searchBox{
-    font-size: 1.3em;
-    height: 60px;
+    /*font-size: 1.3em;*/
+    /*height: 60px;*/
   }
   #backButton{
     font-size: 1.3em;
@@ -147,41 +146,46 @@
     -webkit-justify-content: center;
     -moz-justify-content: center;
   }
-#googleMap{
-  margin: auto;
-  width: 500px;
-  height: 200px;
-}
-#turnButtons{
-  padding: 0 5%;
-}
-#turnByTurn{
-  margin: auto;
-  width: 500px;
-  font-size: .6em;
-  overflow: auto;
+  #googleMap{
+    margin: auto;
+    width: 500px;
+    height: 200px;
+  }
+  #turnButtons{
+    padding: 0 5%;
+  }
+  #turnByTurn{
+    margin: auto;
+    width: 500px;
+    font-size: .6em;
+    overflow: auto;
 
+  }
+  #textDirect{
+      display: flex;
+      display: -moz-flex;
+      display: -webkit-flex;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+  }
+  #mode{
+    margin: 0;
+    margin-top: 5px;
+  }
+  #takeMe{
+    margin-top: 5px;
+  }
+  .mapIcon{
+    width: 20%;
+    height: 10%;
+  }
 }
-#textDirect{
-    display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    justify-content: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-}
-#mode{
-  margin: 0;
-  margin-top: 5px;
-}
-#takeMe{
-  margin-top: 5px;
-}
-.mapIcon{
-  width: 20%;
-  height: 10%;
-}
+@media (max-width: 400px) {
+  #searchBox{
+    height: 40px;
+  }
 }

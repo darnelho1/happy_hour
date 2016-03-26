@@ -281,7 +281,7 @@ if(window.location.href.indexOf('search/?') > -1){
           setTimeout(function() {
             $('.fullscreen-bg__video').hide();
           },540);
-          $('#searchBox').css('margin-top', '2%');
+          $('#searchBox').css('margin-top', '1%');
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
           Handlebars.registerHelper("happyHourTimes", function(x) {

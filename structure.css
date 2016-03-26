@@ -136,6 +136,23 @@ main{
   -moz-flex-direction: column;
 }
 
+footer{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  width: auto;
+  height: 35px;
+  border-top: solid;
+  color: rgba(255, 255, 255, 0.80);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 #outerBox{
   height: 540px;
   overflow-y: auto;
@@ -389,7 +406,7 @@ color: white;
 }
 #backButton{
   margin: auto;
-  margin-top: 2%;
+  margin-top: 1%;
   margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.90);
@@ -476,4 +493,14 @@ table.adp-placemark{
   animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
+}
+#yelpPower{
+  height: 70%;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+#googlePower{
+  height: 70%;
+  margin-top: 4px;
+  margin-right: 10px;
 }
