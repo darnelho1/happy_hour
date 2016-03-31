@@ -189,4 +189,18 @@
     height: 50px;
     font-size: 1.3em;
   }
+  .resultsInfo{
+    width: 70%;
+  }
+  .resultBox{
+    background-size: 0;
+    background-color: rgba(0, 0, 0, 0.33);
+  }
+  .nowPic{
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
 }

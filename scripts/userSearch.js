@@ -31,22 +31,21 @@ function resultSizeChange() {
   $('body').css('height', $height);
   if($(window).width() < 400){
     console.log('working');
-    $('#outerBox').css('height', ($height * 0.642));
-    $('#resultsOuterBox').css('height', ($height * 0.642));
+    $('#outerBox').css('height', ($height * 0.75));
+    $('#resultsOuterBox').css('height', ($height * 0.75));
   }
-
   else if($(window).width() < 697){
     console.log('working');
-    $('#outerBox').css('height', ($height * 0.672));
-    $('#resultsOuterBox').css('height', ($height * 0.672));
+    $('#outerBox').css('height', ($height * 0.725));
+    $('#resultsOuterBox').css('height', ($height * 0.725));
   }
-  else if ($(window).width() < 919) {
-    $('#outerBox').css('height', ($height * 0.665));
-    $('#resultsOuterBox').css('height', ($height * 0.665));
+  else if ($(window).width() < 935) {
+    $('#outerBox').css('height', ($height * 0.715));
+    $('#resultsOuterBox').css('height', ($height * 0.715));
   }
   else{
-    $('#outerBox').css('height', ($height * 0.66));
-    $('#resultsOuterBox').css('height', ($height * 0.66));
+    $('#outerBox').css('height', ($height * 0.71));
+    $('#resultsOuterBox').css('height', ($height * 0.71));
   }
 }
 $(window).resize(function() {
@@ -175,6 +174,8 @@ function sortLocations(locations, lat, lng) {
 
 $('#searchBox').keypress(function(event) {
   if(event.which===13){
+    document.activeElement.blur();
+    $("#searchBox").blur();
   if(entered === false){
     entered = true;
     $('#results').empty();
