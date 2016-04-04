@@ -27,12 +27,11 @@ $('#backButton').hide();
 
 function resultSizeChange() {
   $height = $(window).height();
-  // console.log($height);
   $('body').css('height', $height);
-  if($(window).width() < 400){
+  if($(window).width() < 500){
     console.log('working');
-    $('#outerBox').css('height', ($height * 0.75));
-    $('#resultsOuterBox').css('height', ($height * 0.75));
+    $('#outerBox').css('height', ($height * 0.77));
+    $('#resultsOuterBox').css('height', ($height * 0.77));
   }
   else if($(window).width() < 697){
     console.log('working');

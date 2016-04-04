@@ -2,6 +2,8 @@ html{
   width: 100%;
   height: auto;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 body{
   height: auto;
@@ -14,10 +16,8 @@ body{
   background-size: cover;
   position: relative;
 }
+
 .backgroundVid{
-  /*display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;*/
   height: auto;
   width: auto;
   position: fixed;
@@ -66,6 +66,7 @@ header{
   color: rgba(255, 255, 255, 0.80);
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 #headerTitle{
   width: 50%;
   height: auto;
@@ -135,28 +136,10 @@ main{
   flex-direction: column;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
-  position: relative;
-}
-
-footer{
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  width: auto;
-  height: 35px;
-  border-top: solid;
-  color: rgba(255, 255, 255, 0.80);
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #outerBox{
-  position: relative;
+  /*position: relative;*/
   height: 540px;
   overflow-y: auto;
 }
@@ -189,7 +172,6 @@ footer{
 #searchBox{
   margin: auto;
   margin-top: 10%;
-  -moz-margin-top: 50px;
   margin-bottom: 1%;
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.90);
@@ -266,7 +248,8 @@ footer{
 }
 
 .mapIcon{
-  width: 15%;
+  width: 20%;
+  height: 20%;
   margin-right: 2%;
   cursor: pointer;
 }
@@ -276,7 +259,7 @@ footer{
   font-size: 1.5em;
   font-family: 'Candal', sans-serif;
   margin: 0;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
 }
 .resultBody{
   border: solid white;
@@ -299,8 +282,6 @@ footer{
   width: 50%;
   padding: 0;
   padding-left: 10%;
-  margin-bottom: 10px;
-  margin-top: 10px;
 }
 
 .resultNumber{
@@ -318,7 +299,7 @@ color: white;
   cursor: pointer;
   margin-top: 0;
   margin-bottom: 0;
-  margin: 0.3% 0;
+  margin: 10px 0;
   width: 100%;
   color: white;
 }
@@ -330,12 +311,12 @@ color: white;
   padding-right: 5%;
 }
 .resultHood{
-  margin: 2% 0;
+  margin: 1% 0;
   width: 100%;
 }
 
 .resultHours{
-  margin: 2% 0;
+  margin: 3% 0;
   width: 100%;
 }
 .resultType{
@@ -485,7 +466,7 @@ table.adp-placemark{
   -moz-justify-content: center;
 }
 .nowPic{
-  /*display: none;*/
+  display: none;
   width: 60%;
   height: 60%;
   border-radius: 10px;
@@ -505,7 +486,8 @@ table.adp-placemark{
   margin-left: 10px;
 }
 #googlePower{
-  height: 70%;
+  height: 25px;
+  width: 80px;
   margin-top: 4px;
   margin-right: 10px;
 }

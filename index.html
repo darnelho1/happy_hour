@@ -16,9 +16,9 @@
         <div class="rightResult">
             <div class="resultsInfo">
               <h2 class="resultTitle">{{{name}}}</h2>
-                <a class="resultNumber" href="tel:{{{display_phone}}}">{{{display_phone}}}</a>
-                <p class="resultHood">{{{neighborhood}}}</p>
-                <a class="resultAddress" href=" daddr={{address}}">{{{address}}}</a>
+              <p class="resultHood">{{{neighborhood}}}</p>
+              <a class="resultNumber" href="tel:{{{display_phone}}}">{{{display_phone}}}</a><br><br>
+              <a class="resultAddress" href="maps:daddr={{address}}">{{{address}}}</a><br>
             </div>
             <div id="nowNowNow">
              <img class="nowPic pulse animated" src="https://cdn.evbuc.com/eventlogos/6735035/happyhour.png">
@@ -36,9 +36,8 @@
                   {{/each}}
                 </select>
               </div>
-                <img class="mapIcon" src="/images/mapIcon.png">
+                <img class="mapIcon" src="/images/googleMap.png">
             </div>
-
         </div>
       </article>
     </script>
@@ -55,7 +54,7 @@
       </div>
       <nav class="nav">
         <ul>
-          <li id='homeBut'>Home</li>
+          <!-- <li id='homeBut'>Home</li> -->
           <li id='aboutBut'>About</li>
         </ul>
       </nav>
@@ -88,10 +87,6 @@
         </section>
       </article>
     </main>
-    <!-- <footer>
-      <img id="yelpPower" src="/images/poweredYelp.png" />
-      <img id="googlePower" src="/images/poweredGoogle.png" />
-    </footer> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="/vendors/scripts/jquery.waypoints.min.js"></script>

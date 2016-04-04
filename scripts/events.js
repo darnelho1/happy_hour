@@ -120,18 +120,18 @@ function getParameterByName(name, url) {
 
 function scrollHappening() { /// insure to bind this to the element being calling it
   if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight-1) && (endFlag === false)){
-    console.log('happening');
+    // console.log('happening');
     endFlag = true;
-    console.log($('#results').children(':last-child').attr('id'));
+    // console.log($('#results').children(':last-child').attr('id'));
     var lastResult = $('#results').children(':last-child').attr('id');
-    console.log(lastResult);
+    // console.log(lastResult);
     uniqueArray.forEach(function(v) {
       if (v.id === lastResult) {
-        console.log(lastResult);
+        // console.log(lastResult);
         lastResult = v.coordinate;
       }
     });
-    console.log(lastResult);
+    // console.log(lastResult);
     var resLat = lastResult.latitude + 0.0239;
     var resLong = lastResult.longitude + 0.0239;
     User.currectLoc = resLat + ", "+ resLong;
@@ -155,14 +155,14 @@ function scrollHappening() { /// insure to bind this to the element being callin
           data.forEach(function(x){
               happyHourArray.forEach(function(y) {
                 if (x.id === y.id) {
-                  console.log(y);
-                  console.log(y.logo);
-                  console.log(y.website);
+                  // console.log(y);
+                  // console.log(y.logo);
+                  // console.log(y.website);
                   x.happyHour=y.happyHour;
                   x.img = y.logo;
                   x.website = y.website;
                   var place = new Places(x);
-                  console.log(place);
+                  // console.log(place);
                   moreArray.push(place);
                 }
               });
@@ -175,7 +175,7 @@ function scrollHappening() { /// insure to bind this to the element being callin
               uniqueArray.forEach(function(a){
                 if (u.id !== a.id) {
                   count++;
-                  console.log('same');
+                  // console.log('same');
                 }
                 if (count === uniqueArray.length) {
                   newResults.push(u);
@@ -239,6 +239,7 @@ if(window.location.href.indexOf('search/?') > -1){
     console.log( "success" );
   })
     .done(function(data) {
+      getLocation();
       $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
       // console.log("Server Success" );
       // console.log(data.url);
@@ -304,6 +305,12 @@ if(window.location.href.indexOf('search/?') > -1){
           resultSizeChange();
           mapFunction();
           if (mapLocation !== null) {
+            if (userLat === undefined) {
+              User.currectLoc = getParameterByName('currectLoc');
+              userLat=User.currectLoc.split(',')[0];
+              userLong=User.currectLoc.split(',')[1];
+            }
+            console.log(userLat);
             locationId = $('#results').find('#'+mapLocation).find('.resultAddress').text();
             locationsName = $('#results').find('#'+mapLocation).find('.resultTitle').text();
             function resultsinfoFunction() {
@@ -313,7 +320,6 @@ if(window.location.href.indexOf('search/?') > -1){
             var resultsInfoArray = resultsInfoLocation.split('&');
             resultsInfo = resultsInfoArray[0]+'&'+resultsInfoArray[1]+'&'+resultsInfoArray[2];
             console.log(resultsInfo);
-            getLocation();
             GotToMap();
           }
       }
