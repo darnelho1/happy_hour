@@ -14,7 +14,6 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
 }
 
 .backgroundVid{
@@ -65,6 +64,18 @@ header{
   border-bottom: solid;
   color: rgba(255, 255, 255, 0.80);
   background-color: rgba(0, 0, 0, 0.8);
+}
+main{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  height: auto;
+  width: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #headerTitle{
@@ -125,31 +136,16 @@ ul{
   list-style-type: none;
 }
 
-main{
-  height: auto;
-  width: auto;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-}
-
 #outerBox{
   /*position: relative;*/
   height: 540px;
   overflow-y: auto;
 }
 #resultsOuterBox{
-  position: relative;
   height: 540px;
   overflow-y: auto;
 }
 #results{
-  position: relative;
   height: auto;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -333,13 +329,11 @@ color: white;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  /*border: solid;*/
   position: fixed;
   margin-top: 4%;
   margin-left: 10%;
   height: 60%;
   width: 80%;
-  /*background-color: black;*/
   opacity: .7;
 }
 #mapView{
