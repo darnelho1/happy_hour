@@ -197,7 +197,7 @@ var happyHourArray = [
   {
     id: 'the-forge-lounge-seattle',
     happyHour: {
-      Moday:[['15:00'],['19:00']],
+      Monday:[['15:00'],['19:00']],
       Tuesday:[['15:00'],['19:00']],
       Wednesday:[['15:00'],['19:00']],
       Thursday:[['15:00'],['19:00']],
@@ -211,7 +211,7 @@ var happyHourArray = [
   {
     id: 'toulouse-petit-seattle',
     happyHour: {
-      Moday:[['16:00','22:00'],['18:00','25:00']],
+      Monday:[['16:00','22:00'],['18:00','25:00']],
       Tuesday:[['16:00','22:00'],['18:00','25:00']],
       Wednesday:[['16:00','22:00'],['18:00','25:00']],
       Thursday:[['16:00','22:00'],['18:00','25:00']],
@@ -225,7 +225,7 @@ var happyHourArray = [
   {
     id: 'taylor-shellfish-oyster-bar-seattle',
     happyHour:{
-      Moday:[['15:00'],['18:00']],
+      Monday:[['15:00'],['18:00']],
       Tuesday:[['15:00'],['18:00']],
       Wednesday:[['15:00'],['18:00']],
       Thursday:[['15:00'],['18:00']],
@@ -237,7 +237,7 @@ var happyHourArray = [
   {
     id: 'damn-the-weather-seattle',
     happyHour:{
-      Moday:[['15:00'],['18:30']],
+      Monday:[['15:00'],['18:30']],
       Tuesday:[['15:00'],['18:30']],
       Wednesday:[['15:00'],['18:30']],
       Thursday:[['15:00'],['18:30']],
