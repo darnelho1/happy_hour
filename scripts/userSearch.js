@@ -103,6 +103,10 @@ hhNow=function(x){
   // console.log("hnow running");
   x.forEach(function(obj){
   for(var key in obj.happyHour){
+    if (key.toString().indexOf(moment()._d.toString().slice(0,3)) > -1){
+      console.log(key);
+    }
+
     if (moment().isSame(moment().day(key))){//if object day is the same as today
       // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
@@ -121,6 +125,8 @@ hhNow=function(x){
           // console.log(obj);
           // console.log("Happy hour is between: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
         }
+
+
       }
     }
     }
