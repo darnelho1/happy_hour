@@ -94,7 +94,6 @@ var searchParser= function(){
   });
 
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
-  User.currectLoc=userloc;
 
   console.log(User);
 };
@@ -162,8 +161,10 @@ function getLocation() {
 
 function getUserLoc(position) {
     userloc = position.coords.latitude + ','+ position.coords.longitude;
-        userLat=position.coords.latitude;
-        userLong=position.coords.longitude;
+    userLat=position.coords.latitude;
+    userLong=position.coords.longitude;
+    User.currectLoc=userloc;
+
 }
 
 function sortLocations(locations, lat, lng) {
