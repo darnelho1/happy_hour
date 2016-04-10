@@ -524,6 +524,8 @@ var happyHourArray = [
   website: 'http://jimmysonbroadway.com/',
   logo: ''
 },
+
+//IF COMMENTED OUT, NO NECESSARY DETAILS AVAILABLE!
 // {id:'the-cozy-nut-tavern-seattle',
 // happyHour:{
 //   Sunday:[[""],[""]],
@@ -554,86 +556,71 @@ var happyHourArray = [
 //   Friday:[[""],[""]],
 //   Saturday: [[""],[""]]
 // }, website: '', logo: ''},
-// {id:'the-gerald-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id:'percys-and-co-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id:'la-isla-cuisine-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: 'the-walrus-and-the-carpenter-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: 'highliner-public-house-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: 'the-leary-traveler-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: 'ballard-station-public-house-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: 'essex-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
+{id:'the-gerald-seattle',
+happyHour:{
+  Sunday:[["16:00","20:00"],["22:30","24:00"]],
+  Monday:[["16:00","20:00"],["22:30","24:00"]],
+  Tuesday:[[["16:00","20:00"],["22:30","24:00"]],
+  Wednesday:[["16:00","20:00"],["22:30","24:00"]],
+  Thursday:[["16:00","20:00"],["22:30","24:00"]],
+  Friday:[["16:00","20:00"],["22:30","26:00"]],
+  Saturday: [["16:00","20:00"],["22:30","26:00"]]
+}, website: 'http://thegeraldseattle.com/', logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'},
+{id:'percys-and-co-seattle',
+happyHour:{
+  Sunday:[["16:00"],["18:00"]],
+  Monday:[["16:00"],["26:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[[["16:00"],["18:00"]],
+  Friday:[["16:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.percysseattle.com/', logo: 'http://www.percysseattle.com/assets/images/logo.png'},
+{id:'la-isla-cuisine-seattle',
+happyHour:{
+  Sunday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Monday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Tuesday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Wednesday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Thursday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Friday:[["15:00", "18:00"],["22:00", "25:00"]],
+  Saturday: [["15:00", "18:00"],["22:00", "25:00"]]
+}, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
+{id: 'the-walrus-and-the-carpenter-seattle',
+happyHour:{
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]]
+}, website: 'http://www.thewalrusbar.com/menu', logo: 'http://www.thewalrusbar.com/assets/images/walrus-logo.png'},
+{id: 'highliner-public-house-seattle',
+happyHour:{
+  Sunday:[["16:00"],["18:00"]],
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]],
+  Friday:[["16:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.highlinerpub.net/daily-specials.html', logo: 'http://www.highlinerpub.net/uploads/8/2/1/7/8217263/header_images/1417805998.jpg'},
+{id: 'the-leary-traveler-seattle',
+happyHour:{
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]],
+  Friday:[["16:00"],["18:00"]]
+}, website: 'http://www.learytraveler.com/menu', logo: 'https://s3-us-west-2.amazonaws.com/re.leary/logo.png'},
+{id: 'ballard-station-public-house-seattle',
+happyHour:{
+  Sunday:[["16:00"],["19:00"]],
+  Monday:[["16:00"],["19:00"]],
+  Tuesday:[["16:00"],["19:00"]],
+  Wednesday:[["16:00"],["19:00"]],
+  Thursday:[["16:00"],["19:00"]],
+  Friday:[["16:00"],["19:00"]],
+  Saturday: [["16:00"],["19:00"]]
+}, website: 'http://theballardstation.com/', logo: 'http://theballardstation.com/wp-content/themes/BallardStation/images/logo.png'},
 // {id: 'kings-hardware-seattle',
 // happyHour:{
 //   Sunday:[[""],[""]],
