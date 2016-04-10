@@ -252,7 +252,7 @@ ul{
 
 .resultTitle{
   width: 100%;
-  font-size: 1.5em;
+  font-size: 2em;
   font-family: 'Candal', sans-serif;
   margin: 0;
   /*margin-top: 10px;*/
@@ -287,7 +287,7 @@ ul{
 }
 .resultSite {
 margin-top: 0;
-margin-bottom: 0;
+margin-bottom: 5px;
 color: white;
 }
 
@@ -302,7 +302,7 @@ color: white;
 .resultsExtra{
   text-align: right;
   height: auto;
-  width: 50%;
+  width: 70%;
   padding: 0;
   padding-right: 5%;
 }
@@ -484,4 +484,41 @@ table.adp-placemark{
   width: 80px;
   margin-top: 4px;
   margin-right: 10px;
+}
+
+#happyHoursIcons{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  width: 350px;
+  height: 25px;
+}
+
+.timesIcon{
+  font-size: 1em;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.73);
+  box-shadow: 3px 2.5px 3px #000000;
+  border: .5px solid;
+  border-radius: 5px;
+  margin: 0;
+  margin-top: 3px;
+}
+
+#satIcon{
+  background-color: rgba(255, 0, 0, 0.81);
+}
+.happyHTimes{
+  margin: 0;
+  margin-top: 2px;
+  font-size: 1.3em;
 }
