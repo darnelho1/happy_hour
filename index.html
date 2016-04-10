@@ -20,7 +20,7 @@
         <div class="rightResult">
             <div class="resultsInfo">
               <h2 class="resultTitle">{{{name}}}</h2>
-              <p class="resultHood">{{{neighborhood}}}</p>
+              <!-- <p class="resultHood">{{{neighborhood}}}</p> -->
               <a class="resultNumber" href="tel:{{{display_phone}}}">{{{display_phone}}}</a><br><br>
               <a class="resultAddress" href="maps:daddr={{address}}">{{{address}}}</a><br>
             </div>
@@ -31,14 +31,19 @@
               <div class="resultsExtra">
                 <img class="yelpPower" src="/images/poweredYelp.png" />
                 <img class='ratingImg' src="{{{rating}}}" width="80px" height="20px" /></br>
-                <a class="resultSite" href="{{{website}}}" target="_blank">Checkout Menu</a>
-                <p class="resultType">{{{categories}}}</p>
+                <a class="resultSite" href="{{{website}}}" target="_blank">Checkout Menu</a><br><br>
+                <!-- <p class="resultType">{{{categories}}}</p> -->
                 Happy Hour Times:
-                <select class='hHDropDown'>
-                  {{#each happyHourTimes}}
-                    <option value="{{this}}">{{this}}</option>
-                  {{/each}}
-                </select>
+                <div id="happyHoursIcons">
+                  <p class='timesIcon' id="sunIcon" value='{{happyHourTimes.[0]}}'>Sun</p>
+                  <p class='timesIcon' id="monIcon" value='{{happyHourTimes.[1]}}'>Mon</p>
+                  <p class='timesIcon' id="tueIcon" value='{{happyHourTimes.[2]}}'>Tue</p>
+                  <p class='timesIcon' id="wedIcon" value='{{happyHourTimes.[3]}}'>Wed</p>
+                  <p class='timesIcon' id="thuIcon" value='{{happyHourTimes.[4]}}'>Thu</p>
+                  <p class='timesIcon' id="friIcon" value='{{happyHourTimes.[5]}}'>Fri</p>
+                  <p class='timesIcon' id="satIcon" value='{{happyHourTimes.[6]}}'>Sat</p>
+                </div>
+                <p class="happyHTimes"></p>
               </div>
                 <img class="mapIcon" src="/images/googleMap.png">
             </div>

@@ -143,7 +143,7 @@ var hhTimes=function(x){
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
         var endMin=Number(obj.happyHour[key][1][i].split(":")[1]);
         // console.log("Happy Hours: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
-        obj.happyHourTimes.push(moment().day(key).hour(startHour).minute(startMin).format('ddd h:mma')+"-"+moment().day(key).hour(endHour).minute(endMin).format('h:mma'));
+        obj.happyHourTimes.push(moment().day(key).hour(startHour).minute(startMin).format('h:mma')+"-"+moment().day(key).hour(endHour).minute(endMin).format('h:mma'));
       }
       // console.log(arry);
     }
