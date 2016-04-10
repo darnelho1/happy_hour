@@ -339,3 +339,13 @@ window.open("index.html", '_self');
 $('#headerTitle').on('click', function(event) {
   window.open("index.html", '_self');
 });
+
+
+$('#aboutBut').click(function() {
+  /* Act on the event */
+  console.log('clicked');
+  $('.loadingImage').hide();
+  $('.backgroundVid').hide();
+  $('#searchBox').hide();
+
+});
