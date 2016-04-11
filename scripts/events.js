@@ -360,6 +360,7 @@ $('#headerTitle').on('click', function(event) {
   window.open("index.html", '_self');
 });
 
+$('#about-page').hide();
 
 $('#aboutBut').click(function() {
   /* Act on the event */
@@ -367,5 +368,7 @@ $('#aboutBut').click(function() {
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
   $('#searchBox').hide();
+  $('#outerBox').hide();
+  $('#about-page').show('slow');
 
 });
