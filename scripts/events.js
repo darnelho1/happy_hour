@@ -349,6 +349,6 @@ $('#aboutBut').click(function() {
   $('.backgroundVid').hide();
   $('#searchBox').hide();
   $('#outerBox').hide();
-  $('#about-page').show();
+  $('#about-page').show('slow');
 
 });
