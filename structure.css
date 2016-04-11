@@ -522,3 +522,27 @@ table.adp-placemark{
   margin-top: 2px;
   font-size: 1.3em;
 }
+
+#about-page {
+  /*display: none;*/
+}
+
+.about-outer-box {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color: rgba(0, 0, 0, 0.45);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
