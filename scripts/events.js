@@ -190,11 +190,21 @@ function scrollHappening() { /// insure to bind this to the element being callin
           newResults.forEach(function(each) {
             var html = compileTemplate(each);
             $('#results').append(html);
+            var eachId = each.id;
+            each.happyHourTimes.forEach(function(index){
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+            });
             $('#results').addClass('fadeInUpBig animated');
           });
           happening.forEach(function(x){
             $(x).find('.hHDropDown').addClass('happeningNow');
             $(x).find('.nowPic').css('display', 'block');
+          });
+          $('.timesIcon').hover(function() {
+            var times = $(this).attr('value');
+            var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
+            console.log(thisID);
+            $("#"+thisID+" .happyHTimes").text(times)
           });
           mapFunction();
           endFlag = false;
@@ -291,6 +301,10 @@ if(window.location.href.indexOf('search/?') > -1){
           uniqueArray.forEach(function(each) {
             var html = compileTemplate(each);
             $('#results').append(html);
+            var eachId = each.id;
+            each.happyHourTimes.forEach(function(index){
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+            });
             $('#results').addClass('fadeInUpBig animated');
             happening.forEach(function(x){
               // console.log(x);
@@ -301,6 +315,12 @@ if(window.location.href.indexOf('search/?') > -1){
           });
           $('#resultsOuterBox').scroll(function(){
             scrollHappening.bind(this)();
+          });
+          $('.timesIcon').hover(function() {
+            var times = $(this).attr('value');
+            var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
+            console.log(thisID);
+            $("#"+thisID+" .happyHTimes").text(times)
           });
           resultSizeChange();
           mapFunction();

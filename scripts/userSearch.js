@@ -135,7 +135,8 @@ hhNow=function(x){
 var hhTimes=function(x){
   x.forEach(function(obj){
     obj.happyHourTimes=[];
-    // console.log(obj);
+    obj.happyHourTime=[];
+    obj.happyHourTimeFilter=[];
     for(var key in obj.happyHour){
       for(i=0;i<obj.happyHour[key][0].length;i++){
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
@@ -143,11 +144,42 @@ var hhTimes=function(x){
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
         var endMin=Number(obj.happyHour[key][1][i].split(":")[1]);
         // console.log("Happy Hours: "+moment().day(key).hour(startHour).minute(startMin).format('llll')+"-"+moment().day(key).hour(endHour).minute(endMin).format('llll'));
-        obj.happyHourTimes.push(moment().day(key).hour(startHour).minute(startMin).format('h:mma')+"-"+moment().day(key).hour(endHour).minute(endMin).format('h:mma'));
+        obj.happyHourTime.push({'day': moment().day(key).format('ddd'), 'time':moment().hour(startHour).minute(startMin).format('h:mma')+"-"+moment().day(key).hour(endHour).minute(endMin).format('h:mma')});
       }
       // console.log(arry);
     }
-    // obj.happyHourTimes;
+    console.log(obj);
+    for (index = 0; index < obj.happyHourTime.length; index++) {
+      var nextOne = 1;
+      while (nextOne < obj.happyHourTime.length) {
+        if (obj.happyHourTime[index].day === obj.happyHourTime[nextOne].day) {
+            if (obj.happyHourTime[index].time === obj.happyHourTime[nextOne].time) {
+            obj.happyHourTimes.push({'day':obj.happyHourTime[index].day, 'time': obj.happyHourTime[index].time});
+            nextOne = obj.happyHourTime.length;
+          }
+          else{
+            obj.happyHourTimes.push({'day': obj.happyHourTime[index].day, 'time': obj.happyHourTime[nextOne].time +" & "+ obj.happyHourTime[index].time});
+            nextOne = obj.happyHourTime.length;
+          }
+        }
+        else if(nextOne === obj.happyHourTime.length-1) {
+          obj.happyHourTimes.push({'day':obj.happyHourTime[index].day, 'time': obj.happyHourTime[index].time});
+        }
+        nextOne++;
+      }
+    }
+    for (index = 0; index < obj.happyHourTimes.length-1; index++) {
+      var next = index+1;
+      console.log(next);
+      if (obj.happyHourTimes[index].day == obj.happyHourTimes[next].day) {
+        if (index === 0) {
+          obj.happyHourTimes.splice(next, 1);
+        }
+        else{
+          obj.happyHourTimes.splice(index, 1);
+        }
+      }
+    }
   });
 };
 
@@ -241,6 +273,10 @@ $('#searchBox').keypress(function(event) {
             uniqueArray.forEach(function(each) {
               var html = compileTemplate(each);
               $('#results').append(html);
+              var eachId = each.id;
+              each.happyHourTimes.forEach(function(index){
+                $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+              });
               $('#results').addClass('fadeInUpBig animated');
               happening.forEach(function(x){
                 $(x).find('.hHDropDown').addClass('happeningNow');
@@ -249,6 +285,12 @@ $('#searchBox').keypress(function(event) {
             });
             $('#resultsOuterBox').scroll(function(){
               scrollHappening.bind(this)();
+            });
+            $('.timesIcon').hover(function() {
+              var times = $(this).attr('value');
+              var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
+              console.log(thisID);
+              $("#"+thisID+" .happyHTimes").text(times)
             });
             resultSizeChange();
             mapFunction();
