@@ -486,7 +486,7 @@ table.adp-placemark{
   margin-right: 10px;
 }
 
-#happyHoursIcons{
+.happyHoursIcons{
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
