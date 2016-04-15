@@ -517,9 +517,6 @@ table.adp-placemark{
   margin-left: 8px;
 }
 
-#satIcon{
-  background-color: rgba(255, 0, 0, 0.81);
-}
 .happyHTimes{
   margin: 0;
   margin-top: 2px;
@@ -534,7 +531,7 @@ table.adp-placemark{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 1.25em;
   /*background-color: rgba(0, 0, 0, 0.45);*/
-  background-color: #e6e6e6;
+  background-color: rgba(230, 230, 230, .8);
   height: 100%;
   max-width: 700px;
   margin: auto;

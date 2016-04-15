@@ -5,6 +5,9 @@ var char = 0;
 var num=0;
 var time=0;
 var endFlag=false;
+var thisID;
+var nowTime;
+
 $('#searchBox').attr('placeholder', '|');
 var humanize = Math.round(Math.random() * (200 - 24)) + 30;
 function typeIt(x) {
@@ -203,8 +206,14 @@ function scrollHappening() { /// insure to bind this to the element being callin
           $('.timesIcon').hover(function() {
             var times = $(this).attr('value');
             var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
-            console.log(thisID);
-            $("#"+thisID+" .happyHTimes").text(times)
+            // console.log(thisID);
+            console.log($(this));
+            var nowTime = $("#"+thisID+" .happyHTimes").text();
+            $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
+            $("#"+thisID+" .happyHTimes").text(times);
+          }, function(){
+            $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
+            $("#"+thisID+" .happyHTimes").text(nowTime);
           });
           mapFunction();
           endFlag = false;
@@ -215,6 +224,19 @@ function scrollHappening() { /// insure to bind this to the element being callin
 
 if((window.location.href.indexOf('search/index.html') > -1)||(window.location.href.indexOf('search/?undefined') > -1)){
   window.history.pushState("/","/","/");
+}
+
+
+if((window.location.href.indexOf('about') > -1)||(window.location.href.indexOf('about/') > -1)){
+  $('#iframeAPIplayer').css('display', 'none');
+  $('#iframeAPIplayer').remove();
+  $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
+  $('.loadingImage').hide();
+  $('.backgroundVid').hide();
+  $('#searchBox').hide();
+  $('#outerBox').hide();
+  $('#about-page').css('display', 'flex');
+  $('#about-page').show('slow');
 }
 
 if(window.location.href.indexOf('search/?') > -1){
@@ -316,11 +338,17 @@ if(window.location.href.indexOf('search/?') > -1){
           $('#resultsOuterBox').scroll(function(){
             scrollHappening.bind(this)();
           });
+
           $('.timesIcon').hover(function() {
             var times = $(this).attr('value');
-            var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
+            thisID = $(this).parent().parent().parent().parent().parent().attr('id');
             console.log(thisID);
-            $("#"+thisID+" .happyHTimes").text(times)
+            nowTime = $("#"+thisID+" .happyHTimes").text();
+            $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
+            $("#"+thisID+" .happyHTimes").text(times);
+          }, function() {
+            $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
+            $("#"+thisID+" .happyHTimes").text(nowTime);
           });
           resultSizeChange();
           mapFunction();
@@ -360,15 +388,14 @@ $('#headerTitle').on('click', function(event) {
   window.open("index.html", '_self');
 });
 
-$('#about-page').hide();
-
 $('#aboutBut').click(function() {
   /* Act on the event */
   console.log('clicked');
+  $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
   $('#searchBox').hide();
   $('#outerBox').hide();
   $('#about-page').show('slow');
-
+  window.history.pushState("about/","","about/");
 });
