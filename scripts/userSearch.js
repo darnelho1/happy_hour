@@ -24,6 +24,7 @@ var entered = false;
 
 $('#mapView').hide();
 $('#backButton').hide();
+$('#about-page').hide();
 
 function resultSizeChange() {
   $height = $(window).height();
@@ -289,8 +290,12 @@ $('#searchBox').keypress(function(event) {
             $('.timesIcon').hover(function() {
               var times = $(this).attr('value');
               var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
-              console.log(thisID);
+              var nowTime = $("#"+thisID+" .happyHTimes").text();
+              $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
               $("#"+thisID+" .happyHTimes").text(times)
+            }, function() {
+              $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
+              $("#"+thisID+" .happyHTimes").text(nowTime);
             });
             resultSizeChange();
             mapFunction();
