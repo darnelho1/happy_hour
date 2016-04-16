@@ -371,7 +371,7 @@ window.open("index.html", '_self');
 });
 
 $('#headerTitle').on('click', function(event) {
-  window.open("index.html", '_self');
+  window.open('/', '_self');
 });
 
 $('#aboutBut').click(function() {
@@ -383,5 +383,7 @@ $('#aboutBut').click(function() {
   $('#searchBox').hide();
   $('#outerBox').hide();
   $('#about-page').show('slow');
-  window.history.pushState("about/","","about/");
+  if((window.location.href.indexOf('about') < -1)||(window.location.href.indexOf('about/') < -1)){
+    window.history.pushState("about/","","about/");
+  }
 });
