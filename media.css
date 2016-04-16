@@ -209,5 +209,14 @@
     margin-left: 0;
     margin-bottom: 0;
   }
-
+  .codebreakers-profiles {
+    width: 360px;
+    margin-bottom: 50px;
+  }
+    .codebreakers-profiles img {
+      width: 100px;
+    }
+    .codebreakers-names {
+      width: 335px;
+    }
 }

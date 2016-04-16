@@ -574,6 +574,12 @@ table.adp-placemark{
   color: #00cc66;
 }
 
+.codebreakers-outer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .codebreakers-profiles {
   display: flex;
   display: -moz-flex;
@@ -611,9 +617,8 @@ table.adp-placemark{
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
-  width: 475px;
+  width: 350px;
 }
     .codebreakers-names h2 {
-      /*width: auto;*/
-      margin: auto;
+      /*width: 75px;*/
     }
