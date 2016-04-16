@@ -370,9 +370,9 @@ $('#homeBut').on('click', function(event) {
 window.open("index.html", '_self');
 });
 
-$('#headerTitle').on('click', function(event) {
-  window.open('/', '_self');
-});
+// $('#headerTitle').on('click', function(event) {
+//   window.open('/', '_self');
+// });
 
 $('#aboutBut').click(function() {
   /* Act on the event */

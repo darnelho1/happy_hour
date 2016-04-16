@@ -97,6 +97,13 @@ main{
   cursor: pointer;
   /*border: solid red;*/
 }
+    #headerTitle a,
+    nav a {
+      text-decoration: none;
+      color: white;
+      list-style: none;
+      font-family: 'Candal', sans-serif;
+    }
 
 nav{
   margin-right: 5%;
