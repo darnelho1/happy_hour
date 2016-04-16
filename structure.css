@@ -97,8 +97,7 @@ main{
   cursor: pointer;
   /*border: solid red;*/
 }
-    #headerTitle a,
-    nav a {
+    #headerTitle a, nav a {
       text-decoration: none;
       color: white;
       list-style: none;
@@ -259,7 +258,7 @@ ul{
 
 .resultTitle{
   width: 100%;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: 'Candal', sans-serif;
   margin: 0;
   /*margin-top: 10px;*/
@@ -281,15 +280,21 @@ ul{
 }
 
 .resultsInfo{
-  height: auto;
-  width: 50%;
+  height: 130px;
+  width: 70%;
   padding: 0;
-  padding-left: 10%;
+  padding-left: 2%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 .resultNumber{
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   color: white;
 }
 .resultSite {
@@ -300,9 +305,8 @@ color: white;
 
 .resultAddress{
   cursor: pointer;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin: 10px 0;
+  margin-top: 5px;
+  margin-bottom: 10px;
   width: 100%;
   color: white;
 }
@@ -356,6 +360,22 @@ color: white;
   width: auto;
   height: auto;
 }
+
+#mapLeft{
+  display: flex;
+  -webkit-display: flex;
+  -moz-display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+}
+#moreInfo{
+    /*border: solid;*/
+    width: 100%;
+    height: 80px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.68);
+}
 #takeMe{
   background-color: rgba(0, 0, 0, 0.68);
   color: white;
@@ -369,7 +389,8 @@ color: white;
 
 #googleMap{
   width: 900px;
-  height: 400px;
+  height: 20px;
+  margin-top: 1%;
 }
 #turnButtons{
   display: flex;
@@ -484,8 +505,9 @@ table.adp-placemark{
 
 .yelpPower{
   height: 20px;
+  width: 80px;
   margin-top: 4px;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 #googlePower{
   height: 25px;
