@@ -589,12 +589,31 @@ table.adp-placemark{
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
-  width: 80%;
+  width: 400px;
   margin-bottom: 50px;
 }
+    .codebreakers-profiles img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
 
-.codebreakers-profiles img {
-  width: 100px;
-  height: auto;
-  border-radius: 50%;
+.codebreakers-names {
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  width: 475px;
 }
+    .codebreakers-names h2 {
+      /*width: auto;*/
+      margin: auto;
+    }
