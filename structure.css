@@ -536,7 +536,8 @@ table.adp-placemark{
 }*/
 
 .about-outer-box {
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow: scroll;
   margin: auto;
   margin-top: .5%;
   height: 100%;
@@ -551,8 +552,9 @@ table.adp-placemark{
   max-width: 700px;
   margin: auto;
   padding: 10px 50px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /*overflow-x: hidden;
+  overflow-y: hidden;*/
+  overflow: scroll;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -572,6 +574,18 @@ table.adp-placemark{
   color: #00cc66;
 }
 
+.codebreakers-outer-box {
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+}
+
 .codebreakers-profiles {
   display: flex;
   display: -moz-flex;
@@ -587,11 +601,30 @@ table.adp-placemark{
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
-  width: 80%;
+  width: 400px;
+  margin-bottom: 50px;
 }
+    .codebreakers-profiles img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
 
-.codebreakers-profiles img {
-  width: 100px;
-  height: auto;
-  border-radius: 50%;
+.codebreakers-names {
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  width: 370px;
 }
+    .codebreakers-names h2 {
+      /*width: 75px;*/
+    }
