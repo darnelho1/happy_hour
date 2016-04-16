@@ -21,6 +21,7 @@ var userloc;
 var userLat;
 var userLong;
 var entered = false;
+var day;
 
 $('#mapView').hide();
 $('#backButton').hide();
@@ -32,22 +33,27 @@ function resultSizeChange() {
   if($(window).width() < 500){
     console.log('working');
     $('#outerBox').css('height', ($height * 0.77));
+    $('#about-page').css('height', ($height * 0.92));
     $('#resultsOuterBox').css('height', ($height * 0.77));
   }
   else if($(window).width() < 697){
     console.log('working');
     $('#outerBox').css('height', ($height * 0.725));
+    $('#about-page').css('height', ($height * 0.875));
     $('#resultsOuterBox').css('height', ($height * 0.725));
   }
   else if ($(window).width() < 935) {
     $('#outerBox').css('height', ($height * 0.715));
+    $('#about-page').css('height', ($height * 0.855));
     $('#resultsOuterBox').css('height', ($height * 0.715));
   }
   else{
     $('#outerBox').css('height', ($height * 0.71));
+    $('#about-page').css('height', ($height * 0.85));
     $('#resultsOuterBox').css('height', ($height * 0.71));
   }
 }
+resultSizeChange();
 $(window).resize(function() {
     resultSizeChange();
   });
@@ -105,12 +111,14 @@ hhNow=function(x){
   for(var key in obj.happyHour){
     if (key.toString().indexOf(moment()._d.toString().slice(0,3)) > -1){
       console.log(key);
+      day = key.slice(0,3);
+      console.log(day);
     }
-
     if (moment().isSame(moment().day(key))){//if object day is the same as today
       // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
-        // console.log(obj.happyHour[key][0][i].split(":"));
+        console.log(obj);
+        console.log(obj.happyHour[key][0][i].split(":"));
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
         var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
@@ -131,9 +139,11 @@ hhNow=function(x){
     }
     }
 });
+console.log('color');
 };
 
 var hhTimes=function(x){
+  console.log(x);
   x.forEach(function(obj){
     obj.happyHourTimes=[];
     obj.happyHourTime=[];
@@ -211,6 +221,30 @@ function sortLocations(locations, lat, lng) {
   });
 }
 
+function daysHover() {
+  var thisID;
+  var nowTime;
+  $('.timesIcon').hover(function() {
+    var times = $(this).attr('value');
+    var thisId = $(this).parent().parent().parent().parent().parent().attr('id');
+    thisID = '#'+thisId;
+    console.log(thisID);
+    nowTime = $(thisID+" .happyHTimes").text();
+    console.log(nowTime);
+    $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
+    $(thisID+" .happyHTimes").text(times);
+    if ($(this).text()!==day) {
+      $(thisID+" ."+day).css('background-color', 'rgba(0, 0, 0, 0.81)');
+    }
+  }, function() {
+    $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
+    $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
+    console.log(nowTime);
+    $(thisID+" .happyHTimes").text(nowTime);
+    console.log(nowTime);
+  });
+}
+
 $('#searchBox').keypress(function(event) {
   if(event.which===13){
     document.activeElement.blur();
@@ -232,7 +266,6 @@ $('#searchBox').keypress(function(event) {
         else{
           window.history.pushState("search/" + data.url," ", data.url);
         }
-
         $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
 
         if (data.yelp.hasOwnProperty('statusCode')){
@@ -264,6 +297,8 @@ $('#searchBox').keypress(function(event) {
             setTimeout(function() {
               console.log('time Done');
               $('.fullscreen-bg__video').hide();
+              $('#iframeAPIplayer').css('display', 'none');
+              $('#iframeAPIplayer').remove();
             },540);
             $('#searchBox').css('margin-top', '1%');
             var template = $('#restTemplate').html();
@@ -276,27 +311,22 @@ $('#searchBox').keypress(function(event) {
               $('#results').append(html);
               var eachId = each.id;
               each.happyHourTimes.forEach(function(index){
-                $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+                $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
               });
               $('#results').addClass('fadeInUpBig animated');
               happening.forEach(function(x){
                 $(x).find('.hHDropDown').addClass('happeningNow');
                 $(x).find('.nowPic').css('display', 'block');
               });
+              $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
+              var times = $('#'+eachId+' .'+day).attr('value');
+              $('#'+eachId+' .happyHTimes').text(times);
             });
             $('#resultsOuterBox').scroll(function(){
               scrollHappening.bind(this)();
             });
-            $('.timesIcon').hover(function() {
-              var times = $(this).attr('value');
-              var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
-              var nowTime = $("#"+thisID+" .happyHTimes").text();
-              $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
-              $("#"+thisID+" .happyHTimes").text(times)
-            }, function() {
-              $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
-              $("#"+thisID+" .happyHTimes").text(nowTime);
-            });
+            daysHover();
+
             resultSizeChange();
             mapFunction();
             var endFlag = false;
