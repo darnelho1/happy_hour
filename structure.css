@@ -536,7 +536,7 @@ table.adp-placemark{
 }*/
 
 .about-outer-box {
-  overflow: scroll;
+  overflow: hidden;
   margin: auto;
   margin-top: .5%;
   height: 100%;
