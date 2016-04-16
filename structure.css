@@ -536,7 +536,8 @@ table.adp-placemark{
 }*/
 
 .about-outer-box {
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow: scroll;
   margin: auto;
   margin-top: .5%;
   height: 100%;
@@ -551,8 +552,9 @@ table.adp-placemark{
   max-width: 700px;
   margin: auto;
   padding: 10px 50px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /*overflow-x: hidden;
+  overflow-y: hidden;*/
+  overflow: scroll;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -588,6 +590,7 @@ table.adp-placemark{
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
   width: 80%;
+  margin-bottom: 50px;
 }
 
 .codebreakers-profiles img {
