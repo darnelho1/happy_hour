@@ -72,7 +72,7 @@ main{
   flex-direction: column;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
-  height: auto;
+  height: 90%;
   width: auto;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -474,6 +474,7 @@ table.adp-placemark{
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
 }
+
 .yelpPower{
   height: 20px;
   margin-top: 4px;
@@ -523,16 +524,23 @@ table.adp-placemark{
   font-size: 1.3em;
 }
 
-#about-page {
+/*#about-page {
   height: 800px;
-}
+}*/
 
 .about-outer-box {
+  overflow: scroll;
+  margin: auto;
+  margin-top: .5%;
+  height: 100%;
+}
+
+.about-inner-box{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 1.25em;
   /*background-color: rgba(0, 0, 0, 0.45);*/
   background-color: rgba(230, 230, 230, .8);
-  height: 100%;
+  /*height: auto;*/
   max-width: 700px;
   margin: auto;
   padding: 10px 50px;
@@ -559,8 +567,20 @@ table.adp-placemark{
 
 .codebreakers-profiles {
   display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
   flex-direction: row;
   align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  width: 80%;
 }
 
 .codebreakers-profiles img {

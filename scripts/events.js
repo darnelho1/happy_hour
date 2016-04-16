@@ -5,8 +5,8 @@ var char = 0;
 var num=0;
 var time=0;
 var endFlag=false;
-var thisID;
-var nowTime;
+// var thisID;
+// var nowTime;
 
 $('#searchBox').attr('placeholder', '|');
 var humanize = Math.round(Math.random() * (200 - 24)) + 30;
@@ -195,29 +195,22 @@ function scrollHappening() { /// insure to bind this to the element being callin
             $('#results').append(html);
             var eachId = each.id;
             each.happyHourTimes.forEach(function(index){
-              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>");
             });
             $('#results').addClass('fadeInUpBig animated');
+            var times = $('#'+eachId+' .'+day).attr('value');
+            $('#'+eachId+' .happyHTimes').text(times);
           });
           happening.forEach(function(x){
             $(x).find('.hHDropDown').addClass('happeningNow');
             $(x).find('.nowPic').css('display', 'block');
           });
-          $('.timesIcon').hover(function() {
-            var times = $(this).attr('value');
-            var thisID = $(this).parent().parent().parent().parent().parent().attr('id');
-            // console.log(thisID);
-            console.log($(this));
-            var nowTime = $("#"+thisID+" .happyHTimes").text();
-            $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
-            $("#"+thisID+" .happyHTimes").text(times);
-          }, function(){
-            $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
-            $("#"+thisID+" .happyHTimes").text(nowTime);
-          });
-          mapFunction();
+          $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
           endFlag = false;
         }
+        mapFunction();
+        $('.timesIcon').unbind('mouseenter mouseleave');
+        daysHover();
       });
   }
 }
@@ -325,7 +318,7 @@ if(window.location.href.indexOf('search/?') > -1){
             $('#results').append(html);
             var eachId = each.id;
             each.happyHourTimes.forEach(function(index){
-              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon' value='"+index.time+"'>"+index.day+"</p>")
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
             });
             $('#results').addClass('fadeInUpBig animated');
             happening.forEach(function(x){
@@ -333,23 +326,16 @@ if(window.location.href.indexOf('search/?') > -1){
               $(x).find('.hHDropDown').addClass('happeningNow');
               $(x).find('.nowPic').css('display', 'block');
             });
+            $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
+            var times = $('#'+eachId+' .'+day).attr('value');
+            $('#'+eachId+' .happyHTimes').text(times);
             // console.log(each);
           });
           $('#resultsOuterBox').scroll(function(){
             scrollHappening.bind(this)();
           });
 
-          $('.timesIcon').hover(function() {
-            var times = $(this).attr('value');
-            thisID = $(this).parent().parent().parent().parent().parent().attr('id');
-            console.log(thisID);
-            nowTime = $("#"+thisID+" .happyHTimes").text();
-            $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
-            $("#"+thisID+" .happyHTimes").text(times);
-          }, function() {
-            $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
-            $("#"+thisID+" .happyHTimes").text(nowTime);
-          });
+          daysHover();
           resultSizeChange();
           mapFunction();
           if (mapLocation !== null) {
