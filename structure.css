@@ -576,8 +576,14 @@ table.adp-placemark{
 
 .codebreakers-outer-box {
   display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
   align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
 }
 
 .codebreakers-profiles {
@@ -617,7 +623,7 @@ table.adp-placemark{
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
-  width: 350px;
+  width: 370px;
 }
     .codebreakers-names h2 {
       /*width: 75px;*/
