@@ -80,7 +80,7 @@
     height: 310px;
   }
   .resultTitle{
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
   .resultsInfo{
     padding-left: 1%;
@@ -112,8 +112,8 @@
     width: 70%;
   }
   .nowPic{
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     margin-left: 5px;
     margin-bottom: -40px;
   }
@@ -131,8 +131,8 @@
     -webkit-justify-content: center;
     -moz-justify-content: center;
   }
-  .nav>ul>li{
-    margin-right: 20%;
+  nav ul li{
+    margin-right: 15%;
   }
   #iframeAPIplayer {
     display: none;
@@ -188,7 +188,21 @@
     height: 10%;
   }
   .resultsInfo{
-    width: 70%;
+    width: 78%;
+  }
+  .resultNumber{
+    margin-top: 50px;
+    font-size: 1.3em;
+    height: 100%;
+  }
+  .resultAddress{
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    margin-top: 15px;
+  }
+  .resultSite{
+    font-size: 1.3em;
   }
 }
 @media (max-width: 500px) {

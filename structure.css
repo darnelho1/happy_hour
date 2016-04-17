@@ -222,7 +222,7 @@ ul{
   height: 98%;
 }
 .rightResult{
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   background-color: rgba(0, 0, 0, 0.45);
   padding: 5px;
   width: 100%;
@@ -281,7 +281,7 @@ ul{
 
 .resultsInfo{
   height: 130px;
-  width: 70%;
+  width: 78%;
   padding: 0;
   padding-left: 2%;
   display: flex;
@@ -488,7 +488,7 @@ table.adp-placemark{
   -moz-justify-content: center;
 }
 .nowPic{
-  /*display: none;*/
+  display: none;
   width: 60%;
   height: 60%;
   border-radius: 10px;
