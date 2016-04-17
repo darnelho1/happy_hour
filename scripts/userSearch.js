@@ -90,7 +90,6 @@ var searchParser= function(){
   // console.log('Parse Location test');
   // console.log(userloc);
 
-
   console.log(userLat,userLong);
 
   userSearchData=$(this).val();
@@ -99,7 +98,7 @@ var searchParser= function(){
       User.reqNeighborhood=x;
     }
   });
-
+  console.log(userSearchData);
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
 
   console.log(User);
@@ -251,6 +250,13 @@ $('#searchBox').keypress(function(event) {
     $("#searchBox").blur();
   if(entered === false){
     entered = true;
+    console.log($('#searchBox').val());
+    if ($('#searchBox').val() === '') {
+      console.log('working');
+      User.reqNeighborhood = undefined;
+      User.terms = "";
+    }
+    console.log(User);
     $('#results').empty();
     yelpSearchResults=[];
     reducedArray = [];
@@ -264,7 +270,7 @@ $('#searchBox').keypress(function(event) {
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
         }
         else{
-          window.history.pushState("search/" + data.url," ", data.url);
+          window.history.pushState("search/" + data.url," ","?" + data.url);
         }
         $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
 
