@@ -196,12 +196,34 @@
     height: 50px;
     font-size: 1.3em;
   }
+  nav{
+    margin-right: 10%;
+  }
+  .resultTitle{
+    font-size: 1.3em;
+    height: 100%;
+  }
   .resultsInfo{
-    width: 70%;
+    width: 77%;
+  }
+
+  .resultNumber{
+    margin-top: 45px;
+    font-size: 1.3em;
+    height: 100%;
+  }
+  .resultAddress{
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    margin-top: 15px;
   }
   .resultBox{
     background-size: 0;
     background-color: rgba(0, 0, 0, 0.33);
+  }
+  .resultSite{
+    font-size: 1.3em;
   }
   .nowPic{
     width: 100%;
