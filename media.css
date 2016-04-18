@@ -228,22 +228,35 @@
   }
   .resultTitle{
     font-size: 1.3em;
-    height: 100%;
+    /*height: 100%;*/
   }
   .resultsInfo{
     width: 77%;
+    height: 180px;
+    margin-bottom: 0;
   }
-
+  .resultsExtra{
+    text-align: left;
+    margin-top: 0;
+    height: 100px;
+  }
+  .happyHTimes{
+    font-size: 1em;
+  }
   .resultNumber{
     margin-top: 45px;
-    font-size: 1.3em;
+    font-size: 1em;
     height: 100%;
   }
   .resultAddress{
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
     font-size: 1em;
-    margin-top: 15px;
+    /*margin-top: 12px;*/
+  }
+  .resultHood{
+    margin-top: 1px;
+    margin-bottom: 1px;
   }
   .resultBox{
     background-size: 0;
@@ -252,11 +265,19 @@
   .resultSite{
     font-size: 1.3em;
   }
+  .nowNowNow{
+    margin-right: 0;
+  }
   .nowPic{
-    width: 100%;
-    height: 100%;
-    margin-left: 0;
+    width: 95%;
+    height: 95%;
+    margin-right: 0;
     margin-bottom: 0;
+  }
+  .mapIcon{
+    width: 35%;
+    height: 35%;
+    margin-right: 0;
   }
   .codebreakers-profiles {
     width: 360px;
