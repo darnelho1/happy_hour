@@ -144,6 +144,7 @@ function scrollHappening() { /// insure to bind this to the element being callin
       console.log( "success" );
     })
       .done(function(data) {
+        $('#resultsOuterBox').show();
         console.log("Server Success" );
         // console.log(data);
         if (data.hasOwnProperty('statusCode')){
@@ -264,6 +265,7 @@ if(window.location.href.indexOf('search/?') > -1){
     console.log( "success" );
   })
     .done(function(data) {
+      $('#resultsOuterBox').show();
       getLocation();
       $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
       // console.log("Server Success" );
