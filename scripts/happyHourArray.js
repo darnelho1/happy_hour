@@ -273,13 +273,13 @@ var happyHourArray = [
   {
     id: 'quinns-seattle',
     happyHour:{
+      Sunday:[['15:00'],['18:00']],
       Monday:[['15:00'],['18:00']],
       Tuesday:[['15:00'],['18:00']],
       Wednesday:[['15:00'],['18:00']],
       Thursday:[['15:00'],['18:00']],
       Friday:[['15:00'],['18:00']],
-      Saturday:[['15:00'],['18:00']],
-      Sunday:[['15:00'],['18:00']]
+      Saturday:[['15:00'],['18:00']]
       },
     website: 'http://www.quinnspubseattle.com/',
     logo: 'http://www.kaleberg.com/seattle/quinns.jpg'
