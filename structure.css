@@ -244,6 +244,7 @@ ul{
   display: -webkit-flex;
   display: -moz-flex;
   width: 40%;
+  min-width: 20%;
   flex-direction: row;
   -moz-flex-direction: row;
   -webkit-flex-direction: row;
@@ -260,7 +261,7 @@ ul{
 
 .resultTitle{
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-family: 'Candal', sans-serif;
   margin: 0;
   /*margin-top: 10px;*/
@@ -284,6 +285,7 @@ ul{
 .resultsInfo{
   height: 130px;
   width: 78%;
+  /*min-width: 78%;*/
   padding: 0;
   padding-left: 2%;
   display: flex;
@@ -309,7 +311,7 @@ color: white;
 .resultAddress{
   cursor: pointer;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   width: 100%;
   color: white;
 }
@@ -483,6 +485,7 @@ table.adp-placemark{
 #nowNowNow{
   /*height: auto;*/
   width: 12%;
+  min-width: 12%;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -492,7 +495,7 @@ table.adp-placemark{
   /*border: solid red;*/
 }
 .nowPic{
-  /*display: none;*/
+  display: none;
   width: 80%;
   height: 80%;
   border-radius: 10px;
@@ -527,18 +530,23 @@ table.adp-placemark{
   flex-direction: row;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
-  /*width: 350px;*/
+  /*width: 100%;*/
   height: 25px;
-  justify-content: flex-end;
-  -moz-justify-content: flex-end;
-  -webkit-justify-content: flex-end;
+  justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -webkit-justify-content: flex-start;
   margin-right: 0;
   padding-right: 0;
 }
+.hHDays{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+}
 
 .timesIcon{
-  font-size: 1em;
-  width: 40px;
+  font-size: .8em;
+  width: 50px;
   height: 20px;
   text-align: center;
   color: white;
@@ -548,7 +556,7 @@ table.adp-placemark{
   border-radius: 5px;
   margin: 0;
   margin-top: 3px;
-  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .happyHTimes{

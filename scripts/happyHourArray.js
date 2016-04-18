@@ -285,19 +285,6 @@ var happyHourArray = [
     logo: 'http://www.kaleberg.com/seattle/quinns.jpg'
 },
 {
-  id:'the-gerald-seattle',
-  happyHour: {
-    Sunday:[["16:00","22:30"],["18:00","26:00"]],
-    Monday:[["16:00","22:30"],["18:00","26:00"]],
-    Tuesday:[["16:00","22:30"],["18:00","26:00"]],
-    Wednesday:[["16:00","22:30"],["18:00","26:00"]],
-    Thursday:[["16:00","22:30"],["18:00","26:00"]],
-    Saturday:[["16:00","22:30"],["18:00","26:00"]]
-    },
-  website: 'http://thegeraldseattle.com/',
-  logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'
-},
-{
   id:'stoneburner-seattle',
   happyHour: {
     Sunday:[["15:00"],["17:00"]],
@@ -2419,16 +2406,6 @@ happyHour:{
   Friday:[["16:00"],["18:30"]],
   Saturday: [["16:00"],["18:30"]]
   }, website: 'http://www.thenoblefir.com/menu-spring-summer-2010.html', logo: 'http://www.thenoblefir.com/images/stories/headers/bar.jpg'},
-  {id: 'the-gerald-seattle',
-  happyHour:{
-  Sunday:[["16:00","22:30"],["18:00","25:00"]],
-  Monday:[["16:00","22:30"],["18:00","25:00"]],
-  Tuesday:[["16:00","22:30"],["18:00","25:00"]],
-  Wednesday:[["16:00","22:30"],["18:00","25:00"]],
-  Thursday:[["16:00","22:30"],["18:00","25:00"]],
-  Friday:[["16:00","22:30"],["18:00","25:00"]],
-  Saturday: [["16:00","22:30"],["18:00","25:00"]]
-  }, website: 'http://thegeraldseattle.com/happy-hour', logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'},
   {id: 'stoneburner-seattle',
   happyHour:{
   Sunday:[["15:00"],["17:00"]],

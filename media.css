@@ -35,6 +35,10 @@
     font-size: 1.2em;
     margin-top: 0;
   }
+  /*.timesIcon{
+    font-size: .6em;
+    margin-left: 3px;
+  }*/
 }
 
 @media (max-width: 767px) {
@@ -85,6 +89,7 @@
   .resultsInfo{
     padding-left: 1%;
     width: 100%;
+    height: auto;
   }
   .resultsExtra{
     width: 100%;
@@ -108,18 +113,23 @@
     margin: 2% 0;
     width: 100%;
   }
-  .resultAddress{
-    width: 70%;
-  }
+
   .nowPic{
     width: 70%;
     height: 70%;
     margin-left: 5px;
-    margin-bottom: -40px;
+    /*margin-bottom: -40px;*/
+  }
+  #nowNowNow{
+    width: 20%;
   }
 
   .rideSide{
     width: 100%;
+  }
+  .happyHoursIcons{
+    height: 30px;
+    margin-top: 5px;
   }
 
   ul{
@@ -192,17 +202,20 @@
   }
   .resultNumber{
     margin-top: 50px;
-    font-size: 1.3em;
+    font-size: 1em;
     height: 100%;
   }
   .resultAddress{
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
     font-size: 1em;
-    margin-top: 15px;
+    margin-top: 5px;
   }
   .resultSite{
     font-size: 1.3em;
+  }
+  .happyHoursIcons{
+    height: 25px;
   }
 }
 @media (max-width: 500px) {

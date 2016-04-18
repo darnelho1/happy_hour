@@ -225,11 +225,11 @@ function daysHover() {
   var nowTime;
   $('.timesIcon').hover(function() {
     var times = $(this).attr('value');
-    var thisId = $(this).parent().parent().parent().parent().parent().attr('id');
+    var thisId = $(this).parent().parent().parent().parent().attr('id');
     thisID = '#'+thisId;
     console.log(thisID);
     nowTime = $(thisID+" .happyHTimes").text();
-    console.log(nowTime);
+    // console.log(nowTime);
     $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
     $(thisID+" .happyHTimes").text(times);
     if ($(this).text()!==day) {
@@ -238,9 +238,9 @@ function daysHover() {
   }, function() {
     $(this).css('background-color', 'rgba(0, 0, 0, 0.81)');
     $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
-    console.log(nowTime);
+    // console.log(nowTime);
     $(thisID+" .happyHTimes").text(nowTime);
-    console.log(nowTime);
+    // console.log(nowTime);
   });
 }
 
