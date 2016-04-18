@@ -266,6 +266,7 @@ $('#searchBox').keypress(function(event) {
       // console.log( "success" );
     })
       .done(function(data) {
+        $('#resultsOuterBox').show();
         if(window.location.href.indexOf('search') <= -1){
           window.history.pushState("search/" + data.url," ","search/?" + data.url);
         }
