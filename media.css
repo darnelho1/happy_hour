@@ -35,6 +35,9 @@
     font-size: 1.2em;
     margin-top: 0;
   }
+  #searchIcon{
+    margin: 0 0 auto auto;
+  }
   /*.timesIcon{
     font-size: .6em;
     margin-left: 3px;
@@ -53,7 +56,7 @@
     margin-left: 5%;
   }
   #searchBox{
-    /*font-size: 1.3em;*/
+    font-size: 1.3em;
     /*height: 60px;*/
   }
   #backButton{
@@ -217,11 +220,24 @@
   .happyHoursIcons{
     height: 25px;
   }
+  #searchIcon{
+    margin: 0 0 auto 2%;
+  }
 }
 @media (max-width: 500px) {
+  #searchBoxWrapper{
+    height: 50px;
+    margin-bottom: 15px;
+  }
   #searchBox{
     height: 50px;
     font-size: 1.3em;
+    border-radius: 15px;
+  }
+  #searchIcon{
+    margin: 3px 0 auto 3%;
+    height: 55px;
+    width: 55px;
   }
   nav{
     margin-right: 10%;

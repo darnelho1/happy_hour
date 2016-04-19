@@ -62,11 +62,6 @@ function removeCursor(){
   $('#searchBox').attr('placeholder', $('#searchBox').attr('placeholder').slice(0, -1));
 }
 
-
-$("#searchBox").click(function(event) {
-  getLocation();
-});
-
 $("#searchBox").keyup(function(event) {
   searchParser.bind(this)();
 });
@@ -227,7 +222,7 @@ if((window.location.href.indexOf('about') > -1)||(window.location.href.indexOf('
   $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
-  $('#searchBox').hide();
+  $('#searchBoxWrapper').hide();
   $('#outerBox').hide();
   $('#about-page').css('display', 'flex');
   $('#about-page').show('slow');
@@ -246,17 +241,18 @@ if(window.location.href.indexOf('search/?') > -1){
   else {
   User.reqNeighborhood = getParameterByName('reqNeighborhood');
   }
-  if (User.currectLoc===""){
-    User.currectLoc=undefined;
-    }
-  else{
+  // if (User.currectLoc===""){
+  //   console.log('blank string');
+  //   User.currectLoc=undefined;
+  //   }
+  // else{
     User.currectLoc = getParameterByName('currectLoc');
-  }
+    console.log(User.currectLoc);
+  // }
   console.log(User.currectLoc);
   if (User.currectLoc !== undefined) {
     userLat=User.currectLoc.split(',')[0];
     userLong=User.currectLoc.split(',')[1];
-    console.log(User.currectLoc);
   }
   yelpSearchResults=[];
   reducedArray = [];
@@ -309,7 +305,7 @@ if(window.location.href.indexOf('search/?') > -1){
           setTimeout(function() {
             $('.fullscreen-bg__video').hide();
           },540);
-          $('#searchBox').css('margin-top', '1%');
+          $('#searchBoxWrapper').css('margin-top', '1%');
           var template = $('#restTemplate').html();
           var compileTemplate = Handlebars.compile(template);
           Handlebars.registerHelper("happyHourTimes", function(x) {
@@ -375,7 +371,7 @@ $('#aboutBut').click(function() {
   $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
-  $('#searchBox').hide();
+  $('#searchBoxWrapper').hide();
   $('#outerBox').hide();
   $('#about-page').show('slow');
 });

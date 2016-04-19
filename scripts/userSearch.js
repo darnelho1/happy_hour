@@ -23,10 +23,27 @@ var userLong;
 var entered = false;
 var day;
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+    userLat=position.coords.latitude;
+    userLong=position.coords.longitude;
+    User.currectLoc=userloc;
+    console.log(User);
+}
+
 $('#mapView').hide();
 $('#backButton').hide();
 $('#about-page').hide();
-
+getLocation();
+  
 function resultSizeChange() {
   $height = $(window).height();
   $('body').css('height', $height);
@@ -71,9 +88,6 @@ function sortLocations(locations, lat, lng) {
   });
 }
 
-  getLocation();
-
-
 var yelpSearchResults=[];
 var reducedArray = [];
 var resultsArray=[];
@@ -88,7 +102,7 @@ var searchParser= function(){
   // console.log('Parse Location test');
   // console.log(userloc);
 
-  console.log(userLat,userLong);
+  // console.log(userLat,userLong);
 
   userSearchData=$(this).val();
   yelpNeighborhoods.forEach(function(x){
@@ -98,7 +112,11 @@ var searchParser= function(){
   });
   console.log(userSearchData);
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
-
+  if (userSearchData === '') {
+    console.log('clear');
+    User.reqNeighborhood = undefined;
+    User.terms = '';
+  }
   console.log(User);
 };
 
@@ -191,22 +209,6 @@ var hhTimes=function(x){
   });
 };
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserLoc);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-function getUserLoc(position) {
-    userloc = position.coords.latitude + ','+ position.coords.longitude;
-    userLat=position.coords.latitude;
-    userLong=position.coords.longitude;
-    User.currectLoc=userloc;
-
-}
-
 function sortLocations(locations, lat, lng) {
   function dist(l) {
     return (l.latitude - lat) * (l.latitude - lat) +
@@ -249,11 +251,9 @@ if(entered === false){
   entered = true;
   console.log($('#searchBox').val());
   if ($('#searchBox').val() === '') {
-    console.log('working');
     User.reqNeighborhood = undefined;
     User.terms = "";
   }
-  console.log(User);
   $('#results').empty();
   yelpSearchResults=[];
   reducedArray = [];

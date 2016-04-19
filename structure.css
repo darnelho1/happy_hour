@@ -265,6 +265,7 @@ ul{
   font-family: 'Candal', sans-serif;
   margin: 0;
   /*margin-top: 10px;*/
+  cursor: pointer;
 }
 .resultBody{
   border: solid white;
@@ -495,7 +496,7 @@ table.adp-placemark{
   /*border: solid red;*/
 }
 .nowPic{
-  /*display: none;*/
+  display: none;
   width: 80%;
   height: 80%;
   border-radius: 10px;
@@ -562,7 +563,7 @@ table.adp-placemark{
 .happyHTimes{
   margin: 0;
   margin-top: 2px;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 #about-page {
@@ -602,6 +603,19 @@ table.adp-placemark{
   align-items: center;
   -webkit-align-items: center;
   -moz-align-items: center;
+}
+.eachBreaker{
+    display: flex;
+    -moz-display: flex;
+    -webkit-display: flex;
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    text-align: center;
+    width: 100%;
 }
 
 .about-outer-box h2,
@@ -665,11 +679,10 @@ table.adp-placemark{
     }
 #searchIcon{
   margin: auto;
-  /*margin-top: 1%;*/
-  /*margin-right: 11%;*/
-  margin-bottom: 1%;
-  height: 105px;
-  width: 105px;
+  margin-top: -.1%;
+  margin-right: 5%;
+  height: 85px;
+  width: 85px;
   /*background-color: black;*/
   opacity: .9;
   /*border:solid white;*/
@@ -689,7 +702,10 @@ table.adp-placemark{
   -moz-flex-direction:row;
   justify-content: space-around;
   -moz-justify-content:space-around;
+  -webkit-jusitify-content: space-around;
+  -webkit-align-items: baseline;
   width: 90%;
+  height: 85px;
   /*border: solid;*/
 
 }

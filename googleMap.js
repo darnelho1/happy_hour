@@ -67,10 +67,10 @@
   function GotToMap() {
     mapSize();
     $('#resultsOuterBox').addClass('slideOutDown animated');
-    $('#searchBox').addClass('flipOutX animated').removeClass('flipInX');
+    $('#searchBoxWrapper').addClass('flipOutX animated').removeClass('flipInX');
     setTimeout(function(){
       $('#resultsOuterBox').hide();
-      $('#searchBox').hide();
+      $('#searchBoxWrapper').hide();
       $('#mapView').addClass('slideInDown animated').removeClass('slideOutUp').show();
       console.log(locationsName);
       $('#takeMe').attr('href', 'maps:daddr=' + locationId);
@@ -85,7 +85,7 @@
       setTimeout(function(){
         $('#mapView').hide();
         $('#backButton').hide();
-        $('#searchBox').addClass('flipInX').removeClass('flipOutX').show();
+        $('#searchBoxWrapper').addClass('flipInX').removeClass('flipOutX').show();
         $('#resultsOuterBox').removeClass('slideOutDown').show();
       }, 470);
     });
@@ -96,17 +96,25 @@ function mapFunction() {
     $(this).toggleClass('pulse animated');
   });
 
-  $('.mapIcon').on('click', function(event) {
-    locationId = $(this).parent().parent().parent().find('.resultAddress').text();
+  function clickMapView(clickedLocation) {
     function resultsinfoFunction() {
       return location.href;
     }
     resultsInfo = resultsinfoFunction();
-    var clickedLocation = $(this).parent().parent().parent().attr("id");
     locationsName = $('#'+clickedLocation).find('.resultTitle').text();
     console.log(locationsName);
     window.history.replaceState(location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation);
     GotToMap();
+  }
+  $('.mapIcon').on('click', function(event) {
+    locationId = $(this).parent().parent().parent().find('.resultAddress').text();
+    var clickedLocation = $(this).parent().parent().parent().attr("id");
+    clickMapView(clickedLocation);
+  });
+  $('.resultTitle').on('click', function(event) {
+    locationId = $(this).parent().find('.resultAddress').text();
+    var clickedLocation = $(this).parent().parent().parent().attr("id");
+    clickMapView(clickedLocation);
   });
 }
 
