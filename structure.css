@@ -565,13 +565,14 @@ table.adp-placemark{
   font-size: 1.3em;
 }
 
-/*#about-page {
-  height: 800px;
-}*/
+#about-page {
+  overflow: auto;
+  height: 100%;
+}
 
 .about-outer-box {
   /*overflow: hidden;*/
-  overflow: scroll;
+  overflow: visible;
   margin: auto;
   margin-top: .5%;
   height: 100%;
@@ -588,7 +589,7 @@ table.adp-placemark{
   padding: 10px 50px;
   /*overflow-x: hidden;
   overflow-y: hidden;*/
-  overflow: scroll;
+  overflow: visible;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
