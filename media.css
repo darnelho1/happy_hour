@@ -295,6 +295,9 @@
     height: 35%;
     margin-right: 0;
   }
+  .about-inner-box {
+    width: 300px;
+  }
   .codebreakers-profiles {
     width: 360px;
     margin-bottom: 50px;
@@ -304,5 +307,21 @@
     }
     .codebreakers-names {
       width: 335px;
+    }
+}
+
+@media (max-width: 350px) {
+  .about-inner-box {
+    width: 275px;
+  }
+  .codebreakers-profiles {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+    .codebreakers-profiles img {
+      width: 100px;
+    }
+    .codebreakers-names {
+      width: 300px;
     }
 }
