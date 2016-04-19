@@ -66,8 +66,12 @@
     </header>
     <main>
       <button id="backButton"><u id='locationName'></u> Not It?</button>
-      <input type="text" name="search" placeholder="Search Seattle" id="searchBox">
-      <article id="outerBox">
+      <div id='searchBoxWrapper'>
+        <input type="text" name="search" placeholder="Search Seattle" id="searchBox">
+        <img id="searchIcon" src="./images/search-icon.png" alt="" />
+      </div>
+
+        <article id="outerBox">
         <div id="resultsOuterBox" style="display:none">
           <section id='results'></section>
         </div>
