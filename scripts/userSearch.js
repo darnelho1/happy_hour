@@ -71,10 +71,8 @@ function sortLocations(locations, lat, lng) {
   });
 }
 
-$(window).ready(function(event) {
   getLocation();
-  // console.log('clicked');
-});
+
 
 var yelpSearchResults=[];
 var reducedArray = [];
