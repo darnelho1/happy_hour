@@ -23,10 +23,27 @@ var userLong;
 var entered = false;
 var day;
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLoc);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function getUserLoc(position) {
+    userloc = position.coords.latitude + ','+ position.coords.longitude;
+    userLat=position.coords.latitude;
+    userLong=position.coords.longitude;
+    User.currectLoc=userloc;
+    console.log(User);
+}
+
 $('#mapView').hide();
 $('#backButton').hide();
 $('#about-page').hide();
-
+getLocation();
+  
 function resultSizeChange() {
   $height = $(window).height();
   $('body').css('height', $height);
@@ -70,9 +87,6 @@ function sortLocations(locations, lat, lng) {
     return dist(l1.location.coordinate) - dist(l2.location.coordinate);
   });
 }
-
-  getLocation();
-
 
 var yelpSearchResults=[];
 var reducedArray = [];
@@ -194,22 +208,6 @@ var hhTimes=function(x){
     }
   });
 };
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserLoc);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-function getUserLoc(position) {
-    userloc = position.coords.latitude + ','+ position.coords.longitude;
-    userLat=position.coords.latitude;
-    userLong=position.coords.longitude;
-    User.currectLoc=userloc;
-    console.log(User);
-}
 
 function sortLocations(locations, lat, lng) {
   function dist(l) {

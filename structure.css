@@ -265,6 +265,7 @@ ul{
   font-family: 'Candal', sans-serif;
   margin: 0;
   /*margin-top: 10px;*/
+  cursor: pointer;
 }
 .resultBody{
   border: solid white;
@@ -562,7 +563,7 @@ table.adp-placemark{
 .happyHTimes{
   margin: 0;
   margin-top: 2px;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 #about-page {
@@ -602,6 +603,19 @@ table.adp-placemark{
   align-items: center;
   -webkit-align-items: center;
   -moz-align-items: center;
+}
+.eachBreaker{
+    display: flex;
+    -moz-display: flex;
+    -webkit-display: flex;
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    text-align: center;
+    width: 100%;
 }
 
 .about-outer-box h2,

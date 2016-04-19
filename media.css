@@ -227,6 +227,7 @@
 @media (max-width: 500px) {
   #searchBoxWrapper{
     height: 50px;
+    margin-bottom: 15px;
   }
   #searchBox{
     height: 50px;
@@ -234,9 +235,9 @@
     border-radius: 15px;
   }
   #searchIcon{
-    margin: 0 0 auto auto;
-    height: 50px;
-    width: 50px;
+    margin: 3px 0 auto 3%;
+    height: 55px;
+    width: 55px;
   }
   nav{
     margin-right: 10%;
