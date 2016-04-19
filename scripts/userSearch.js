@@ -242,107 +242,116 @@ function daysHover() {
   });
 }
 
+defaultSearch = function(){
+  document.activeElement.blur();
+  $("#searchBox").blur();
+if(entered === false){
+  entered = true;
+  console.log($('#searchBox').val());
+  if ($('#searchBox').val() === '') {
+    console.log('working');
+    User.reqNeighborhood = undefined;
+    User.terms = "";
+  }
+  console.log(User);
+  $('#results').empty();
+  yelpSearchResults=[];
+  reducedArray = [];
+  resultsArray=[];
+  // searchCrit=$('#searchBox').val();
+  $.post( "/search",{searchCrit:User}, function(data) {
+    // console.log( "success" );
+  })
+    .done(function(data) {
+      $('#resultsOuterBox').show();
+      // $('#searchIcon').hide();
+      if(window.location.href.indexOf('search') <= -1){
+        window.history.pushState("search/" + data.url," ","search/?" + data.url);
+      }
+      else{
+        window.history.pushState("search/" + data.url," ","?" + data.url);
+      }
+      $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
+
+      if (data.yelp.hasOwnProperty('statusCode')){
+        console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
+        alert("There was a problem processing your request. Please try again or check the console for more information");
+      }
+      else {
+        data.yelp.forEach(function(x){
+            happyHourArray.forEach(function(y) {
+              if (x.id === y.id) {
+                x.happyHour=y.happyHour;
+                x.img  = y.logo;
+                x.website = y.website;
+                var place = new Places(x);
+                resultsArray.push(place);
+              }
+            });
+          });
+          hhNow(resultsArray);
+          if (resultsArray.length === 0) {
+            $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
+          }
+          hhTimes(resultsArray);
+          uniqueArray=_.uniq(resultsArray,function(x){
+            return x.name;
+          });
+          $('.backgroundVid').css('background-color', 'rgba(250, 250, 250, 0)');
+          $('.fullscreen-bg__video').addClass('fadeOutUp animated');
+          setTimeout(function() {
+            console.log('time Done');
+            $('.fullscreen-bg__video').hide();
+            $('#iframeAPIplayer').css('display', 'none');
+            $('#iframeAPIplayer').remove();
+          },540);
+          $('#searchBoxWrapper').css('margin-top', '1%');
+          var template = $('#restTemplate').html();
+          var compileTemplate = Handlebars.compile(template);
+          Handlebars.registerHelper("happyHourTimes", function(x) {
+              return x;
+          });
+          uniqueArray.forEach(function(each) {
+            var html = compileTemplate(each);
+            $('#results').append(html);
+            var eachId = each.id;
+            each.happyHourTimes.forEach(function(index){
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
+            });
+            $('#results').addClass('fadeInUpBig animated');
+            happening.forEach(function(x){
+              $(x).find('.hHDropDown').addClass('happeningNow');
+              $(x).find('.nowPic').css('display', 'block');
+            });
+            $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
+            var times = $('#'+eachId+' .'+day).attr('value');
+            $('#'+eachId+' .happyHTimes').text(times);
+          });
+          $('#resultsOuterBox').scroll(function(){
+            scrollHappening.bind(this)();
+          });
+          daysHover();
+
+          resultSizeChange();
+          mapFunction();
+          var endFlag = false;
+      }
+      entered = false;
+  })
+    .fail(function() {
+      alert("Error Communicating With Server");
+    })
+    .always(function() {
+  });
+}
+};
+
 $('#searchBox').keypress(function(event) {
   if(event.which===13){
-    document.activeElement.blur();
-    $("#searchBox").blur();
-  if(entered === false){
-    entered = true;
-    console.log($('#searchBox').val());
-    if ($('#searchBox').val() === '') {
-      console.log('working');
-      User.reqNeighborhood = undefined;
-      User.terms = "";
-    }
-    console.log(User);
-    $('#results').empty();
-    yelpSearchResults=[];
-    reducedArray = [];
-    resultsArray=[];
-    // searchCrit=$('#searchBox').val();
-    $.post( "/search",{searchCrit:User}, function(data) {
-      // console.log( "success" );
-    })
-      .done(function(data) {
-        $('#resultsOuterBox').show();
-        if(window.location.href.indexOf('search') <= -1){
-          window.history.pushState("search/" + data.url," ","search/?" + data.url);
-        }
-        else{
-          window.history.pushState("search/" + data.url," ","?" + data.url);
-        }
-        $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
-
-        if (data.yelp.hasOwnProperty('statusCode')){
-          console.warn("Error was logged when trying to retrieve results from the Yelp API: "+ data.yelp.data);
-          alert("There was a problem processing your request. Please try again or check the console for more information");
-        }
-        else {
-          data.yelp.forEach(function(x){
-              happyHourArray.forEach(function(y) {
-                if (x.id === y.id) {
-                  x.happyHour=y.happyHour;
-                  x.img  = y.logo;
-                  x.website = y.website;
-                  var place = new Places(x);
-                  resultsArray.push(place);
-                }
-              });
-            });
-            hhNow(resultsArray);
-            if (resultsArray.length === 0) {
-              $('#results').html('<img id="sadPanda" src="http://cdn.meme.am/instances/57095046.jpg"><h4 id="tryAgain">Search Again...</h4>');
-            }
-            hhTimes(resultsArray);
-            uniqueArray=_.uniq(resultsArray,function(x){
-              return x.name;
-            });
-            $('.backgroundVid').css('background-color', 'rgba(250, 250, 250, 0)');
-            $('.fullscreen-bg__video').addClass('fadeOutUp animated');
-            setTimeout(function() {
-              console.log('time Done');
-              $('.fullscreen-bg__video').hide();
-              $('#iframeAPIplayer').css('display', 'none');
-              $('#iframeAPIplayer').remove();
-            },540);
-            $('#searchBox').css('margin-top', '1%');
-            var template = $('#restTemplate').html();
-            var compileTemplate = Handlebars.compile(template);
-            Handlebars.registerHelper("happyHourTimes", function(x) {
-                return x;
-            });
-            uniqueArray.forEach(function(each) {
-              var html = compileTemplate(each);
-              $('#results').append(html);
-              var eachId = each.id;
-              each.happyHourTimes.forEach(function(index){
-                $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
-              });
-              $('#results').addClass('fadeInUpBig animated');
-              happening.forEach(function(x){
-                $(x).find('.hHDropDown').addClass('happeningNow');
-                $(x).find('.nowPic').css('display', 'block');
-              });
-              $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
-              var times = $('#'+eachId+' .'+day).attr('value');
-              $('#'+eachId+' .happyHTimes').text(times);
-            });
-            $('#resultsOuterBox').scroll(function(){
-              scrollHappening.bind(this)();
-            });
-            daysHover();
-
-            resultSizeChange();
-            mapFunction();
-            var endFlag = false;
-        }
-        entered = false;
-    })
-      .fail(function() {
-        alert("Error Communicating With Server");
-      })
-      .always(function() {
-    });
+    defaultSearch();
   }
-}
+});
+
+$('#searchIcon').click(function(){
+  defaultSearch();
 });
