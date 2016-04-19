@@ -56,7 +56,7 @@
     margin-left: 5%;
   }
   #searchBox{
-    /*font-size: 1.3em;*/
+    font-size: 1.3em;
     /*height: 60px;*/
   }
   #backButton{
@@ -221,7 +221,7 @@
     height: 25px;
   }
   #searchIcon{
-    margin: 0 0 auto auto;
+    margin: 0 0 auto 2%;
   }
 }
 @media (max-width: 500px) {

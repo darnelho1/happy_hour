@@ -566,16 +566,16 @@ table.adp-placemark{
 }
 
 #about-page {
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
 }
 
 .about-outer-box {
-  overflow: hidden;
-  /*overflow: visible;*/
+  /*overflow: hidden;*/
+  overflow: visible;
   margin: auto;
   margin-top: .5%;
-  /*height: auto;*/
+  height: 100%;
 }
 
 .about-inner-box{
@@ -587,9 +587,9 @@ table.adp-placemark{
   max-width: 700px;
   margin: auto;
   padding: 10px 50px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  /*overflow: visible;*/
+  /*overflow-x: hidden;
+  overflow-y: hidden;*/
+  overflow: visible;
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;

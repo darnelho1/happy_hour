@@ -88,7 +88,7 @@ var searchParser= function(){
   // console.log('Parse Location test');
   // console.log(userloc);
 
-  console.log(userLat,userLong);
+  // console.log(userLat,userLong);
 
   userSearchData=$(this).val();
   yelpNeighborhoods.forEach(function(x){
@@ -98,7 +98,11 @@ var searchParser= function(){
   });
   console.log(userSearchData);
   User.terms=userSearchData.toUpperCase().replace(User.reqNeighborhood,"");
-
+  if (userSearchData === '') {
+    console.log('clear');
+    User.reqNeighborhood = undefined;
+    User.terms = '';
+  }
   console.log(User);
 };
 
@@ -249,11 +253,9 @@ if(entered === false){
   entered = true;
   console.log($('#searchBox').val());
   if ($('#searchBox').val() === '') {
-    console.log('working');
     User.reqNeighborhood = undefined;
     User.terms = "";
   }
-  console.log(User);
   $('#results').empty();
   yelpSearchResults=[];
   reducedArray = [];
