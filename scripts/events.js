@@ -62,11 +62,6 @@ function removeCursor(){
   $('#searchBox').attr('placeholder', $('#searchBox').attr('placeholder').slice(0, -1));
 }
 
-
-$("#searchBox").click(function(event) {
-  getLocation();
-});
-
 $("#searchBox").keyup(function(event) {
   searchParser.bind(this)();
 });
@@ -227,7 +222,7 @@ if((window.location.href.indexOf('about') > -1)||(window.location.href.indexOf('
   $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
-  $('#searchBox').hide();
+  $('#searchBoxWrapper').hide();
   $('#outerBox').hide();
   $('#about-page').css('display', 'flex');
   $('#about-page').show('slow');
@@ -375,7 +370,7 @@ $('#aboutBut').click(function() {
   $('body').css('background-image', 'url(' + bgroundImg[Math.floor(Math.random() * bgroundImg.length)] +')');
   $('.loadingImage').hide();
   $('.backgroundVid').hide();
-  $('#searchBox').hide();
+  $('#searchBoxWrapper').hide();
   $('#outerBox').hide();
   $('#about-page').show('slow');
 });

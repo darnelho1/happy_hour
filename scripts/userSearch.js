@@ -204,7 +204,7 @@ function getUserLoc(position) {
     userLat=position.coords.latitude;
     userLong=position.coords.longitude;
     User.currectLoc=userloc;
-
+    console.log(User);
 }
 
 function sortLocations(locations, lat, lng) {
