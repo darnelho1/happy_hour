@@ -116,6 +116,50 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function countDown(id) {
+  var deadline;
+  var location = id;
+  var time;
+  var timeNow = moment().format('h');
+  var toDay = moment().format('dddd');
+  uniqueArray.forEach(function (x, day) {
+    if ("#"+x.id === location) {
+      if ((Number(x.happyHour[toDay][0][0].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][0].split(':',1)))) {
+        time = x.happyHour[toDay][1][0];
+      }
+      else if ((Number(x.happyHour[toDay][0][1].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][1].split(':',1)))) {
+        time = x.happyHour[toDay][1][1];
+      }
+      deadline = moment().format('LL') + ' '+ time+':00';
+    }
+  });
+  function getTimeRemaining (deadline){
+    var t = Date.parse(deadline) - Date.parse(new Date());
+    var seconds = Math.floor((t/1000)%60);
+    var minutes = Math.floor((t/1000/60)%60);
+    var hours = Math.floor((t/(1000*60*60))%24);
+    var days = Math.floor(t/(1000*60*60*24));
+    return {
+      'total': t,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+
+  function updateClock(){
+      var t = getTimeRemaining(deadline);
+      $(location).find('.hours').text(t.hours);
+      $(location).find('.minutes').text(('0' + t.minutes).slice(-2));
+      $(location).find('.seconds').text(('0' + t.seconds).slice(-2));
+      if(t.total<=0){
+        clearInterval(timeinterval);
+      }
+  }
+  updateClock(location); // run function once at first to avoid delay
+  var timeinterval = setInterval(updateClock,1000);
+}
+
 function scrollHappening() { /// insure to bind this to the element being calling it
   if(($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight-1) && (endFlag === false)){
     // console.log('happening');
@@ -198,8 +242,10 @@ function scrollHappening() { /// insure to bind this to the element being callin
             $('#'+eachId+' .happyHTimes').text(times);
           });
           happening.forEach(function(x){
+            var id = x;
             $(x).find('.hHDropDown').addClass('happeningNow');
-            $(x).find('.nowPic').css('display', 'block');
+            $(x).find('.clock').css('display', 'block');
+            countDown(id);
           });
           $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
           endFlag = false;
@@ -316,13 +362,14 @@ if(window.location.href.indexOf('search/?') > -1){
             $('#results').append(html);
             var eachId = each.id;
             each.happyHourTimes.forEach(function(index){
-              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>");
             });
             $('#results').addClass('fadeInUpBig animated');
             happening.forEach(function(x){
-              // console.log(x);
+              var id = x;
               $(x).find('.hHDropDown').addClass('happeningNow');
-              $(x).find('.nowPic').css('display', 'block');
+              $(x).find('.clock').css('display', 'block');
+              countDown(id);
             });
             $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
             var times = $('#'+eachId+' .'+day).attr('value');

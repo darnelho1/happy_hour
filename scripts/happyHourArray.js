@@ -2436,6 +2436,16 @@ happyHour:{
   Friday:[["16:00"],["18:00"]],
   Saturday: [["16:00"],["18:00"]],
 }, website: 'http://www.percysseattle.com', logo: 'http://www.percysseattle.com/assets/images/logo.png'},
+{id: 'rays-café-seattle-2',
+happyHour:{
+  Sunday:[["16:00"],["18:00"]],
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]],
+  Friday:[["12:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.rays.com/cafe/menu/#53', logo: 'http://www.rays.com/wp-content/themes/rays/images/logo.png'},
 {id: 'rays-boathouse-seattle-2',
 happyHour:{
   Sunday:[["17:00"],["18:00"]],

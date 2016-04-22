@@ -43,7 +43,7 @@ $('#mapView').hide();
 $('#backButton').hide();
 $('#about-page').hide();
 getLocation();
-  
+
 function resultSizeChange() {
   $height = $(window).height();
   $('body').css('height', $height);
@@ -316,12 +316,14 @@ if(entered === false){
             $('#results').append(html);
             var eachId = each.id;
             each.happyHourTimes.forEach(function(index){
-              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>");
             });
             $('#results').addClass('fadeInUpBig animated');
             happening.forEach(function(x){
+              var id = x;
               $(x).find('.hHDropDown').addClass('happeningNow');
-              $(x).find('.nowPic').css('display', 'block');
+              $(x).find('.clock').css('display', 'block');
+              countDown(x);
             });
             $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
             var times = $('#'+eachId+' .'+day).attr('value');

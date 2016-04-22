@@ -495,6 +495,24 @@ table.adp-placemark{
   -moz-justify-content: center;
   /*border: solid red;*/
 }
+.clock{
+  display: none;
+  width: 80%;
+  height: 100px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.81);
+  border-radius: 10px;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
 .nowPic{
   display: none;
   width: 80%;
