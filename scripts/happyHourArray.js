@@ -299,19 +299,6 @@ var happyHourArray = [
   logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'
 },
 {
-  id:'percys-and-co-seattle',
-  happyHour: {
-    Sunday:[["16:00"],["18:00"]],
-    Monday:[["16:00"],["26:00"]],
-    Tuesday:[["16:00"],["18:00"]],
-    Wednesday:[["16:00"],["18:00"]],
-    Thursday:[["16:00"],["18:00"]],
-    Saturday:[["16:00"],["18:00"]]
-    },
-  website: 'http://www.percysseattle.com/',
-  logo: 'http://www.percysseattle.com/assets/images/logo.png'
-},
-{
   id:'la-isla-cuisine-seattle',
   happyHour: {
     Sunday:[["15:00","22:00"],["18:00","25:00"]],
@@ -556,7 +543,7 @@ happyHour:{
 {id:'percys-and-co-seattle',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00"],["26:00"]],
+  Monday:[["0:00"],["26:00"]],
   Tuesday:[["16:00"],["18:00"]],
   Wednesday:[["16:00"],["18:00"]],
   Thursday:[["16:00"],["18:00"]],
@@ -2426,16 +2413,6 @@ happyHour:{
   Friday:[["15:00","21:00"],["18:00","25:00"]],
   Saturday: [["15:00","21:00"],["18:00","25:00"]]
   }, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
-  {id: 'percys-and-co-seattle',
-  happyHour:{
-  Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00","0:00"],["18:00","24:00"]],
-  Tuesday:[["16:00"],["18:00"]],
-  Wednesday:[["16:00"],["18:00"]],
-  Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-  Saturday: [["16:00"],["18:00"]],
-}, website: 'http://www.percysseattle.com', logo: 'http://www.percysseattle.com/assets/images/logo.png'},
 {id: 'rays-café-seattle-2',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],

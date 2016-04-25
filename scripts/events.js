@@ -126,11 +126,40 @@ function countDown(id) {
     if ("#"+x.id === location) {
       if ((Number(x.happyHour[toDay][0][0].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][0].split(':',1)))) {
         time = x.happyHour[toDay][1][0];
+        if (Number(time.split(':',1)) >= 24) {
+          console.log('next day');
+          var changeTime = moment().format('LL');
+          var splitTime = changeTime.split(' ');
+          var newDay = Number(splitTime[1].split(',',1))+1;
+          var newDate = splitTime[0]+' '+ newDay+', '+ splitTime[2];
+          var hours = Number(time.split(':',1)) - 24;
+          deadline = newDate + ' ' + hours +':00';
+        }
+        else{
+          deadline = moment().format('LL') + ' '+ time+':00';
+        }
       }
-      else if ((Number(x.happyHour[toDay][0][1].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][1].split(':',1)))) {
-        time = x.happyHour[toDay][1][1];
+      else if (x.happyHour[toDay][1].length === 2){
+        if ((Number(x.happyHour[toDay][0][1].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][1].split(':',1)))) {
+          console.log(Number(x.happyHour[toDay][0][1].split(':',1)));
+          console.log(Number(timeNow));
+          console.log(Number(x.happyHour[toDay][1][1].split(':',1)));
+          time = x.happyHour[toDay][1][1];
+          if (Number(time.split(':',1)) >= 24) {
+            console.log('next day');
+            var changeTime = moment().format('LL');
+            var splitTime = changeTime.split(' ');
+            var newDay = Number(splitTime[1].split(',',1))+1;
+            var newDate = splitTime[0]+' '+ newDay+', '+ splitTime[2];
+            console.log(Number(time.split(':',1)));
+            var hours = Number(time.split(':',1)) - 24;
+            deadline = newDate + ' ' + hours +':59';
+          }
+          else{
+            deadline = moment().format('LL') + ' '+ time+':00';
+          }
+        }
       }
-      deadline = moment().format('LL') + ' '+ time+':00';
     }
   });
   function getTimeRemaining (deadline){
