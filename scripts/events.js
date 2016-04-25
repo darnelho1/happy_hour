@@ -121,11 +121,21 @@ function countDown(id) {
   var location = id;
   var time;
   var timeNow = moment().format('h');
+  var amPm = moment().format('a');
   var toDay = moment().format('dddd');
+  if (amPm === 'pm') {
+    timeNow = Number(timeNow)+12;
+    console.log(timeNow);
+  }
   uniqueArray.forEach(function (x, day) {
     if ("#"+x.id === location) {
+      console.log(x.id);
+      console.log(amPm);
+      console.log(Number(x.happyHour[toDay][0][0].split(':',1)) +"<="+Number(timeNow)+ "<="+ Number(x.happyHour[toDay][1][0].split(':',1)));
+
       if ((Number(x.happyHour[toDay][0][0].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][0].split(':',1)))) {
         time = x.happyHour[toDay][1][0];
+        console.log(time);
         if (Number(time.split(':',1)) >= 24) {
           console.log('next day');
           var changeTime = moment().format('LL');

@@ -128,20 +128,13 @@ var happyHourArray = [
     website: 'http://witnessbar.com/',
     logo: 'http://witnessbar.com/wp-content/uploads/2013/08/logo.png'
   },
-  {
-    id:'über-tavern-seattle-2',
-    happyHour:{
-      Sunday:[["16:00"],["18:00"]],
-      Monday:[["16:00"],["18:00"]],
-      Tuesday:[["16:00"],["18:00"]],
-      Wednesday:[["16:00"],["18:00"]],
-      Thursday:[["16:00"],["18:00"]],
-      Friday:[["16:00"],["18:00"]],
-      Saturday:[["16:00"],["18:00"]]
-    },
-    website: 'http://www.uberbier.com/',
-    logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'
-  },
+  {id: 'über-tavern-seattle-2',
+  happyHour:{
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Friday:[["16:00"],["18:00"]],
+  }, website: 'http://www.uberbier.com', logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'},
   {
     id:'yoroshiku-seattle-4',
     happyHour:{
@@ -2536,13 +2529,6 @@ happyHour:{
   Friday:[["15:00","21:00"],["18:00","23:00"]],
   Saturday: [["21:00"],["23:00"]]
 }, website: 'http://ridgepizza.com/food.php', logo: 'http://ridgepizza.com/img/logosm.png'},
-{id: 'über-tavern-seattle-2',
-happyHour:{
-  Tuesday:[["16:00"],["18:00"]],
-  Wednesday:[["16:00"],["18:00"]],
-  Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-}, website: 'http://www.uberbier.com', logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'},
 {id: 'stumbling-goat-bistro-seattle',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],
