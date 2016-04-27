@@ -125,15 +125,15 @@ hhNow=function(x){
   x.forEach(function(obj){
   for(var key in obj.happyHour){
     if (key.toString().indexOf(moment()._d.toString().slice(0,3)) > -1){
-      console.log(key);
+      // console.log(key);
       day = key.slice(0,3);
-      console.log(day);
+      // console.log(day);
     }
     if (moment().isSame(moment().day(key))){//if object day is the same as today
       // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
-        console.log(obj);
-        console.log(obj.happyHour[key][0][i].split(":"));
+        // console.log(obj);
+        // console.log(obj.happyHour[key][0][i].split(":"));
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
         var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
@@ -196,7 +196,7 @@ var hhTimes=function(x){
     }
     for (index = 0; index < obj.happyHourTimes.length-1; index++) {
       var next = index+1;
-      console.log(next);
+      // console.log(next);
       if (obj.happyHourTimes[index].day == obj.happyHourTimes[next].day) {
         if (index === 0) {
           obj.happyHourTimes.splice(next, 1);
@@ -227,7 +227,7 @@ function daysHover() {
     var times = $(this).attr('value');
     var thisId = $(this).parent().parent().parent().parent().attr('id');
     thisID = '#'+thisId;
-    console.log(thisID);
+    // console.log(thisID);
     nowTime = $(thisID+" .happyHTimes").text();
     // console.log(nowTime);
     $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');

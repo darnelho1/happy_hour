@@ -125,9 +125,10 @@ function countDown(id) {
   var toDay = moment().format('dddd');
   if (amPm === 'pm') {
     timeNow = Number(timeNow)+12;
-    console.log(timeNow);
+    // console.log(timeNow);
   }
   uniqueArray.forEach(function (x, day) {
+    console.log('hello');
     if ("#"+x.id === location) {
       console.log(x.id);
       console.log(amPm);
@@ -144,9 +145,11 @@ function countDown(id) {
           var newDate = splitTime[0]+' '+ newDay+', '+ splitTime[2];
           var hours = Number(time.split(':',1)) - 24;
           deadline = newDate + ' ' + hours +':00';
+          console.log(deadline);
         }
         else{
           deadline = moment().format('LL') + ' '+ time+':00';
+          console.log(deadline);
         }
       }
       else if (x.happyHour[toDay][1].length === 2){
@@ -164,16 +167,22 @@ function countDown(id) {
             console.log(Number(time.split(':',1)));
             var hours = Number(time.split(':',1)) - 24;
             deadline = newDate + ' ' + hours +':59';
+            console.log(deadline);
           }
           else{
             deadline = moment().format('LL') + ' '+ time+':00';
+            console.log(deadline);
           }
         }
       }
     }
   });
   function getTimeRemaining (deadline){
+    // console.log(Date.parse(deadline));
+    // console.log(deadline);
     var t = Date.parse(deadline) - Date.parse(new Date());
+    // console.log(deadline);
+    // console.log(t);
     var seconds = Math.floor((t/1000)%60);
     var minutes = Math.floor((t/1000/60)%60);
     var hours = Math.floor((t/(1000*60*60))%24);
@@ -188,12 +197,24 @@ function countDown(id) {
 
   function updateClock(){
       var t = getTimeRemaining(deadline);
+      // console.log(location);
       $(location).find('.hours').text(t.hours);
       $(location).find('.minutes').text(('0' + t.minutes).slice(-2));
       $(location).find('.seconds').text(('0' + t.seconds).slice(-2));
       if(t.total<=0){
         clearInterval(timeinterval);
       }
+      $('#searchBox').keypress(function(event) {
+        if(event.which===13){
+          console.log('clear');
+          clearInterval(timeinterval);
+        }
+      });
+
+      $('#searchIcon').click(function(){
+        console.log('clear');
+        clearInterval(timeinterval);
+      });
   }
   updateClock(location); // run function once at first to avoid delay
   var timeinterval = setInterval(updateClock,1000);
