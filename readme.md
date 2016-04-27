@@ -14,4 +14,4 @@ Map and Geolcation data provided by the [Google API](https://developers.google.c
 Business information provided by [Yelp API](https://www.yelp.com/developers/documentation/v2/overview "Yelp API")
 
 Check out the [Beta Site Here](http://happyhourapp.herokuapp.com/ "Seattle Happy Hour App")
-![alt text](https://lh3.ggpht.com/GNddGFlnEsvQSB4w2WgCGSYmE3ysaUpIgz1B-DRz8n00PfgEX4lEiVe1dqpFvB8Us8M=w300)(If you are not in the Seattle area please ensure to add **"Seattle"** to the search terms used.)
+![alt text](https://lh3.ggpht.com/GNddGFlnEsvQSB4w2WgCGSYmE3ysaUpIgz1B-DRz8n00PfgEX4lEiVe1dqpFvB8Us8M=w300 =50x50)(If you are not in the Seattle area please ensure to add **"Seattle"** to the search terms used.)
