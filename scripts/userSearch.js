@@ -132,8 +132,8 @@ hhNow=function(x){
     if (moment().isSame(moment().day(key))){//if object day is the same as today
       // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
-        // console.log(obj);
-        // console.log(obj.happyHour[key][0][i].split(":"));
+        console.log(obj);
+        console.log(obj.happyHour[key][0][i].split(":"));
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
         var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);

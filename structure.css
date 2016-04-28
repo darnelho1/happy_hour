@@ -497,18 +497,24 @@ table.adp-placemark{
 }
 .clock{
   display: none;
-  width: 80%;
+  width: 65%;
+  min-width: 70px;
   height: 100px;
-  padding-top: 20px;
+  padding-top: 5px;
   text-align: center;
-  background-color: rgba(255, 0, 0, 0.81);
-  border-radius: 10px;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
+  background-image: url('./images/happyhour.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(220, 0, 0);
+  border-radius: 15px;
+  color: rgba(250, 237, 201, 1);
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
   animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;

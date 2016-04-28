@@ -124,8 +124,10 @@ function countDown(id) {
   var amPm = moment().format('a');
   var toDay = moment().format('dddd');
   if (amPm === 'pm') {
-    timeNow = Number(timeNow)+12;
-    // console.log(timeNow);
+    if (timeNow !== '12') {
+      timeNow = Number(timeNow)+12;
+      // console.log(timeNow);
+    }
   }
   uniqueArray.forEach(function (x, day) {
     console.log('hello');
@@ -339,8 +341,8 @@ if(window.location.href.indexOf('search/?') > -1){
   $('#iframeAPIplayer').remove();
   User.terms = getParameterByName('terms');
   var mapLocation = getParameterByName('locationID');
-  console.log(mapLocation);
-  console.log(User.terms);
+  // console.log(mapLocation);
+  // console.log(User.terms);
   if (User.reqNeighborhood===undefined) {
     User.reqNeighborhood = undefined;
   }
@@ -353,9 +355,9 @@ if(window.location.href.indexOf('search/?') > -1){
   //   }
   // else{
     User.currectLoc = getParameterByName('currectLoc');
-    console.log(User.currectLoc);
+    // console.log(User.currectLoc);
   // }
-  console.log(User.currectLoc);
+  // console.log(User.currectLoc);
   if (User.currectLoc !== undefined) {
     userLat=User.currectLoc.split(',')[0];
     userLong=User.currectLoc.split(',')[1];
@@ -383,14 +385,14 @@ if(window.location.href.indexOf('search/?') > -1){
         data.yelp.forEach(function(x){
             happyHourArray.forEach(function(y) {
               if (x.id === y.id) {
-                console.log(y);
-                console.log(y.logo);
-                console.log(y.website);
+                // console.log(y);
+                // console.log(y.logo);
+                // console.log(y.website);
                 x.happyHour=y.happyHour;
                 x.img = y.logo;
                 x.website = y.website;
                 var place = new Places(x);
-                console.log(place);
+                // console.log(place);
                 resultsArray.push(place);
               }
             });

@@ -316,20 +316,16 @@ var happyHourArray = [
   website: 'http://www.thewalrusbar.com/',
   logo: 'http://www.thewalrusbar.com/assets/images/home-illustration.png'
 },
-{
-  id: 'highliner-public-house-seattle',
-  happyHour: {
-    Sunday:[["16:00"],["18:00"]],
-    Monday:[["16:00"],["18:00"]],
-    Tuesday:[["16:00"],["18:00"]],
-    Wednesday:[["16:00"],["18:00"]],
-    Thursday:[["16:00"],["18:00"]],
-    Friday:[["16:00"],["18:00"]],
-    Saturday:[["16:00"],["18:00"]]
-    },
-  website: 'http://www.highlinerpub.net/',
-  logo: 'https://pbs.twimg.com/profile_images/644624425459908608/Q5KQTLg2.png'
-},
+{id: 'highliner-public-house-seattle',
+happyHour:{
+  Sunday:[["16:00"],["18:00"]],
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]],
+  Friday:[["16:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.highlinerpub.net/daily-specials.html', logo: 'http://www.highlinerpub.net/uploads/8/2/1/7/8217263/header_images/1417805998.jpg'},
 {
   id: 'the-leary-traveler-seattle',
   happyHour: {
@@ -522,16 +518,6 @@ happyHour:{
   Wednesday:[["16:00"],["18:00"]],
   Thursday:[["16:00"],["18:00"]]
 }, website: 'http://www.thewalrusbar.com/menu', logo: 'http://www.thewalrusbar.com/assets/images/walrus-logo.png'},
-{id: 'highliner-public-house-seattle',
-happyHour:{
-  Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00"],["18:00"]],
-  Tuesday:[["16:00"],["18:00"]],
-  Wednesday:[["16:00"],["18:00"]],
-  Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-  Saturday: [["16:00"],["18:00"]]
-}, website: 'http://www.highlinerpub.net/daily-specials.html', logo: 'http://www.highlinerpub.net/uploads/8/2/1/7/8217263/header_images/1417805998.jpg'},
 {id: 'the-leary-traveler-seattle',
 happyHour:{
   Monday:[["16:00"],["18:00"]],
