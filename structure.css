@@ -499,13 +499,14 @@ table.adp-placemark{
   display: none;
   width: 65%;
   min-width: 70px;
-  height: 100px;
+  height: 120px;
   padding-top: 5px;
   text-align: center;
   background-image: url('./images/happyhour.png');
   background-position: center;
+  background-size: 85%;
   background-repeat: no-repeat;
-  background-size: cover;
+  /*background-size: cover;*/
   background-color: rgb(220, 0, 0);
   border-radius: 15px;
   color: rgba(250, 237, 201, 1);

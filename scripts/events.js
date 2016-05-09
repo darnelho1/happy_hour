@@ -130,38 +130,38 @@ function countDown(id) {
     }
   }
   uniqueArray.forEach(function (x, day) {
-    console.log('hello');
+    // console.log('hello');
     if ("#"+x.id === location) {
-      console.log(x.id);
-      console.log(amPm);
-      console.log(Number(x.happyHour[toDay][0][0].split(':',1)) +"<="+Number(timeNow)+ "<="+ Number(x.happyHour[toDay][1][0].split(':',1)));
+      // console.log(x.id);
+      // console.log(amPm);
+      // console.log(Number(x.happyHour[toDay][0][0].split(':',1)) +"<="+Number(timeNow)+ "<="+ Number(x.happyHour[toDay][1][0].split(':',1)));
 
       if ((Number(x.happyHour[toDay][0][0].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][0].split(':',1)))) {
         time = x.happyHour[toDay][1][0];
-        console.log(time);
+        // console.log(time);
         if (Number(time.split(':',1)) >= 24) {
-          console.log('next day');
+          // console.log('next day');
           var changeTime = moment().format('LL');
           var splitTime = changeTime.split(' ');
           var newDay = Number(splitTime[1].split(',',1))+1;
           var newDate = splitTime[0]+' '+ newDay+', '+ splitTime[2];
           var hours = Number(time.split(':',1)) - 24;
           deadline = newDate + ' ' + hours +':00';
-          console.log(deadline);
+          // console.log(deadline);
         }
         else{
           deadline = moment().format('LL') + ' '+ time+':00';
-          console.log(deadline);
+          // console.log(deadline);
         }
       }
       else if (x.happyHour[toDay][1].length === 2){
         if ((Number(x.happyHour[toDay][0][1].split(':',1)) <= Number(timeNow)) && (Number(timeNow) <= Number(x.happyHour[toDay][1][1].split(':',1)))) {
-          console.log(Number(x.happyHour[toDay][0][1].split(':',1)));
-          console.log(Number(timeNow));
-          console.log(Number(x.happyHour[toDay][1][1].split(':',1)));
+          // console.log(Number(x.happyHour[toDay][0][1].split(':',1)));
+          // console.log(Number(timeNow));
+          // console.log(Number(x.happyHour[toDay][1][1].split(':',1)));
           time = x.happyHour[toDay][1][1];
           if (Number(time.split(':',1)) >= 24) {
-            console.log('next day');
+            // console.log('next day');
             var changeTime = moment().format('LL');
             var splitTime = changeTime.split(' ');
             var newDay = Number(splitTime[1].split(',',1))+1;
@@ -169,11 +169,11 @@ function countDown(id) {
             console.log(Number(time.split(':',1)));
             var hours = Number(time.split(':',1)) - 24;
             deadline = newDate + ' ' + hours +':59';
-            console.log(deadline);
+            // console.log(deadline);
           }
           else{
             deadline = moment().format('LL') + ' '+ time+':00';
-            console.log(deadline);
+            // console.log(deadline);
           }
         }
       }
@@ -199,6 +199,12 @@ function countDown(id) {
 
   function updateClock(){
       var t = getTimeRemaining(deadline);
+      console.log(t.total);
+      if (isNaN(NaN)) {
+        console.log(t +' cleared');
+        clearInterval(timeinterval);
+        timeinterval = 0;
+      }
       // console.log(location);
       $(location).find('.hours').text(t.hours);
       $(location).find('.minutes').text(('0' + t.minutes).slice(-2));
@@ -210,12 +216,14 @@ function countDown(id) {
         if(event.which===13){
           console.log('clear');
           clearInterval(timeinterval);
+          timeinterval = 0;
         }
       });
 
       $('#searchIcon').click(function(){
         console.log('clear');
         clearInterval(timeinterval);
+        timeinterval = 0;
       });
   }
   updateClock(location); // run function once at first to avoid delay

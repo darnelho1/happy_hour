@@ -2462,7 +2462,7 @@ happyHour:{
   Thursday:[["15:00","21:00"],["18:00","23:00"]],
   Friday:[["15:00","21:00"],["18:00","23:00"]],
   Saturday: [["21:00"],["23:00"]]
-}, website: 'http://ridgepizza.com/food.php', logo: 'http://ridgepizza.com/img/logosm.png'},
+}, website: 'http://ridgepizza.com/food.php', logo: ''},
 {id: 'stumbling-goat-bistro-seattle',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],
