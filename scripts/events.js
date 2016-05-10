@@ -200,7 +200,7 @@ function countDown(id) {
   function updateClock(){
       var t = getTimeRemaining(deadline);
       console.log(t.total);
-      if (isNaN(NaN)) {
+      if (isNaN(t.total)) {
         console.log(t +' cleared');
         clearInterval(timeinterval);
         timeinterval = 0;
