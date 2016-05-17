@@ -1,7 +1,7 @@
 
-#Seattle_happy_Hour_App
+#Happy_Hour_App
 
-This app is a Seattle Happy Hour Search Engine. Allowing users to search for local happy hours by:
+This app is a Happy Hour Search Engine. Allowing users to search for local happy hours by:
 * neighborhood
 * cuisine
 * bar-type. 
@@ -15,6 +15,6 @@ Business information provided by [Yelp API](https://www.yelp.com/developers/docu
 
 Check out the [Beta Site Here](http://happyhourapp.herokuapp.com/ "Seattle Happy Hour App")
 
-<img src="https://lh3.ggpht.com/GNddGFlnEsvQSB4w2WgCGSYmE3ysaUpIgz1B-DRz8n00PfgEX4lEiVe1dqpFvB8Us8M=w300" width="50">(If you are not in the Seattle area please ensure to add **"Seattle"** to the search terms used.)
+<img src="https://lh3.ggpht.com/GNddGFlnEsvQSB4w2WgCGSYmE3ysaUpIgz1B-DRz8n00PfgEX4lEiVe1dqpFvB8Us8M=w300" width="50">(If you are not in the Seattle area please ensure to add **"Seattle"** to the search terms used.) The app will eventually work in most market places. 
 
 
