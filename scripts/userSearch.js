@@ -43,7 +43,7 @@ $('#mapView').hide();
 $('#backButton').hide();
 $('#about-page').hide();
 getLocation();
-  
+
 function resultSizeChange() {
   $height = $(window).height();
   $('body').css('height', $height);
@@ -125,15 +125,15 @@ hhNow=function(x){
   x.forEach(function(obj){
   for(var key in obj.happyHour){
     if (key.toString().indexOf(moment()._d.toString().slice(0,3)) > -1){
-      console.log(key);
+      // console.log(key);
       day = key.slice(0,3);
-      console.log(day);
+      // console.log(day);
     }
     if (moment().isSame(moment().day(key))){//if object day is the same as today
       // console.log(obj.happyHour[key]);
       for(i=0;i<obj.happyHour[key][0].length;i++){
-        console.log(obj);
-        console.log(obj.happyHour[key][0][i].split(":"));
+        // console.log(obj);
+        // console.log(obj.happyHour[key][0][i].split(":"));
         var startHour=Number(obj.happyHour[key][0][i].split(":")[0]);
         var startMin=Number(obj.happyHour[key][0][i].split(":")[1]);
         var endHour=Number(obj.happyHour[key][1][i].split(":")[0]);
@@ -196,7 +196,7 @@ var hhTimes=function(x){
     }
     for (index = 0; index < obj.happyHourTimes.length-1; index++) {
       var next = index+1;
-      console.log(next);
+      // console.log(next);
       if (obj.happyHourTimes[index].day == obj.happyHourTimes[next].day) {
         if (index === 0) {
           obj.happyHourTimes.splice(next, 1);
@@ -227,7 +227,7 @@ function daysHover() {
     var times = $(this).attr('value');
     var thisId = $(this).parent().parent().parent().parent().attr('id');
     thisID = '#'+thisId;
-    console.log(thisID);
+    // console.log(thisID);
     nowTime = $(thisID+" .happyHTimes").text();
     // console.log(nowTime);
     $(this).css('background-color', 'rgba(255, 0, 0, 0.81)');
@@ -255,6 +255,7 @@ if(entered === false){
     User.terms = "";
   }
   $('#results').empty();
+  $('#resultsOuterBox').unbind('scroll');
   yelpSearchResults=[];
   reducedArray = [];
   resultsArray=[];
@@ -316,12 +317,14 @@ if(entered === false){
             $('#results').append(html);
             var eachId = each.id;
             each.happyHourTimes.forEach(function(index){
-              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>")
+              $('#'+eachId+' .happyHoursIcons').append("<p class='timesIcon "+index.day+"' value='"+index.time+"'>"+index.day+"</p>");
             });
             $('#results').addClass('fadeInUpBig animated');
             happening.forEach(function(x){
+              var id = x;
               $(x).find('.hHDropDown').addClass('happeningNow');
-              $(x).find('.nowPic').css('display', 'block');
+              $(x).find('.clock').css('display', 'block');
+              countDown(x);
             });
             $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
             var times = $('#'+eachId+' .'+day).attr('value');

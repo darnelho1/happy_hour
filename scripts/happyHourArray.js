@@ -27,7 +27,7 @@ var happyHourArray = [
     id: 'the-zig-zag-café-seattle-2',
     happyHour:{
       Monday:[["17:00"],["19:00"]],
-      Tuesday:[["17:00"],["19:00"]],
+      Tuesday:[["17:00"],["26:00"]],
       Wednesday:[["17:00"],["19:00"]],
       Thursday:[["17:00"],["19:00"]],
       Friday:[["17:00"],["19:00"]]
@@ -128,20 +128,13 @@ var happyHourArray = [
     website: 'http://witnessbar.com/',
     logo: 'http://witnessbar.com/wp-content/uploads/2013/08/logo.png'
   },
-  {
-    id:'über-tavern-seattle-2',
-    happyHour:{
-      Sunday:[["16:00"],["18:00"]],
-      Monday:[["16:00"],["18:00"]],
-      Tuesday:[["16:00"],["18:00"]],
-      Wednesday:[["16:00"],["18:00"]],
-      Thursday:[["16:00"],["18:00"]],
-      Friday:[["16:00"],["18:00"]],
-      Saturday:[["16:00"],["18:00"]]
-    },
-    website: 'http://www.uberbier.com/',
-    logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'
-  },
+  {id: 'über-tavern-seattle-2',
+  happyHour:{
+    Tuesday:[["16:00"],["18:00"]],
+    Wednesday:[["16:00"],["18:00"]],
+    Thursday:[["16:00"],["18:00"]],
+    Friday:[["16:00"],["18:00"]],
+  }, website: 'http://www.uberbier.com', logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'},
   {
     id:'yoroshiku-seattle-4',
     happyHour:{
@@ -299,19 +292,6 @@ var happyHourArray = [
   logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'
 },
 {
-  id:'percys-and-co-seattle',
-  happyHour: {
-    Sunday:[["16:00"],["18:00"]],
-    Monday:[["16:00"],["26:00"]],
-    Tuesday:[["16:00"],["18:00"]],
-    Wednesday:[["16:00"],["18:00"]],
-    Thursday:[["16:00"],["18:00"]],
-    Saturday:[["16:00"],["18:00"]]
-    },
-  website: 'http://www.percysseattle.com/',
-  logo: 'http://www.percysseattle.com/assets/images/logo.png'
-},
-{
   id:'la-isla-cuisine-seattle',
   happyHour: {
     Sunday:[["15:00","22:00"],["18:00","25:00"]],
@@ -336,20 +316,16 @@ var happyHourArray = [
   website: 'http://www.thewalrusbar.com/',
   logo: 'http://www.thewalrusbar.com/assets/images/home-illustration.png'
 },
-{
-  id: 'highliner-public-house-seattle',
-  happyHour: {
-    Sunday:[["16:00"],["18:00"]],
-    Monday:[["16:00"],["18:00"]],
-    Tuesday:[["16:00"],["18:00"]],
-    Wednesday:[["16:00"],["18:00"]],
-    Thursday:[["16:00"],["18:00"]],
-    Friday:[["16:00"],["18:00"]],
-    Saturday:[["16:00"],["18:00"]]
-    },
-  website: 'http://www.highlinerpub.net/',
-  logo: 'https://pbs.twimg.com/profile_images/644624425459908608/Q5KQTLg2.png'
-},
+{id: 'highliner-public-house-seattle',
+happyHour:{
+  Sunday:[["16:00"],["18:00"]],
+  Monday:[["16:00"],["18:00"]],
+  Tuesday:[["16:00"],["18:00"]],
+  Wednesday:[["16:00"],["18:00"]],
+  Thursday:[["16:00"],["18:00"]],
+  Friday:[["16:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.highlinerpub.net/daily-specials.html', logo: 'http://www.highlinerpub.net/uploads/8/2/1/7/8217263/header_images/1417805998.jpg'},
 {
   id: 'the-leary-traveler-seattle',
   happyHour: {
@@ -412,34 +388,6 @@ var happyHourArray = [
     },
   website: 'http://maritimebrewery.com/',
   logo: 'http://maritimebrewery.com/userimages/49.gif'
-},
-{
-  id: '8oz-burger-and-co-seattle',
-  happyHour: {
-    Sunday:[["16:00","21:00"],["18:00","22:00"]],
-    Monday:[["16:00","21:00"],["18:00","23:00"]],
-    Tuesday:[["16:00","21:00"],["18:00","23:00"]],
-    Wednesday:[["16:00","21:00"],["18:00","23:00"]],
-    Thursday:[["16:00","21:00"],["18:00","23:00"]],
-    Friday:[["16:00","21:00"],["18:00","24:00"]],
-    Saturday:[["16:00","21:00"],["18:00","24:00"]]
-    },
-  website: 'http://8ozburgerbarsea.com/',
-  logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'
-},
-{
-  id: '8oz-burger-and-co-seattle-6',
-  happyHour: {
-    Sunday:[["16:00","21:00"],["18:00","22:00"]],
-    Monday:[["16:00","21:00"],["18:00","22:00"]],
-    Tuesday:[["16:00","21:00"],["18:00","22:00"]],
-    Wednesday:[["16:00","21:00"],["18:00","22:00"]],
-    Thursday:[["16:00","21:00"],["18:00","22:00"]],
-    Friday:[["16:00","21:00"],["18:00","23:00"]],
-    Saturday:[["16:00","21:00"],["18:00","23:00"]]
-    },
-  website: 'http://8ozburgerbarsea.com/',
-  logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'
 },
 {
   id: 'the-hideout-seattle',
@@ -545,34 +493,24 @@ var happyHourArray = [
 // }, website: '', logo: ''},
 {id:'the-gerald-seattle',
 happyHour:{
-  Sunday:[["16:00","20:00"],["22:30","24:00"]],
-  Monday:[["16:00","20:00"],["22:30","24:00"]],
-  Tuesday:[["16:00","20:00"],["22:30","24:00"]],
-  Wednesday:[["16:00","20:00"],["22:30","24:00"]],
-  Thursday:[["16:00","20:00"],["22:30","24:00"]],
-  Friday:[["16:00","20:00"],["22:30","26:00"]],
-  Saturday: [["16:00","20:00"],["22:30","26:00"]]
+  Sunday:[["16:00","22:30"],["18:00","24:00"]],
+  Monday:[["16:00","22:30"],["18:00","24:00"]],
+  Tuesday:[["16:00","22:30"],["18:00","24:00"]],
+  Wednesday:[["16:00","22:30"],["18:00","24:00"]],
+  Thursday:[["16:00","22:30"],["18:00","24:00"]],
+  Friday:[["16:00","22:30"],["18:00","24:00"]],
+  Saturday: [["16:00","22:30"],["18:00","24:00"]]
 }, website: 'http://thegeraldseattle.com/', logo: 'http://thegeraldseattle.com/ResizeImage.aspx?img=/Websites/GeraldTest/WebsiteLogo.gif&h=85'},
 {id:'percys-and-co-seattle',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00"],["26:00"]],
+  Monday:[["0:00"],["26:00"]],
   Tuesday:[["16:00"],["18:00"]],
   Wednesday:[["16:00"],["18:00"]],
   Thursday:[["16:00"],["18:00"]],
   Friday:[["16:00"],["18:00"]],
   Saturday: [["16:00"],["18:00"]]
 }, website: 'http://www.percysseattle.com/', logo: 'http://www.percysseattle.com/assets/images/logo.png'},
-{id:'la-isla-cuisine-seattle',
-happyHour:{
-  Sunday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Monday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Tuesday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Wednesday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Thursday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Friday:[["15:00", "18:00"],["22:00", "25:00"]],
-  Saturday: [["15:00", "18:00"],["22:00", "25:00"]]
-}, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
 {id: 'the-walrus-and-the-carpenter-seattle',
 happyHour:{
   Monday:[["16:00"],["18:00"]],
@@ -580,16 +518,6 @@ happyHour:{
   Wednesday:[["16:00"],["18:00"]],
   Thursday:[["16:00"],["18:00"]]
 }, website: 'http://www.thewalrusbar.com/menu', logo: 'http://www.thewalrusbar.com/assets/images/walrus-logo.png'},
-{id: 'highliner-public-house-seattle',
-happyHour:{
-  Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00"],["18:00"]],
-  Tuesday:[["16:00"],["18:00"]],
-  Wednesday:[["16:00"],["18:00"]],
-  Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-  Saturday: [["16:00"],["18:00"]]
-}, website: 'http://www.highlinerpub.net/daily-specials.html', logo: 'http://www.highlinerpub.net/uploads/8/2/1/7/8217263/header_images/1417805998.jpg'},
 {id: 'the-leary-traveler-seattle',
 happyHour:{
   Monday:[["16:00"],["18:00"]],
@@ -678,16 +606,6 @@ happyHour:{
 //   Friday:[[""],[""]],
 //   Saturday: [[""],[""]]
 // }, website: '', logo: ''},
-// {id: '8oz-burger-and-co-seattle-6',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
 // {id: 'the-hideout-seattle',
 // happyHour:{
 //   Sunday:[[""],[""]],
@@ -699,16 +617,6 @@ happyHour:{
 //   Saturday: [[""],[""]]
 // }, website: '', logo: ''},
 // {id: 'honeyhole-seattle',
-// happyHour:{
-//   Sunday:[[""],[""]],
-//   Monday:[[""],[""]],
-//   Tuesday:[[""],[""]],
-//   Wednesday:[[""],[""]],
-//   Thursday:[[""],[""]],
-//   Friday:[[""],[""]],
-//   Saturday: [[""],[""]]
-// }, website: '', logo: ''},
-// {id: '8oz-burger-and-co-seattle',
 // happyHour:{
 //   Sunday:[[""],[""]],
 //   Monday:[[""],[""]],
@@ -2164,7 +2072,7 @@ happyHour:{
 happyHour:{
   Sunday:[["15:00"],["18:00"]],
   Monday:[["15:00"],["18:00"]],
-  Tuesday:[["0:00"],["25:00"]],
+  Tuesday:[["00:00"],["24:00"]],
   Wednesday:[["15:00"],["18:00"]],
   Thursday:[["15:00"],["18:00"]],
   Friday:[["15:00"],["18:00"]],
@@ -2416,26 +2324,16 @@ happyHour:{
   Friday:[["15:00"],["17:00"]],
   Saturday: [["15:00"],["17:00"]]
   }, website: 'http://www.stoneburnerseattle.com/56301/menus', logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/dcbf2502-2d91-40d4-a5f1-1c9241bd6859_m.png'},
-  {id: 'la-isla-cuisine-seattle',
-  happyHour:{
-  Sunday:[["15:00","21:00"],["18:00","25:00"]],
-  Monday:[["15:00","21:00"],["18:00","25:00"]],
-  Tuesday:[["15:00","21:00"],["18:00","25:00"]],
-  Wednesday:[["15:00","21:00"],["18:00","25:00"]],
-  Thursday:[["15:00","21:00"],["18:00","25:00"]],
-  Friday:[["15:00","21:00"],["18:00","25:00"]],
-  Saturday: [["15:00","21:00"],["18:00","25:00"]]
-  }, website: 'http://laislacuisine.com/menus-la-isla-cuisine/', logo: 'http://laislacuisine.com/wp-content/uploads/2013/03/logo.svg'},
-  {id: 'percys-and-co-seattle',
-  happyHour:{
+{id: 'rays-café-seattle-2',
+happyHour:{
   Sunday:[["16:00"],["18:00"]],
-  Monday:[["16:00","0:00"],["18:00","24:00"]],
+  Monday:[["16:00"],["18:00"]],
   Tuesday:[["16:00"],["18:00"]],
   Wednesday:[["16:00"],["18:00"]],
   Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-  Saturday: [["16:00"],["18:00"]],
-}, website: 'http://www.percysseattle.com', logo: 'http://www.percysseattle.com/assets/images/logo.png'},
+  Friday:[["12:00"],["18:00"]],
+  Saturday: [["16:00"],["18:00"]]
+}, website: 'http://www.rays.com/cafe/menu/#53', logo: 'http://www.rays.com/wp-content/themes/rays/images/logo.png'},
 {id: 'rays-boathouse-seattle-2',
 happyHour:{
   Sunday:[["17:00"],["18:00"]],
@@ -2492,15 +2390,31 @@ happyHour:{
   Friday:[["16:00","21:00"],["18:00","24:00"]],
   Saturday:[["16:00","21:00"],["18:00","24:00"]]
 }, website: 'http://8ozburgerandco.com/capitol-hill/', logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'},
+
+{
+  id: '8oz-burger-and-co-seattle',
+  happyHour: {
+     Sunday:[["16:00","21:00"],["18:00","24:00"]],
+  Monday:[["16:00","21:00"],["18:00","24:00"]],
+  Tuesday:[["16:00","21:00"],["18:00","24:00"]],
+  Wednesday:[["16:00","21:00"],["18:00","24:00"]],
+  Thursday:[["16:00","21:00"],["18:00","24:00"]],
+  Friday:[["16:00","21:00"],["18:00","24:00"]],
+  Saturday:[["16:00","21:00"],["18:00","24:00"]]
+    },
+  website: 'http://8ozburgerbarsea.com/',
+  logo: 'http://8ozburgerandco.com/wp-content/uploads/2014/08/EW-LOGO.png'
+},
+
 {id: 'bastille-cafe-and-bar-seattle-2',
 happyHour:{
-  Sunday:[["16:30","21:00"],["18:00","23:00"]],
-  Monday:[["16:30","21:00"],["18:00","23:00"]],
-  Tuesday:[["16:30","21:00"],["18:00","23:00"]],
-  Wednesday:[["16:30","21:00"],["18:00","23:00"]],
-  Thursday:[["16:30","21:00"],["18:00","23:00"]],
-  Friday:[["16:30"],["18:00"]],
-  Saturday: [["16:30"],["18:00"]]
+   Sunday:[["16:00","21:00"],["18:00","24:00"]],
+  Monday:[["16:00","21:00"],["18:00","24:00"]],
+  Tuesday:[["16:00","21:00"],["18:00","24:00"]],
+  Wednesday:[["16:00","21:00"],["18:00","24:00"]],
+  Thursday:[["16:00","21:00"],["18:00","24:00"]],
+  Friday:[["16:00","21:00"],["18:00","24:00"]],
+  Saturday:[["16:00","21:00"],["18:00","24:00"]]
 }, website: 'http://www.bastilleseattle.com/happy-hour', logo: 'https://d17my9ypnvqzep.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/a5d809c0-2f44-452f-bf66-6f337d5edd95_l.jpg'},
 {id: 'kickin-boot-whiskey-kitchen-seattle',
 happyHour:{
@@ -2548,14 +2462,7 @@ happyHour:{
   Thursday:[["15:00","21:00"],["18:00","23:00"]],
   Friday:[["15:00","21:00"],["18:00","23:00"]],
   Saturday: [["21:00"],["23:00"]]
-}, website: 'http://ridgepizza.com/food.php', logo: 'http://ridgepizza.com/img/logosm.png'},
-{id: 'über-tavern-seattle-2',
-happyHour:{
-  Tuesday:[["16:00"],["18:00"]],
-  Wednesday:[["16:00"],["18:00"]],
-  Thursday:[["16:00"],["18:00"]],
-  Friday:[["16:00"],["18:00"]],
-}, website: 'http://www.uberbier.com', logo: 'http://www.uberbier.com/images/kegs-navigation.jpg'},
+}, website: 'http://ridgepizza.com/food.php', logo: ''},
 {id: 'stumbling-goat-bistro-seattle',
 happyHour:{
   Sunday:[["16:00"],["18:00"]],
@@ -2613,13 +2520,13 @@ happyHour:{
 }, website: 'http://thebarkingdogalehouse.com/home2/check-out/', logo: 'http://thebarkingdogalehouse.com/wp-content/uploads/2013/05/Barking-Dog-Web.png'},
 {id: 'the-yard-cafe-seattle',
 happyHour:{
-  Sunday: [["16:00", "22:00"],["16:00", "24:00"]],
-  Monday:[["16:00", "22:00"],["16:00", "24:00"]],
-  Tuesday:[["16:00", "22:00"],["16:00", "24:00"]],
-  Wednesday:[["16:00", "22:00"],["16:00", "24:00"]],
-  Thursday:[["16:00", "22:00"],["16:00", "24:00"]],
-  Friday:[["16:00", "22:00"],["16:00", "24:00"]],
-  Saturday:[["16:00", "22:00"],["16:00", "24:00"]]
+  Sunday: [["16:00", "22:00"],["18:00", "24:00"]],
+  Monday:[["16:00", "22:00"],["18:00", "24:00"]],
+  Tuesday:[["16:00", "22:00"],["18:00", "24:00"]],
+  Wednesday:[["16:00", "22:00"],["18:00", "24:00"]],
+  Thursday:[["16:00", "22:00"],["18:00", "24:00"]],
+  Friday:[["16:00", "22:00"],["18:00", "24:00"]],
+  Saturday:[["16:00", "22:00"],["18:00", "24:00"]]
 }, website: 'http://theyardcafe.com', logo: 'http://theyardcafe.com/img/rooster_knockout.svg'},
 {id: 'in-the-red-wine-bar-seattle',
 happyHour:{
