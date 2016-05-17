@@ -18,6 +18,7 @@
       directionsDisplay.setMap(map);
       $('#turnByTurn').empty();
       directionsDisplay.setPanel(document.getElementById('turnByTurn'));
+      console.log('initMap function ran');
       calculateAndDisplayRoute(directionsService, directionsDisplay);
       document.getElementById('mode').addEventListener('change', function() {
         $('#turnByTurn').empty();
@@ -106,6 +107,7 @@ function mapFunction() {
     window.history.replaceState(location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation,location.href+"&locationID="+clickedLocation);
     GotToMap();
   }
+
   $('.mapIcon').on('click', function(event) {
     locationId = $(this).parent().parent().parent().find('.resultAddress').text();
     var clickedLocation = $(this).parent().parent().parent().attr("id");

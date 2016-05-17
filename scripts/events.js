@@ -320,6 +320,8 @@ function scrollHappening() { /// insure to bind this to the element being callin
           $('.'+day).css('background-color', 'rgba(255, 0, 0, 0.81)');
           endFlag = false;
         }
+        $('.mapIcon').unbind('click');
+        $('.resultTitle').unbind('click');
         mapFunction();
         $('.timesIcon').unbind('mouseenter mouseleave');
         daysHover();
@@ -452,6 +454,7 @@ if(window.location.href.indexOf('search/?') > -1){
 
           daysHover();
           resultSizeChange();
+
           mapFunction();
           if (mapLocation !== null) {
             if (userLat === undefined) {
@@ -469,7 +472,7 @@ if(window.location.href.indexOf('search/?') > -1){
             var resultsInfoArray = resultsInfoLocation.split('&');
             resultsInfo = resultsInfoArray[0]+'&'+resultsInfoArray[1]+'&'+resultsInfoArray[2];
             console.log(resultsInfo);
-            GotToMap();
+            // GotToMap();
           }
       }
   })
