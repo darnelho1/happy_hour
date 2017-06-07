@@ -1,5 +1,5 @@
 
-#Happy_Hour_App
+# Happy_Hour_App
 
 This app is a Happy Hour Search Engine. Allowing users to search for local happy hours by:
 * neighborhood
@@ -13,4 +13,4 @@ Using the users location data as the starting reference point we query the googl
 Map and Geolcation data provided by the [Google API](https://developers.google.com/maps/ "Google API")
 Business information provided by [Yelp API](https://www.yelp.com/developers/documentation/v2/overview "Yelp API")
 
-#NOTE: This project is now being updated and tracked here: [Seattle Happy Hour App](https://github.com/BeroMaze/drinkUpSeattle)
+**NOTE: This project is now being updated and tracked here: [Seattle Happy Hour App](https://github.com/BeroMaze/drinkUpSeattle)**
